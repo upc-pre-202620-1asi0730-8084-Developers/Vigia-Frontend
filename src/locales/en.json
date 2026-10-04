@@ -108,5 +108,157 @@
   "modules": {
     "placeholderTitle": "{name} Module",
     "placeholderDesc": "This module is planned for role {role}. Navigation and role permissions are active."
+  },
+  "common": {
+    "actions": "Actions",
+    "viewDetails": "View details",
+    "viewAll": "View all",
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading data..."
+  },
+  "receptions": {
+    "perspective": {
+      "siteManager": "Site Manager",
+      "supervisor": "Supervisor"
+    },
+    "siteManager": {
+      "title": "Receptions",
+      "subtitle": "Register and compare what arrived at the site."
+    },
+    "supervisor": {
+      "title": "Receptions",
+      "subtitle": "Control received materials and compare with dispatched quantities",
+      "kpiToday": "Receptions today",
+      "kpiPending": "Pending",
+      "kpiDiscrepancies": "With discrepancies",
+      "kpiCompleted": "Completed",
+      "vsPrevDay": "vs. previous day",
+      "filterProject": "Project",
+      "filterStatus": "Status",
+      "dateRange": "Date range",
+      "stockAlerts": "Stock alerts",
+      "clearFilters": "Clear filters",
+      "applyFilters": "Apply filters",
+      "tableTitle": "Receptions",
+      "receptionsCount": "receptions",
+      "colId": "ID",
+      "colProject": "Project",
+      "colDispatch": "Dispatch",
+      "colReceivedDate": "Received date",
+      "colReceivedBy": "Received by",
+      "colStatus": "Status",
+      "showing": "Showing",
+      "of": "of",
+      "rowsPerPage": "Rows per page",
+      "detailsTitle": "Reception details",
+      "materialsReceived": "Materials received",
+      "reportDiscrepancy": "Report discrepancy",
+      "confirmReception": "Confirm reception"
+    },
+    "kpi": {
+      "todayReceptions": "Today's Receptions",
+      "completed": "Completed",
+      "partial": "Partial / Discrepancies",
+      "vsYesterday": "vs. yesterday",
+      "vsPrevWeek": "vs. previous week"
+    },
+    "arrivals": {
+      "title": "Upcoming Arrivals (In Transit)",
+      "id": "ID",
+      "material": "Material",
+      "origin": "Origin",
+      "truck": "Truck",
+      "eta": "Estimated Arrival",
+      "status": "Status",
+      "registerAction": "Register arrival"
+    },
+    "registered": {
+      "title": "Registered Receptions"
+    },
+    "table": {
+      "id": "ID",
+      "material": "Material",
+      "sent": "Sent",
+      "received": "Received",
+      "diff": "Difference",
+      "status": "Status",
+      "responsible": "Responsible",
+      "date": "Date",
+      "unit": "Unit"
+    },
+    "status": {
+      "completed": "Completed",
+      "partial": "Partial",
+      "withDifference": "With difference",
+      "underReview": "Under review",
+      "pending": "Pending",
+      "inTransit": "In transit"
+    },
+    "details": {
+      "title": "Reception Details",
+      "origin": "Origin",
+      "driverGuide": "Driver / Guide",
+      "truck": "Truck",
+      "dateTime": "Date and time",
+      "responsible": "Responsible",
+      "location": "Location",
+      "observations": "Observations",
+      "noObservations": "No observations recorded."
+    },
+    "comparison": {
+      "title": "Quantity Comparison"
+    },
+    "checklist": {
+      "title": "Reception Checklist",
+      "goodCondition": "Material in good condition",
+      "verifiedQuantity": "Verified quantity",
+      "guideReceived": "Delivery guide received",
+      "photoEvidence": "Photographic evidence",
+      "observationsRecorded": "Observations recorded",
+      "viewPhotos": "View photos"
+    },
+    "actions": {
+      "registerReception": "Register Reception",
+      "reportIssue": "Report Issue",
+      "confirmReception": "Confirm Reception",
+      "editReception": "Edit Reception"
+    },
+    "dialog": {
+      "registerTitle": "Register Site Material Reception",
+      "selectArrival": "Dispatch in transit",
+      "selectArrivalHelp": "Select an in-transit dispatch to preload its data automatically.",
+      "dispatchId": "Dispatch ID",
+      "deliveryGuide": "Delivery Guide No.",
+      "origin": "Material Origin",
+      "site": "Destination Site",
+      "truckPlate": "Truck License Plate",
+      "driver": "Driver",
+      "itemsToVerify": "Materials to verify",
+      "addItem": "Add item",
+      "observations": "Site Observations",
+      "observationsPlaceholder": "Note any detail about unloading or material condition...",
+      "saveAction": "Confirm and register",
+      "requiredFields": "Please fill in the dispatch ID and delivery guide number.",
+      "errorSaving": "An error occurred while saving the reception."
+    },
+    "discrepancy": {
+      "title": "Report Reception Discrepancy",
+      "typeLabel": "Discrepancy Type",
+      "observationsLabel": "Detailed description of discrepancy",
+      "observationsPlaceholder": "Describe the shortage, damage or irregularity noticed during unloading...",
+      "evidenceTitle": "Mandatory Photographic Evidence (US-10)",
+      "evidenceSubtitle": "Attach a clear photograph supporting the difference detected on site.",
+      "samplePhotos": "Sample construction photos:",
+      "photoUrl": "Photograph URL",
+      "captionLabel": "Photo Caption / Legend",
+      "submitAction": "Report discrepancy",
+      "fieldsRequired": "Please enter observations and a photo caption.",
+      "errorSaving": "Error reporting discrepancy."
+    },
+    "evidence": {
+      "galleryTitle": "Photographic Evidence Gallery",
+      "noEvidence": "No photographs attached to this reception."
+    }
   }
 }

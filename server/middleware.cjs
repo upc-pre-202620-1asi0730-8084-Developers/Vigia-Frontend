@@ -33,6 +33,10 @@ module.exports = function(req, res, next) {
     const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
     const method = req.method;
 
+    if (req.url.includes('/upcoming-arrivals')) {
+        req.url = req.url.replace('/upcoming-arrivals', '/upcomingArrivals');
+    }
+
     // Normalizar detección de rutas para json-server
     const isVehiclesPost = method === 'POST' && (normalizedPath === '/vehicles' || normalizedPath === '/api/v1/vehicles');
     const isPairingPost = method === 'POST' && normalizedPath.match(/^\/(?:api\/v1\/)?vehicles\/([^/]+)\/gps-device$/);

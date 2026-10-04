@@ -1,3 +1,7 @@
 {
+  "/api/v1/upcoming-arrivals": "/upcomingArrivals",
+  "/api/v1/upcoming-arrivals/*": "/upcomingArrivals/$1",
+  "/upcoming-arrivals": "/upcomingArrivals",
+  "/upcoming-arrivals/*": "/upcomingArrivals/$1",
   "/api/v1/*": "/$1"
 }
