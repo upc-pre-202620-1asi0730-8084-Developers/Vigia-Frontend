@@ -5,11 +5,12 @@ import { ROLES, navigationItems } from "./shared/presentation/navigation.config.
 // Vistas
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
+const transportView = () => import('./fleet-and-device-management/presentation/views/transport-view.vue');
 
 const routes = [
     {
         path: '/',
-        redirect: '/inicio'
+        redirect: '/transporte'
     },
     {
         path: '/inicio',
@@ -44,7 +45,7 @@ const routes = [
     {
         path: '/transporte',
         name: 'transporte',
-        component: modulePlaceholder,
+        component: transportView,
         meta: { title: 'Transporte y Flota', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
     },
     {
