@@ -1,0 +1,44 @@
+{
+  "name": "vigia-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vigía - Plataforma de Trazabilidad de Materiales de Construcción (Trazza Labs). Frontend SPA local con Vue 3, PrimeVue y DDD.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "json-server server/db.json --routes server/routes.json --middlewares server/middleware.cjs --port 3000"
+  },
+  "keywords": [
+    "vue",
+    "vite",
+    "pinia",
+    "primevue",
+    "primeflex",
+    "primeicons",
+    "axios",
+    "json-server",
+    "domain-driven-design",
+    "learning-center"
+  ],
+  "dependencies": {
+    "@fontsource/roboto": "^5.3.0",
+    "@primeuix/themes": "^3.0.1",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "axios": "^1.20.0",
+    "leaflet": "^1.9.4",
+    "pinia": "^4.0.3",
+    "primeflex": "^4.0.0",
+    "primeicons": "^8.0.1",
+    "primevue": "^5.0.1",
+    "vue": "^3.5.43",
+    "vue-i18n": "^11.4.12",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.9",
+    "json-server": "^0.17.4",
+    "vite": "^8.3.0"
+  }
+}
