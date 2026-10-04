@@ -11,7 +11,7 @@ function readDb(req) {
         const raw = fs.readFileSync(dbFilePath, 'utf8');
         return JSON.parse(raw);
     } catch (e) {
-        return { vehicles: [], geofences: [], unassociatedTelemetryEvents: [] };
+        return { vehicles: [], geofences: [], unassociatedTelemetryEvents: [], receptions: [], upcomingArrivals: [] };
     }
 }
 
@@ -38,6 +38,12 @@ module.exports = function(req, res, next) {
     const isPairingPost = method === 'POST' && normalizedPath.match(/^\/(?:api\/v1\/)?vehicles\/([^/]+)\/gps-device$/);
     const isGeofencesPost = method === 'POST' && (normalizedPath === '/geofences' || normalizedPath === '/api/v1/geofences');
     const isTelemetryPost = method === 'POST' && (normalizedPath === '/telemetry/reports' || normalizedPath === '/api/v1/telemetry/reports');
+
+    // Rutas para BC-07 Site Reception and Verification
+    const isReceptionsPost = method === 'POST' && (normalizedPath === '/receptions' || normalizedPath === '/api/v1/receptions');
+    const isVerifyPost = method === 'POST' && normalizedPath.match(/^\/(?:api\/v1\/)?receptions\/([^/]+)\/verify$/);
+    const isComparePost = method === 'POST' && normalizedPath.match(/^\/(?:api\/v1\/)?receptions\/([^/]+)\/compare$/);
+    const isEvidencesPost = method === 'POST' && normalizedPath.match(/^\/(?:api\/v1\/)?receptions\/([^/]+)\/evidences$/);
 
     // 1. Validar registro de vehículo (US-18: Placa duplicada)
     if (isVehiclesPost) {
@@ -80,7 +86,6 @@ module.exports = function(req, res, next) {
             });
         }
 
-        // Buscar si otra unidad distinta ya tiene asignado este dispositivo GPS
         const conflictingVehicle = (db.vehicles || []).find(v =>
             String(v.gpsDeviceId || '').trim() === deviceId && String(v.id) !== String(vehicleId)
         );
@@ -95,7 +100,6 @@ module.exports = function(req, res, next) {
             });
         }
 
-        // Si no está asignado, vincular al vehículo actual en la base de datos
         const vehicleIndex = (db.vehicles || []).findIndex(v => String(v.id) === String(vehicleId));
         if (vehicleIndex !== -1) {
             db.vehicles[vehicleIndex].gpsDeviceId = deviceId;
@@ -130,7 +134,7 @@ module.exports = function(req, res, next) {
         }
     }
 
-    // 4. Ingesta de telemetría (TS-08: responder 200 y registrar evento no asociado si no está vinculado)
+    // 4. Ingesta de telemetría (TS-08)
     if (isTelemetryPost) {
         const db = readDb(req);
         const body = req.body || {};
@@ -148,7 +152,6 @@ module.exports = function(req, res, next) {
             persistDb(req, db);
             return res.status(200).send();
         } else {
-            // Descartar y registrar como evento no asociado (§4.3, TS-08)
             const unassociatedEvent = {
                 id: Date.now(),
                 gpsDeviceId: deviceId,
@@ -165,6 +168,183 @@ module.exports = function(req, res, next) {
             persistDb(req, db);
             return res.status(200).send();
         }
+    }
+
+    // 5. BC-07: Validar registro de recepción (US-09, uq_receptions_dispatch)
+    if (isReceptionsPost) {
+        const db = readDb(req);
+        const body = req.body || {};
+        const dispatchId = String(body.dispatchId || '').trim();
+
+        if (dispatchId) {
+            const existing = (db.receptions || []).find(r =>
+                String(r.dispatchId || '').trim() === dispatchId
+            );
+            if (existing) {
+                return res.status(409).json({
+                    code: 'DISPATCH_ALREADY_RECEIVED',
+                    title: 'Despacho ya recibido',
+                    message: `El despacho ${dispatchId} ya cuenta con una recepción registrada (ID: ${existing.id}).`,
+                    existingReceptionId: existing.id
+                });
+            }
+        }
+
+        // Generar ID correlativo si no viene provisto
+        const newId = body.id || `RC-${String(105 + (db.receptions || []).length).padStart(3, '0')}`;
+        const items = (body.items || []).map((item, idx) => ({
+            id: item.id || `item-${newId}-${idx + 1}`,
+            receptionId: newId,
+            materialName: item.materialName || 'Material',
+            dispatchedQuantity: Number(item.dispatchedQuantity) || 0,
+            receivedQuantity: Number(item.receivedQuantity) || 0,
+            unit: item.unit || 't',
+            difference: Number((Number(item.dispatchedQuantity || 0) - Number(item.receivedQuantity || 0)).toFixed(3))
+        }));
+
+        const hasDiscrepancy = items.some(i => i.difference !== 0);
+        const status = body.status || (hasDiscrepancy ? 'VERIFIED_DISCREPANT' : 'VERIFIED_CONFORMANT');
+
+        const newReception = {
+            id: newId,
+            dispatchId: dispatchId,
+            verifiedByUserId: body.verifiedByUserId || 'c0a80101-0000-0000-0000-000000000003',
+            verifiedByUserName: body.verifiedByUserName || 'Juan Pérez',
+            siteId: body.siteId || 'SITE-001',
+            siteName: body.siteName || 'Obra Principal',
+            origin: body.origin || 'Almacén Central',
+            truckPlate: body.truckPlate || 'TR-001',
+            driverName: body.driverName || 'Conductor asignado',
+            deliveryGuideNumber: body.deliveryGuideNumber || `GR-${Math.floor(10000 + Math.random() * 90000)}`,
+            arrivedAt: body.arrivedAt || new Date().toISOString(),
+            closedAt: body.closedAt || new Date().toISOString(),
+            status: status,
+            observations: body.observations || '',
+            checklist: body.checklist || {
+                materialGoodCondition: true,
+                quantityVerified: true,
+                deliveryGuideReceived: true,
+                photographicEvidence: false,
+                observationsRecorded: false
+            },
+            items: items,
+            evidences: body.evidences || []
+        };
+
+        if (!db.receptions) db.receptions = [];
+        db.receptions.unshift(newReception);
+
+        // Remover de llegadas pendientes si coincide
+        if (db.upcomingArrivals) {
+            db.upcomingArrivals = db.upcomingArrivals.filter(a => String(a.dispatchId || a.id) !== dispatchId);
+        }
+
+        persistDb(req, db);
+        return res.status(201).json(newReception);
+    }
+
+    // 6. BC-07: Endpoint TS-04: Comparar cantidades de despacho contra recibidas
+    if (isComparePost) {
+        const receptionId = isComparePost[1];
+        const db = readDb(req);
+        const body = req.body || {};
+        const reception = (db.receptions || []).find(r => String(r.id) === String(receptionId));
+
+        if (!reception) {
+            return res.status(404).json({ code: 'RECEPTION_NOT_FOUND', message: 'Recepción no encontrada.' });
+        }
+
+        const inputItems = body.items || [];
+        let anyDiscrepancy = false;
+        const comparedItems = (reception.items || []).map(item => {
+            const matchedInput = inputItems.find(i => String(i.id) === String(item.id));
+            const received = matchedInput ? Number(matchedInput.receivedQuantity) : item.receivedQuantity;
+            const diff = Number((item.dispatchedQuantity - received).toFixed(3));
+            if (diff !== 0) anyDiscrepancy = true;
+            return {
+                id: item.id,
+                materialName: item.materialName,
+                dispatchedQuantity: item.dispatchedQuantity,
+                receivedQuantity: received,
+                unit: item.unit,
+                difference: diff,
+                isConformant: diff === 0
+            };
+        });
+
+        return res.status(200).json({
+            receptionId: receptionId,
+            isConformant: !anyDiscrepancy,
+            hasDiscrepancy: anyDiscrepancy,
+            items: comparedItems
+        });
+    }
+
+    // 7. BC-07: Endpoint de verificación / cierre de recepción (US-09)
+    if (isVerifyPost) {
+        const receptionId = isVerifyPost[1];
+        const db = readDb(req);
+        const body = req.body || {};
+        const receptionIndex = (db.receptions || []).findIndex(r => String(r.id) === String(receptionId));
+
+        if (receptionIndex === -1) {
+            return res.status(404).json({ code: 'RECEPTION_NOT_FOUND', message: 'Recepción no encontrada.' });
+        }
+
+        const reception = db.receptions[receptionIndex];
+        if (body.items && Array.isArray(body.items)) {
+            body.items.forEach(updatedItem => {
+                const existingItem = reception.items.find(i => String(i.id) === String(updatedItem.id));
+                if (existingItem) {
+                    existingItem.receivedQuantity = Number(updatedItem.receivedQuantity) || 0;
+                    existingItem.difference = Number((existingItem.dispatchedQuantity - existingItem.receivedQuantity).toFixed(3));
+                }
+            });
+        }
+
+        const hasDiscrepancy = (reception.items || []).some(i => i.difference !== 0) || (reception.evidences || []).length > 0;
+        reception.status = body.status || (hasDiscrepancy ? 'VERIFIED_DISCREPANT' : 'VERIFIED_CONFORMANT');
+        if (body.checklist) {
+            reception.checklist = { ...reception.checklist, ...body.checklist };
+        }
+        if (body.observations !== undefined) {
+            reception.observations = body.observations;
+        }
+        reception.closedAt = new Date().toISOString();
+
+        persistDb(req, db);
+        return res.status(200).json(reception);
+    }
+
+    // 8. BC-07: Endpoint de evidencias fotográficas (US-10)
+    if (isEvidencesPost) {
+        const receptionId = isEvidencesPost[1];
+        const db = readDb(req);
+        const body = req.body || {};
+        const receptionIndex = (db.receptions || []).findIndex(r => String(r.id) === String(receptionId));
+
+        if (receptionIndex === -1) {
+            return res.status(404).json({ code: 'RECEPTION_NOT_FOUND', message: 'Recepción no encontrada.' });
+        }
+
+        const newEvidence = {
+            id: `ev-${Date.now()}`,
+            receptionId: receptionId,
+            evidenceUrl: body.evidenceUrl || 'https://images.unsplash.com/photo-1541888946425-d0fbb186156f?w=600&auto=format&fit=crop&q=80',
+            capturedAt: body.capturedAt || new Date().toISOString(),
+            caption: body.caption || 'Evidencia fotográfica registrada en obra.',
+            type: body.type || 'PHOTO'
+        };
+
+        if (!db.receptions[receptionIndex].evidences) {
+            db.receptions[receptionIndex].evidences = [];
+        }
+        db.receptions[receptionIndex].evidences.push(newEvidence);
+        db.receptions[receptionIndex].status = 'VERIFIED_DISCREPANT';
+        db.receptions[receptionIndex].checklist.photographicEvidence = true;
+
+        persistDb(req, db);
+        return res.status(201).json(db.receptions[receptionIndex]);
     }
 
     next();

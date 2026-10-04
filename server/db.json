@@ -35,23 +35,6 @@
       "maxCapacityTons": 30,
       "gpsDeviceId": null,
       "currentPos": null
-    },
-    {
-      "companyId": "c0a80101-0000-0000-0000-000000000001",
-      "licensePlate": "TEST-425",
-      "brand": "Scania",
-      "model": "R500",
-      "maxCapacityTons": 34,
-      "id": 4
-    },
-    {
-      "companyId": "c0a80101-0000-0000-0000-000000000001",
-      "licensePlate": "EEE",
-      "brand": "eee",
-      "model": "eee",
-      "maxCapacityTons": 5,
-      "gpsDeviceId": null,
-      "id": 5
     }
   ],
   "geofences": [
@@ -80,15 +63,566 @@
       "radiusMeters": 180
     }
   ],
-  "unassociatedTelemetryEvents": [
+  "unassociatedTelemetryEvents": [],
+  "upcomingArrivals": [
     {
-      "id": 1791083994648,
-      "gpsDeviceId": "GPS-DISCONNECTED-777",
-      "latitude": -12.085,
-      "longitude": -77.045,
-      "timestamp": "2026-10-04T03:19:54.648Z",
-      "registeredAt": "2026-10-04T03:19:54.648Z",
-      "type": "UNASSOCIATED_TELEMETRY_EVENT"
+      "id": "TR-315",
+      "dispatchId": "DES-250",
+      "material": "Gravel (24 t)",
+      "origin": "Los Pinos Quarry",
+      "truck": "TR-890",
+      "truckPlate": "TR-890 (Plates TU-901-VW)",
+      "driverName": "Mario Quispe",
+      "deliveryGuideNumber": "GR-78501",
+      "estimatedArrival": "Today, 16:00",
+      "status": "In transit",
+      "siteName": "Torre A",
+      "siteId": "SITE-001",
+      "dispatchedQuantity": 24,
+      "unit": "t"
+    },
+    {
+      "id": "TR-428",
+      "dispatchId": "DES-251",
+      "material": "Cement (20 t)",
+      "origin": "Cemex Plant",
+      "truck": "TR-441",
+      "truckPlate": "TR-441 (Plates PQ-678-RS)",
+      "driverName": "Raúl Flores",
+      "deliveryGuideNumber": "GR-78502",
+      "estimatedArrival": "Today, 18:30",
+      "status": "In transit",
+      "siteName": "Planta Norte",
+      "siteId": "SITE-003",
+      "dispatchedQuantity": 20,
+      "unit": "t"
+    },
+    {
+      "id": "TR-512",
+      "dispatchId": "DES-252",
+      "material": "Rebar (10 t)",
+      "origin": "Central Warehouse",
+      "truck": "TR-205",
+      "truckPlate": "TR-205 (Plates LM-345-NO)",
+      "driverName": "Pedro Castillo",
+      "deliveryGuideNumber": "GR-78503",
+      "estimatedArrival": "Tomorrow, 09:00",
+      "status": "Scheduled",
+      "siteName": "Puente Río",
+      "siteId": "SITE-005",
+      "dispatchedQuantity": 10,
+      "unit": "t"
+    }
+  ],
+  "receptions": [
+    {
+      "id": "RC-104",
+      "dispatchId": "DES-248",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-001",
+      "siteName": "Torre A",
+      "origin": "Cemex Plant",
+      "truckPlate": "TR-428 (Plates CD-456-EF)",
+      "driverName": "Mario Quispe",
+      "deliveryGuideNumber": "GR-78453",
+      "arrivedAt": "2025-04-14T10:24:00Z",
+      "closedAt": "2025-04-14T10:35:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Concreto premezclado recibido a satisfacción, slump test aprobado.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": true
+      },
+      "items": [
+        {
+          "id": "item-104-1",
+          "receptionId": "RC-104",
+          "materialName": "Ready-mix concrete (12 m³)",
+          "dispatchedQuantity": 12,
+          "receivedQuantity": 12,
+          "unit": "m³",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "RC-103",
+      "dispatchId": "DES-247",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-001",
+      "siteName": "Torre A",
+      "origin": "Maquinarias del Sur",
+      "truckPlate": "TR-102 (Plates GH-789-IJ)",
+      "driverName": "Jorge Ramos",
+      "deliveryGuideNumber": "GR-78451",
+      "arrivedAt": "2025-04-14T09:50:00Z",
+      "closedAt": "2025-04-14T10:05:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Maquinaria en óptimas condiciones de operatividad.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-103-1",
+          "receptionId": "RC-103",
+          "materialName": "Excavator CAT 320",
+          "dispatchedQuantity": 1,
+          "receivedQuantity": 1,
+          "unit": "unit",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "RC-102",
+      "dispatchId": "TR-315",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-002",
+      "siteName": "Concrete Plant",
+      "origin": "Los Pinos Quarry",
+      "truckPlate": "TR-315 (Plates AB-123-CD)",
+      "driverName": "Carlos Mendoza",
+      "deliveryGuideNumber": "GR-78452",
+      "arrivedAt": "2025-04-14T08:15:00Z",
+      "closedAt": null,
+      "status": "VERIFIED_DISCREPANT",
+      "observations": "2 tons less arrived. Reported to origin.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": true
+      },
+      "items": [
+        {
+          "id": "item-102-1",
+          "receptionId": "RC-102",
+          "materialName": "Gravel (24 t)",
+          "dispatchedQuantity": 24,
+          "receivedQuantity": 22,
+          "unit": "t",
+          "difference": 2
+        }
+      ],
+      "evidences": [
+        {
+          "id": "ev-102-1",
+          "receptionId": "RC-102",
+          "evidenceUrl": "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?w=600&auto=format&fit=crop&q=80",
+          "capturedAt": "2025-04-14T08:20:00Z",
+          "caption": "Tolva de volquete con nivel inferior al cubicaje especificado en guía",
+          "type": "PHOTO"
+        }
+      ]
+    },
+    {
+      "id": "RC-101",
+      "dispatchId": "DES-245",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-001",
+      "siteName": "Torre A",
+      "origin": "Aceros Arequipa",
+      "truckPlate": "TR-205 (Plates LM-345-NO)",
+      "driverName": "Pedro Castillo",
+      "deliveryGuideNumber": "GR-78440",
+      "arrivedAt": "2025-04-14T16:20:00Z",
+      "closedAt": "2025-04-14T16:45:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Varillas de acero con certificado de calidad adjunto.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-101-1",
+          "receptionId": "RC-101",
+          "materialName": "Rebar (5 t)",
+          "dispatchedQuantity": 5,
+          "receivedQuantity": 5,
+          "unit": "t",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "RC-100",
+      "dispatchId": "DES-244",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-001",
+      "siteName": "Torre A",
+      "origin": "Cemex Plant",
+      "truckPlate": "TR-441 (Plates PQ-678-RS)",
+      "driverName": "Raúl Flores",
+      "deliveryGuideNumber": "GR-78438",
+      "arrivedAt": "2025-04-13T16:20:00Z",
+      "closedAt": null,
+      "status": "VERIFIED_DISCREPANT",
+      "observations": "2 toneladas menos (bolsas rotas durante el transporte).",
+      "checklist": {
+        "materialGoodCondition": false,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": true,
+        "observationsRecorded": true
+      },
+      "items": [
+        {
+          "id": "item-100-1",
+          "receptionId": "RC-100",
+          "materialName": "Cement (20 t)",
+          "dispatchedQuantity": 20,
+          "receivedQuantity": 18,
+          "unit": "t",
+          "difference": 2
+        }
+      ],
+      "evidences": [
+        {
+          "id": "ev-100-1",
+          "receptionId": "RC-100",
+          "evidenceUrl": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&auto=format&fit=crop&q=80",
+          "capturedAt": "2025-04-13T16:25:00Z",
+          "caption": "Bolsas de cemento con empaque roto y derrame en plataforma de carga",
+          "type": "PHOTO"
+        }
+      ]
+    },
+    {
+      "id": "RC-099",
+      "dispatchId": "DES-243",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-001",
+      "siteName": "Torre A",
+      "origin": "Bloques del Pacífico",
+      "truckPlate": "TR-890 (Plates TU-901-VW)",
+      "driverName": "Felipe Soto",
+      "deliveryGuideNumber": "GR-78430",
+      "arrivedAt": "2025-04-13T11:40:00Z",
+      "closedAt": "2025-04-13T12:00:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Bloques de concreto estibados y conformes.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-099-1",
+          "receptionId": "RC-099",
+          "materialName": "Concrete blocks",
+          "dispatchedQuantity": 1000,
+          "receivedQuantity": 1000,
+          "unit": "pcs",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "REC-088",
+      "dispatchId": "DES-246",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000004",
+      "verifiedByUserName": "Ana López",
+      "siteId": "SITE-003",
+      "siteName": "Planta Norte",
+      "origin": "Almacén Central Lurín",
+      "truckPlate": "TR-315 (Plates AB-123-CD)",
+      "driverName": "Carlos Mendoza",
+      "deliveryGuideNumber": "GR-78420",
+      "arrivedAt": "2025-04-14T07:30:00Z",
+      "closedAt": null,
+      "status": "VERIFIED_DISCREPANT",
+      "observations": "Discrepancia detectada en Cemento Portland (-20 sacos) y Varilla de acero (-50 kg).",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": true,
+        "observationsRecorded": true
+      },
+      "items": [
+        {
+          "id": "item-088-1",
+          "receptionId": "REC-088",
+          "materialName": "Cemento Portland",
+          "dispatchedQuantity": 200,
+          "receivedQuantity": 180,
+          "unit": "sacks",
+          "difference": 20
+        },
+        {
+          "id": "item-088-2",
+          "receptionId": "REC-088",
+          "materialName": "Varilla de acero 3/8\"",
+          "dispatchedQuantity": 2000,
+          "receivedQuantity": 1950,
+          "unit": "kg",
+          "difference": 50
+        },
+        {
+          "id": "item-088-3",
+          "receptionId": "REC-088",
+          "materialName": "Block 15x20x40",
+          "dispatchedQuantity": 500,
+          "receivedQuantity": 500,
+          "unit": "units",
+          "difference": 0
+        },
+        {
+          "id": "item-088-4",
+          "receptionId": "REC-088",
+          "materialName": "Arena fina",
+          "dispatchedQuantity": 20,
+          "receivedQuantity": 20,
+          "unit": "m³",
+          "difference": 0
+        }
+      ],
+      "evidences": [
+        {
+          "id": "ev-088-1",
+          "receptionId": "REC-088",
+          "evidenceUrl": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80",
+          "capturedAt": "2025-04-14T07:45:00Z",
+          "caption": "Constatación visual de tarima con faltante de 20 sacos de cemento",
+          "type": "PHOTO"
+        }
+      ]
+    },
+    {
+      "id": "REC-089",
+      "dispatchId": "DES-247",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000003",
+      "verifiedByUserName": "Juan Pérez",
+      "siteId": "SITE-001",
+      "siteName": "Torre A",
+      "origin": "Planta Industrial Cemex",
+      "truckPlate": "TR-890",
+      "driverName": "Mario Quispe",
+      "deliveryGuideNumber": "GR-78455",
+      "arrivedAt": "2025-04-14T09:20:00Z",
+      "closedAt": "2025-04-14T09:40:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Conforme total.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-089-1",
+          "receptionId": "REC-089",
+          "materialName": "Cemento Portland",
+          "dispatchedQuantity": 150,
+          "receivedQuantity": 150,
+          "unit": "sacks",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "REC-087",
+      "dispatchId": "DES-245",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000005",
+      "verifiedByUserName": "Carlos Rivas",
+      "siteId": "SITE-004",
+      "siteName": "Centro Comercial Sur",
+      "origin": "Almacén Central",
+      "truckPlate": "TR-428",
+      "driverName": "Luis García",
+      "deliveryGuideNumber": "GR-78415",
+      "arrivedAt": "2025-04-13T16:20:00Z",
+      "closedAt": "2025-04-13T16:50:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Conforme.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-087-1",
+          "receptionId": "REC-087",
+          "materialName": "Pintura Látex",
+          "dispatchedQuantity": 60,
+          "receivedQuantity": 60,
+          "unit": "gal",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "REC-086",
+      "dispatchId": "DES-244",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000006",
+      "verifiedByUserName": "José Méndez",
+      "siteId": "SITE-005",
+      "siteName": "Puente Río",
+      "origin": "Cantera Central",
+      "truckPlate": "TR-512",
+      "driverName": "Esteban Vega",
+      "deliveryGuideNumber": "GR-78410",
+      "arrivedAt": "2025-04-13T14:10:00Z",
+      "closedAt": "2025-04-13T14:30:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Conforme.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-086-1",
+          "receptionId": "REC-086",
+          "materialName": "Piedra chancada 1/2\"",
+          "dispatchedQuantity": 30,
+          "receivedQuantity": 30,
+          "unit": "m³",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "REC-085",
+      "dispatchId": "DES-243",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000007",
+      "verifiedByUserName": "María González",
+      "siteId": "SITE-006",
+      "siteName": "Hospital Central",
+      "origin": "Distribuidora Eléctrica",
+      "truckPlate": "TR-205",
+      "driverName": "Pedro Castillo",
+      "deliveryGuideNumber": "GR-78402",
+      "arrivedAt": "2025-04-13T11:30:00Z",
+      "closedAt": null,
+      "status": "ARRIVED",
+      "observations": "En proceso de descarga y conteo.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": false,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-085-1",
+          "receptionId": "REC-085",
+          "materialName": "Tubería conduit 1\"",
+          "dispatchedQuantity": 200,
+          "receivedQuantity": 0,
+          "unit": "units",
+          "difference": 200
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "REC-084",
+      "dispatchId": "DES-242",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000008",
+      "verifiedByUserName": "Luis Ramírez",
+      "siteId": "SITE-007",
+      "siteName": "Residencial Valle",
+      "origin": "Calaminas del Perú",
+      "truckPlate": "TR-441",
+      "driverName": "Raúl Flores",
+      "deliveryGuideNumber": "GR-78390",
+      "arrivedAt": "2025-04-12T17:00:00Z",
+      "closedAt": "2025-04-12T17:35:00Z",
+      "status": "VERIFIED_CONFORMANT",
+      "observations": "Conforme.",
+      "checklist": {
+        "materialGoodCondition": true,
+        "quantityVerified": true,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-084-1",
+          "receptionId": "REC-084",
+          "materialName": "Planchas de fibrocemento",
+          "dispatchedQuantity": 120,
+          "receivedQuantity": 120,
+          "unit": "units",
+          "difference": 0
+        }
+      ],
+      "evidences": []
+    },
+    {
+      "id": "REC-083",
+      "dispatchId": "DES-241",
+      "verifiedByUserId": "c0a80101-0000-0000-0000-000000000004",
+      "verifiedByUserName": "Ana López",
+      "siteId": "SITE-003",
+      "siteName": "Planta Norte",
+      "origin": "Aceros Arequipa",
+      "truckPlate": "TR-890",
+      "driverName": "Mario Quispe",
+      "deliveryGuideNumber": "GR-78380",
+      "arrivedAt": "2025-04-12T09:15:00Z",
+      "closedAt": null,
+      "status": "ARRIVED",
+      "observations": "Esperando descarga en patio 2.",
+      "checklist": {
+        "materialGoodCondition": false,
+        "quantityVerified": false,
+        "deliveryGuideReceived": true,
+        "photographicEvidence": false,
+        "observationsRecorded": false
+      },
+      "items": [
+        {
+          "id": "item-083-1",
+          "receptionId": "REC-083",
+          "materialName": "Varilla corrugada 1/2\"",
+          "dispatchedQuantity": 15,
+          "receivedQuantity": 0,
+          "unit": "t",
+          "difference": 15
+        }
+      ],
+      "evidences": []
     }
   ]
 }
