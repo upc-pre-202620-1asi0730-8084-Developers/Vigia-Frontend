@@ -1,0 +1,112 @@
+{
+  "brand": {
+    "name": "Vigía",
+    "tagline": "Construction materials traceability"
+  },
+  "nav": {
+    "home": "Home",
+    "sites": "Job Sites",
+    "materials": "Materials",
+    "orders": "Material Orders",
+    "dispatches": "Dispatches",
+    "transport": "Transportation",
+    "receptions": "Receptions",
+    "issues": "Issues",
+    "history": "Audit Log",
+    "reports": "Reports",
+    "settings": "Settings",
+    "more": "More",
+    "roleSelector": "Active role:"
+  },
+  "roles": {
+    "ADMIN": "Supervisor (Admin)",
+    "WAREHOUSE_MANAGER": "Warehouse Manager",
+    "SITE_MANAGER": "Site Resident"
+  },
+  "fleet": {
+    "title": "Transportation & Fleet",
+    "subtitle": "Management of transport units, telematics devices, and facility geofences",
+    "tabs": {
+      "vehicles": "Transport Units",
+      "geofences": "Geofences"
+    },
+    "vehicles": {
+      "title": "Transportation Fleet",
+      "new": "Registrar unidad",
+      "plate": "License Plate",
+      "brand": "Brand",
+      "model": "Model",
+      "capacity": "Capacity (t)",
+      "gpsDevice": "GPS Device",
+      "status": "Status",
+      "actions": "Actions",
+      "pairAction": "Vincular dispositivo",
+      "empty": "Aún no hay unidades registradas. Registra la primera unidad para poder asignarla a un despacho.",
+      "pairedTag": "Vinculado",
+      "unpairedTag": "Sin dispositivo",
+      "registeredToast": "Unidad de transporte registrada",
+      "pairedToast": "Dispositivo GPS vinculado a la unidad",
+      "dialog": {
+        "registerTitle": "Registrar unidad de transporte",
+        "pairTitle": "Vincular dispositivo GPS",
+        "plateLabel": "Unit License Plate",
+        "platePlaceholder": "E.g. ABC-123",
+        "brandLabel": "Brand",
+        "brandPlaceholder": "E.g. Volvo",
+        "modelLabel": "Model",
+        "modelPlaceholder": "E.g. FMX 440",
+        "capacityLabel": "Maximum capacity (t)",
+        "gpsLabel": "GPS Device ID (optional)",
+        "gpsPlaceholder": "E.g. GPS-TR-101",
+        "gpsDeviceLabel": "GPS Device ID",
+        "submitRegister": "Registrar unidad",
+        "submitPair": "Vincular dispositivo",
+        "cancel": "Cancelar"
+      }
+    },
+    "geofences": {
+      "title": "Facility Geofences",
+      "new": "Definir geocerca",
+      "typeLabel": "Facility type",
+      "siteLabel": "Site",
+      "nameLabel": "Geofence name",
+      "namePlaceholder": "E.g. Lurin Warehouse Geofence",
+      "radiusLabel": "Radius (meters)",
+      "centerLabel": "Center point",
+      "centerSelected": "Center set at: {lat}, {lng}",
+      "centerNotSelected": "Click on the map to place the geofence center.",
+      "submit": "Definir geocerca",
+      "cancel": "Cancelar",
+      "definedWarehouseToast": "Geocerca de almacén definida",
+      "definedJobSiteToast": "Geocerca de obra definida",
+      "empty": "No geofences registered yet.",
+      "types": {
+        "WAREHOUSE": "Warehouse",
+        "JOB_SITE": "Job Site"
+      },
+      "existingGeofences": "Defined Geofences",
+      "legend": {
+        "warehouse": "Warehouse Geofence",
+        "jobSite": "Job Site Geofence",
+        "selected": "Selected Center"
+      }
+    },
+    "errors": {
+      "plateRequired": "Ingresa la placa de la unidad.",
+      "capacityInvalid": "Ingresa una capacidad mayor a 0 toneladas.",
+      "plateDuplicate": "Ya existe una unidad registrada con la placa {plate}.",
+      "deviceAlreadyAssigned": "El dispositivo {deviceId} ya está vinculado a la unidad {plate}. Ingresa otro dispositivo.",
+      "siteAlreadyHasGeofence": "Este predio ya tiene una geocerca definida.",
+      "nameRequired": "Ingresa el nombre de la geocerca.",
+      "siteRequired": "Selecciona el predio.",
+      "radiusInvalid": "Ingresa un radio válido entre 10 y 5000 metros.",
+      "centerRequired": "Selecciona un punto en el mapa para ubicar la geocerca.",
+      "deviceRequired": "Ingresa el ID del dispositivo GPS.",
+      "networkError": "No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "modules": {
+    "placeholderTitle": "{name} Module",
+    "placeholderDesc": "This module is planned for role {role}. Navigation and role permissions are active."
+  }
+}
