@@ -108,5 +108,157 @@
   "modules": {
     "placeholderTitle": "Módulo {name}",
     "placeholderDesc": "Este módulo está planificado para el rol {role}. La navegación y permisos de acceso se encuentran activos."
+  },
+  "common": {
+    "actions": "Acciones",
+    "viewDetails": "Ver detalles",
+    "viewAll": "Ver todos",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "loading": "Cargando datos..."
+  },
+  "receptions": {
+    "perspective": {
+      "siteManager": "Responsable de Obra",
+      "supervisor": "Supervisor"
+    },
+    "siteManager": {
+      "title": "Recepciones",
+      "subtitle": "Registra y coteja lo que llegó a la obra."
+    },
+    "supervisor": {
+      "title": "Recepciones",
+      "subtitle": "Controla los materiales recibidos y compara con las cantidades despachadas",
+      "kpiToday": "Recepciones hoy",
+      "kpiPending": "Pendientes",
+      "kpiDiscrepancies": "Con discrepancias",
+      "kpiCompleted": "Completadas",
+      "vsPrevDay": "vs. día anterior",
+      "filterProject": "Proyecto",
+      "filterStatus": "Estado",
+      "dateRange": "Rango de fechas",
+      "stockAlerts": "Alertas de stock",
+      "clearFilters": "Limpiar filtros",
+      "applyFilters": "Aplicar filtros",
+      "tableTitle": "Recepciones",
+      "receptionsCount": "recepciones",
+      "colId": "ID",
+      "colProject": "Proyecto",
+      "colDispatch": "Despacho",
+      "colReceivedDate": "Fecha recepción",
+      "colReceivedBy": "Recibido por",
+      "colStatus": "Estado",
+      "showing": "Mostrando",
+      "of": "de",
+      "rowsPerPage": "Filas por página",
+      "detailsTitle": "Detalle de recepción",
+      "materialsReceived": "Materiales recibidos",
+      "reportDiscrepancy": "Reportar discrepancia",
+      "confirmReception": "Confirmar recepción"
+    },
+    "kpi": {
+      "todayReceptions": "Recepciones del día",
+      "completed": "Completadas",
+      "partial": "Parciales / Discrepancias",
+      "vsYesterday": "vs. ayer",
+      "vsPrevWeek": "vs. semana anterior"
+    },
+    "arrivals": {
+      "title": "Próximas llegadas (En tránsito)",
+      "id": "ID Despacho",
+      "material": "Material",
+      "origin": "Origen",
+      "truck": "Camión",
+      "eta": "Llegada estimada",
+      "status": "Estado",
+      "registerAction": "Registrar llegada"
+    },
+    "registered": {
+      "title": "Recepciones registradas"
+    },
+    "table": {
+      "id": "ID",
+      "material": "Material",
+      "sent": "Enviado",
+      "received": "Recibido",
+      "diff": "Diferencia",
+      "status": "Estado",
+      "responsible": "Responsable",
+      "date": "Fecha",
+      "unit": "Unidad"
+    },
+    "status": {
+      "completed": "Completado",
+      "partial": "Parcial",
+      "withDifference": "Con diferencia",
+      "underReview": "Bajo revisión",
+      "pending": "Pendiente",
+      "inTransit": "En tránsito"
+    },
+    "details": {
+      "title": "Detalle de recepción",
+      "origin": "Origen",
+      "driverGuide": "Conductor / Guía",
+      "truck": "Camión",
+      "dateTime": "Fecha y hora",
+      "responsible": "Responsable",
+      "location": "Ubicación / Obra",
+      "observations": "Observaciones",
+      "noObservations": "Sin observaciones registradas."
+    },
+    "comparison": {
+      "title": "Comparación de cantidades"
+    },
+    "checklist": {
+      "title": "Checklist de recepción en obra",
+      "goodCondition": "Material en buen estado",
+      "verifiedQuantity": "Cantidad verificada",
+      "guideReceived": "Guía de remisión recibida",
+      "photoEvidence": "Evidencia fotográfica",
+      "observationsRecorded": "Observaciones registradas",
+      "viewPhotos": "Ver fotos"
+    },
+    "actions": {
+      "registerReception": "Registrar recepción",
+      "reportIssue": "Reportar problema",
+      "confirmReception": "Confirmar recepción",
+      "editReception": "Editar recepción"
+    },
+    "dialog": {
+      "registerTitle": "Registrar recepción de material en obra",
+      "selectArrival": "Despacho en camino",
+      "selectArrivalHelp": "Selecciona un despacho en tránsito para precargar automáticamente sus datos.",
+      "dispatchId": "ID de Despacho",
+      "deliveryGuide": "Nº Guía de remisión",
+      "origin": "Origen del material",
+      "site": "Obra de destino",
+      "truckPlate": "Placa del camión",
+      "driver": "Conductor",
+      "itemsToVerify": "Materiales a cotejar",
+      "addItem": "Agregar material",
+      "observations": "Observaciones en obra",
+      "observationsPlaceholder": "Anota cualquier detalle sobre la descarga o condiciones del material...",
+      "saveAction": "Confirmar y registrar",
+      "requiredFields": "Por favor completa el ID de despacho y número de guía.",
+      "errorSaving": "Ocurrió un error al registrar la recepción."
+    },
+    "discrepancy": {
+      "title": "Reportar discrepancia en recepción",
+      "typeLabel": "Tipo de discrepancia detectada",
+      "observationsLabel": "Descripción detallada de la discrepancia",
+      "observationsPlaceholder": "Describe el faltante, rotura o irregularidad detectada al descargar...",
+      "evidenceTitle": "Evidencia fotográfica obligatoria (US-10)",
+      "evidenceSubtitle": "Adjunta una fotografía clara que sustente la diferencia detectada en obra.",
+      "samplePhotos": "Fotos de muestra en obra:",
+      "photoUrl": "URL de la fotografía",
+      "captionLabel": "Leyenda o anotación de la foto",
+      "submitAction": "Reportar discrepancia",
+      "fieldsRequired": "Por favor ingresa las observaciones y la leyenda de la foto.",
+      "errorSaving": "Error al registrar la discrepancia."
+    },
+    "evidence": {
+      "galleryTitle": "Galería de evidencias fotográficas",
+      "noEvidence": "No hay fotografías adjuntas a esta recepción."
+    }
   }
 }

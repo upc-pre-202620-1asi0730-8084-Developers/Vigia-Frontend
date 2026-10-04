@@ -6,6 +6,7 @@ import { ROLES, navigationItems } from "./shared/presentation/navigation.config.
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 const transportView = () => import('./fleet-and-device-management/presentation/views/transport-view.vue');
+const receptionManagementView = () => import('./site-reception-and-verification/presentation/views/reception-management-view.vue');
 
 const routes = [
     {
@@ -51,8 +52,8 @@ const routes = [
     {
         path: '/recepciones',
         name: 'recepciones',
-        component: modulePlaceholder,
-        meta: { title: 'Recepciones', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
+        component: receptionManagementView,
+        meta: { title: 'Recepciones en Obra', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
     },
     {
         path: '/problemas',

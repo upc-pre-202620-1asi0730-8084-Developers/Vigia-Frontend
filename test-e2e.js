@@ -139,6 +139,97 @@ async function runTests() {
     assert(false, `Error consultando eventos no asociados: ${e.message}`);
   }
 
+  // 10. BC-07: Listado de recepciones registradas en obra
+  try {
+    const res = await axios.get(`${API_BASE}/receptions`);
+    assert(res.status === 200, `GET /receptions responde HTTP 200 con listado de recepciones (BC-07)`);
+    assert(Array.isArray(res.data) && res.data.length >= 5, `Se obtuvieron ${res.data.length} recepciones registradas en base de datos`);
+    const found102 = res.data.find(r => r.id === 'RC-102');
+    assert(!!found102, `Existe recepción destacada RC-102 en el sistema`);
+    assert(found102?.status === 'VERIFIED_DISCREPANT', `RC-102 se encuentra en estado VERIFIED_DISCREPANT`);
+  } catch (e) {
+    assert(false, `Error en GET /receptions: ${e.message}`);
+  }
+
+  // 11. BC-07: Listado de despachos próximos en tránsito (Upcoming Arrivals)
+  try {
+    const res = await axios.get(`${API_BASE}/upcoming-arrivals`);
+    assert(res.status === 200, `GET /upcoming-arrivals responde HTTP 200 con despachos en tránsito`);
+    assert(Array.isArray(res.data) && res.data.length >= 2, `Existen ${res.data.length} despachos próximos en tránsito`);
+  } catch (e) {
+    assert(false, `Error en GET /upcoming-arrivals: ${e.message}`);
+  }
+
+  // 12. BC-07: Cotejo de cantidades con cálculo de diferencia (TS-04)
+  try {
+    const res = await axios.post(`${API_BASE}/receptions/RC-102/compare`, {
+      items: [
+        { id: "item-102-1", receivedQuantity: 22 }
+      ]
+    });
+    assert(res.status === 200, `POST /receptions/RC-102/compare responde HTTP 200 (TS-04)`);
+    assert(res.data.hasDiscrepancy === true, `El endpoint TS-04 detecta faltante de 2 toneladas correctamente`);
+    assert(res.data.items[0].difference === 2, `Diferencia calculada correctamente como 2 toneladas`);
+  } catch (e) {
+    assert(false, `Error en TS-04 compareQuantities: ${e.message}`);
+  }
+
+  // 13. BC-07: Registro de evidencia fotográfica (US-10)
+  try {
+    const res = await axios.post(`${API_BASE}/receptions/RC-102/evidences`, {
+      evidenceUrl: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?w=600",
+      caption: "Fotografía de prueba de faltante en tolva",
+      type: "PHOTO"
+    });
+    assert(res.status === 201, `POST /receptions/RC-102/evidences registra evidencia con HTTP 201 (US-10)`);
+    assert(res.data.status === 'VERIFIED_DISCREPANT', `La recepción se conserva en estado VERIFIED_DISCREPANT tras adjuntar foto`);
+    assert(res.data.evidences.length >= 1, `La recepción contiene ${res.data.evidences.length} evidencias fotográficas registradas`);
+  } catch (e) {
+    assert(false, `Error en US-10 addEvidence: ${e.message}`);
+  }
+
+  // 14. BC-07: Registro de nueva recepción física en obra (US-09)
+  const testDispatch = `DES-TEST-${Math.floor(100 + Math.random() * 900)}`;
+  try {
+    const res = await axios.post(`${API_BASE}/receptions`, {
+      dispatchId: testDispatch,
+      siteName: "Torre A",
+      origin: "Cemex Plant",
+      truckPlate: "TR-999",
+      deliveryGuideNumber: "GR-99999",
+      items: [
+        { materialName: "Cemento Portland", dispatchedQuantity: 50, receivedQuantity: 50, unit: "sacks" }
+      ]
+    });
+    assert(res.status === 201, `POST /receptions crea nueva recepción para despacho ${testDispatch} con HTTP 201`);
+    assert(res.data.status === 'VERIFIED_CONFORMANT', `La recepción sin diferencias queda en estado VERIFIED_CONFORMANT`);
+  } catch (e) {
+    assert(false, `Error creando recepción: ${e.message}`);
+  }
+
+  // 15. BC-07: Restricción uq_receptions_dispatch (Rechazar despacho duplicado con HTTP 409)
+  try {
+    await axios.post(`${API_BASE}/receptions`, {
+      dispatchId: testDispatch,
+      siteName: "Torre A"
+    });
+    assert(false, `Debería fallar con HTTP 409 al registrar el mismo despacho por segunda vez`);
+  } catch (e) {
+    assert(e.response && e.response.status === 409, `Se rechaza despacho duplicado ${testDispatch} con HTTP 409 (uq_receptions_dispatch)`);
+  }
+
+  // 16. BC-07: Cierre y verificación de recepción en obra (US-09)
+  try {
+    const res = await axios.post(`${API_BASE}/receptions/RC-104/verify`, {
+      status: "VERIFIED_CONFORMANT",
+      observations: "Verificación de cierre conforme en obra."
+    });
+    assert(res.status === 200, `POST /receptions/RC-104/verify confirma recepción con HTTP 200 (US-09)`);
+    assert(res.data.status === 'VERIFIED_CONFORMANT', `Estado de RC-104 confirmado como VERIFIED_CONFORMANT`);
+  } catch (e) {
+    assert(false, `Error en verifyReception: ${e.message}`);
+  }
+
   console.log('\n====================================================');
   console.log(`  RESULTADO: ${passed} pruebas exitosas, ${failed} fallidas`);
   console.log('====================================================\n');
