@@ -39,7 +39,17 @@ export class DiscrepancyApi {
                 responsibility: null,
                 missingEvidence: [
                     'Transport photographic evidence'
+                ],
+                evidences: [
+                    {
+                        id: 1,
+                        type: 'Photo',
+                        evidenceUrl: '/images/evidence-cement-bags.jpg',
+                        capturedAt: '2026-10-03 11:40',
+                        caption: 'Received cement bags during site inspection.'
+                    }
                 ]
+
             },
             {
                 id: 2,
@@ -77,7 +87,17 @@ export class DiscrepancyApi {
                 missingEvidence: [
                     'Warehouse loading photograph',
                     'Reception signature'
+                ],
+                evidences: [
+                    {
+                        id: 1,
+                        type: 'Photo',
+                        evidenceUrl: '/images/evidence-damaged-ceramics.jpg',
+                        capturedAt: '2026-10-02 11:15',
+                        caption: 'Damaged ceramic boxes found during reception.'
+                    }
                 ]
+
             },
             {
                 id: 3,
@@ -119,7 +139,9 @@ export class DiscrepancyApi {
                     }
                 ],
                 responsibility: 'Transport',
-                missingEvidence: []
+                missingEvidence: [],
+                evidences: []
+
             }
         ]
 

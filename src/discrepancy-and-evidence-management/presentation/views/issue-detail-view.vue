@@ -106,6 +106,28 @@ const closeDiscrepancyCase = async () => {
       <p v-else>
         No missing evidence.
       </p>
+      <h2>Photographic Evidence</h2>
+
+      <div v-if="discrepancyCase.evidences.length > 0">
+        <div
+            v-for="evidence in discrepancyCase.evidences"
+            :key="evidence.id"
+        >
+          <p><strong>{{ evidence.type }}</strong></p>
+          <p>{{ evidence.caption }}</p>
+          <p>{{ evidence.capturedAt }}</p>
+
+          <img
+              :src="evidence.evidenceUrl"
+              :alt="evidence.caption"
+              width="250"
+          >
+        </div>
+      </div>
+
+      <p v-else>
+        No photographic evidence available.
+      </p>
 
       <button @click="generateReport">
         Generate Supporting Report
