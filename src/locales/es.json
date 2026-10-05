@@ -120,13 +120,11 @@
   "issues": {
     "title": "Incidencias",
     "detailTitle": "Detalle de incidencia",
-
     "filters": {
       "project": "Obra",
       "status": "Estado",
       "all": "Todos"
     },
-
     "values": {
       "status": {
         "Open": "Abierto",
@@ -202,26 +200,21 @@
       "reported": "Reportado",
       "description": "Descripción"
     },
-
     "timeline": {
       "title": "Línea de tiempo de evidencia"
     },
-
     "missingEvidence": {
       "title": "Evidencia faltante",
       "none": "No falta evidencia."
     },
-
     "photographicEvidence": {
       "title": "Evidencia fotográfica",
       "none": "No hay evidencia fotográfica disponible."
     },
-
     "report": {
       "generate": "Generar reporte de sustento",
       "generated": "Reporte generado: {fileName}"
     },
-
     "responsibility": {
       "title": "Determinar responsabilidad",
       "select": "Seleccionar responsabilidad",
@@ -233,13 +226,11 @@
       "required": "Primero selecciona una responsabilidad.",
       "updated": "Responsabilidad actualizada."
     },
-
     "closure": {
       "button": "Cerrar caso",
       "success": "Caso cerrado correctamente.",
       "responsibilityRequired": "Se debe determinar la responsabilidad antes de cerrar el caso."
     },
-
     "loading": "Cargando incidencias...",
     "loadingDetail": "Cargando incidencia...",
     "loadError": "Error al cargar las incidencias.",
@@ -387,6 +378,150 @@
     "evidence": {
       "galleryTitle": "Galería de evidencias fotográficas",
       "noEvidence": "No hay fotografías adjuntas a esta recepción."
+    }
+  },
+  "orders": {
+    "title": "Solicitudes",
+    "subtitle": "Revisa y gestiona las solicitudes de materiales de construcción.",
+    "listTitle": "Lista de solicitudes",
+    "attentionTitle": "Solicitudes que requieren atención",
+    "attentionEmpty": "Sin solicitudes pendientes.",
+    "kpi": {
+      "pending": "Pendientes",
+      "approved": "Aprobadas",
+      "underReview": "En revisión",
+      "urgent": "Urgentes"
+    },
+    "filters": {
+      "search": "Buscar por ID, obra o material...",
+      "status": "Estado",
+      "work": "Obra",
+      "all": "Todas",
+      "clean": "Limpiar filtros"
+    },
+    "table": {
+      "id": "ID",
+      "work": "Obra",
+      "materials": "Materiales",
+      "quantity": "Cantidad",
+      "date": "Fecha",
+      "status": "Estado",
+      "priority": "Prioridad"
+    },
+    "status": {
+      "PENDING": "Pendiente",
+      "UNDER_REVIEW": "En revisión",
+      "APPROVED": "Aprobada",
+      "REJECTED": "Rechazada"
+    },
+    "priority": {
+      "HIGH": "Alta",
+      "AVERAGE": "Media",
+      "LOW": "Baja"
+    },
+    "detail": {
+      "title": "Detalle de solicitud",
+      "subtitle": "Revisa la información completa y toma una decisión.",
+      "back": "Volver a solicitudes",
+      "materialsRequest": "Solicitud de materiales",
+      "generalInfo": "Información general",
+      "work": "Obra",
+      "date": "Fecha",
+      "requester": "Solicitante",
+      "mainMaterial": "Material principal",
+      "requestedMaterials": "Materiales solicitados",
+      "material": "Material",
+      "qty": "Cantidad",
+      "unit": "Unidad",
+      "observation": "Observación",
+      "observations": "Observaciones",
+      "noObservations": "Sin observaciones.",
+      "attachedFiles": "Archivos adjuntos",
+      "noFiles": "Sin archivos adjuntos.",
+      "makeDecision": "Tomar una decisión",
+      "decisionHint": "Selecciona una acción para esta solicitud.",
+      "approve": "Aprobar solicitud",
+      "requestChanges": "Solicitar cambios",
+      "reject": "Rechazar",
+      "history": "Historial de la solicitud",
+      "notFound": "Solicitud no encontrada.",
+      "feedbackSaved": "Solicitud actualizada a: {status}",
+      "feedbackError": "No se pudo actualizar la solicitud.",
+      "notes": {
+        "approved": "Solicitud aprobada",
+        "changes": "Se solicitaron cambios",
+        "rejected": "Solicitud rechazada"
+      }
+    }
+  },
+  "dispatches": {
+    "title": "Despachos",
+    "subtitle": "Organiza y controla la salida de materiales hacia las obras.",
+    "listTitle": "Lista de despachos",
+    "newButton": "Nuevo despacho",
+    "unassigned": "Sin asignar",
+    "kpi": {
+      "inPreparation": "En preparación",
+      "scheduled": "Programados",
+      "inTransit": "En tránsito",
+      "withIncident": "Con incidencia"
+    },
+    "filters": {
+      "search": "Buscar por ID, obra o material...",
+      "status": "Estado",
+      "all": "Todos",
+      "clean": "Limpiar filtros"
+    },
+    "table": {
+      "id": "ID",
+      "work": "Obra",
+      "materials": "Materiales",
+      "quantity": "Cantidad",
+      "transport": "Transporte",
+      "exit": "Salida",
+      "status": "Estado"
+    },
+    "status": {
+      "IN_PREPARATION": "En preparación",
+      "SCHEDULED": "Programado",
+      "IN_TRANSIT": "En tránsito",
+      "NEAR_SITE": "Cerca de obra",
+      "DELIVERED": "Entregado",
+      "WITH_INCIDENT": "Con incidencia"
+    },
+    "priority": {
+      "HIGH": "Alta",
+      "AVERAGE": "Media",
+      "LOW": "Baja"
+    },
+    "types": {
+      "DEPARTURE_TO_WORK": "Salida a obra",
+      "TRANSFER": "Traslado",
+      "RETURN": "Retorno"
+    },
+    "new": {
+      "title": "Nuevo despacho",
+      "subtitle": "Crea y programa la salida de materiales hacia una obra.",
+      "infoTitle": "Información del despacho",
+      "infoSubtitle": "Completa los datos generales para programar la salida de materiales.",
+      "work": "Obra",
+      "workPlaceholder": "Nombre de la obra de destino",
+      "relatedOrder": "Solicitud relacionada",
+      "relatedOrderPlaceholder": "Selecciona una solicitud aprobada",
+      "departureDate": "Fecha de salida",
+      "estimatedTime": "Hora estimada",
+      "dispatchType": "Tipo de despacho",
+      "priority": "Prioridad",
+      "observations": "Observaciones",
+      "observationsPlaceholder": "Agrega información adicional sobre el despacho...",
+      "create": "Crear despacho",
+      "validationError": "Completa los campos obligatorios (*) para continuar.",
+      "steps": {
+        "information": "Información",
+        "materials": "Materiales",
+        "transportation": "Transporte",
+        "confirmation": "Confirmación"
+      }
     }
   }
 }

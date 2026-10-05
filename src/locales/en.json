@@ -120,13 +120,11 @@
   "issues": {
     "title": "Issues",
     "detailTitle": "Issue Detail",
-
     "filters": {
       "project": "Project",
       "status": "Status",
       "all": "All"
     },
-
     "values": {
       "status": {
         "Open": "Open",
@@ -163,7 +161,6 @@
         "Quantity mismatch reported": "Quantity mismatch reported",
         "Case closed": "Case closed"
       },
-
       "timelineDescription": {
         "The order was prepared and verified at the warehouse": "The order was prepared and verified at the warehouse.",
         "The transport unit left the warehouse": "The transport unit left the warehouse.",
@@ -176,23 +173,19 @@
         "A minor difference was detected during reception": "A minor difference was detected during reception.",
         "The discrepancy was reviewed and the case was closed": "The discrepancy was reviewed and the case was closed."
       },
-
       "caseDescription": {
         "Difference detected between dispatched and received cement bags": "Difference detected between dispatched and received cement bags.",
         "Several ceramic boxes arrived damaged": "Several ceramic boxes arrived damaged.",
         "Minor quantity difference already resolved": "Minor quantity difference already resolved."
       },
-
       "missingEvidence": {
         "Transport photographic evidence": "Transport photographic evidence",
         "Warehouse loading photograph": "Warehouse loading photograph",
         "Reception signature": "Reception signature"
       },
-
       "evidenceType": {
         "Photo": "Photo"
       },
-
       "evidenceCaption": {
         "Received cement bags during site inspection": "Received cement bags during site inspection.",
         "Damaged ceramic boxes found during reception": "Damaged ceramic boxes found during reception."
@@ -385,6 +378,150 @@
     "evidence": {
       "galleryTitle": "Photographic Evidence Gallery",
       "noEvidence": "No photographs attached to this reception."
+    }
+  },
+  "orders": {
+    "title": "Requests",
+    "subtitle": "Review and manage requests for construction materials.",
+    "listTitle": "Request list",
+    "attentionTitle": "Requests requiring attention",
+    "attentionEmpty": "No pending requests.",
+    "kpi": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "underReview": "Under review",
+      "urgent": "Urgent"
+    },
+    "filters": {
+      "search": "Search by ID, work or material...",
+      "status": "Status",
+      "work": "Work",
+      "all": "All",
+      "clean": "Clear filters"
+    },
+    "table": {
+      "id": "ID",
+      "work": "Work",
+      "materials": "Materials",
+      "quantity": "Quantity",
+      "date": "Date",
+      "status": "Status",
+      "priority": "Priority"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "UNDER_REVIEW": "Under review",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "priority": {
+      "HIGH": "High",
+      "AVERAGE": "Average",
+      "LOW": "Low"
+    },
+    "detail": {
+      "title": "Request Detail",
+      "subtitle": "Review the complete information and make a decision.",
+      "back": "Back to requests",
+      "materialsRequest": "Materials request",
+      "generalInfo": "General information",
+      "work": "Work",
+      "date": "Date",
+      "requester": "Requester",
+      "mainMaterial": "Main material",
+      "requestedMaterials": "Requested materials",
+      "material": "Material",
+      "qty": "Quantity",
+      "unit": "Unit",
+      "observation": "Observation",
+      "observations": "Observations",
+      "noObservations": "No observations.",
+      "attachedFiles": "Attached files",
+      "noFiles": "No attached files.",
+      "makeDecision": "Make a decision",
+      "decisionHint": "Select an action for this request.",
+      "approve": "Approve request",
+      "requestChanges": "Request changes",
+      "reject": "Reject",
+      "history": "Request history",
+      "notFound": "Request not found.",
+      "feedbackSaved": "Request updated to: {status}",
+      "feedbackError": "The request could not be updated.",
+      "notes": {
+        "approved": "Request approved",
+        "changes": "Changes requested",
+        "rejected": "Request rejected"
+      }
+    }
+  },
+  "dispatches": {
+    "title": "Dispatches",
+    "subtitle": "Organizes and controls the departure of materials to the works.",
+    "listTitle": "List of dispatches",
+    "newButton": "New dispatch",
+    "unassigned": "Unassigned",
+    "kpi": {
+      "inPreparation": "In preparation",
+      "scheduled": "Scheduled",
+      "inTransit": "In transit",
+      "withIncident": "With incidence"
+    },
+    "filters": {
+      "search": "Search by ID, work or material...",
+      "status": "Status",
+      "all": "All",
+      "clean": "Clear filters"
+    },
+    "table": {
+      "id": "ID",
+      "work": "Work",
+      "materials": "Materials",
+      "quantity": "Quantity",
+      "transport": "Transport",
+      "exit": "Exit",
+      "status": "Status"
+    },
+    "status": {
+      "IN_PREPARATION": "In preparation",
+      "SCHEDULED": "Scheduled",
+      "IN_TRANSIT": "In transit",
+      "NEAR_SITE": "Near work",
+      "DELIVERED": "Delivered",
+      "WITH_INCIDENT": "With incidence"
+    },
+    "priority": {
+      "HIGH": "High",
+      "AVERAGE": "Average",
+      "LOW": "Low"
+    },
+    "types": {
+      "DEPARTURE_TO_WORK": "Departure to work",
+      "TRANSFER": "Transfer",
+      "RETURN": "Return"
+    },
+    "new": {
+      "title": "New dispatch",
+      "subtitle": "Create and schedule the departure of materials to a work.",
+      "infoTitle": "Dispatch information",
+      "infoSubtitle": "Complete the general data to schedule the departure of materials.",
+      "work": "Work",
+      "workPlaceholder": "Destination work name",
+      "relatedOrder": "Related request",
+      "relatedOrderPlaceholder": "Select an approved request",
+      "departureDate": "Departure date",
+      "estimatedTime": "Estimated time",
+      "dispatchType": "Dispatch type",
+      "priority": "Priority",
+      "observations": "Observations",
+      "observationsPlaceholder": "Add additional information about the dispatch...",
+      "create": "Create dispatch",
+      "validationError": "Complete the required fields (*) to continue.",
+      "steps": {
+        "information": "Information",
+        "materials": "Materials",
+        "transportation": "Transportation",
+        "confirmation": "Confirmation"
+      }
     }
   }
 }
