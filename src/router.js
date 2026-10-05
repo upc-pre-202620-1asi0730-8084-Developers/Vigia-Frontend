@@ -1,14 +1,17 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import useIamStore from "./iam/application/iam.store.js";
 import { ROLES, navigationItems } from "./shared/presentation/navigation.config.js";
+import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
 
 // Vistas
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 const transportView = () => import('./fleet-and-device-management/presentation/views/transport-view.vue');
 const receptionManagementView = () => import('./site-reception-and-verification/presentation/views/reception-management-view.vue');
-const issuesListView = () => import('./discrepancy-and-evidence-management/presentation/views/issues-list-view.vue');
+
 const routes = [
+
+    ...discrepancyRoutes,
     {
         path: '/',
         redirect: '/transporte'
@@ -55,12 +58,7 @@ const routes = [
         component: receptionManagementView,
         meta: { title: 'Recepciones en Obra', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
     },
-    {
-        path: '/problemas',
-        name: 'problemas',
-        component: issuesListView,
-        meta: { title: 'Problemas', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
-    },
+
     {
         path: '/historial',
         name: 'historial',
@@ -92,11 +90,7 @@ const router = createRouter({
     routes: routes
 });
 
-/**
- * Guard global de navegación:
- * 1. Actualiza el título del documento (Vigía - {título})
- * 2. Valida permisos basados en roles (meta.roles)
- */
+
 router.beforeEach((to, from, next) => {
     const iamStore = useIamStore();
     const baseTitle = 'Vigía';
