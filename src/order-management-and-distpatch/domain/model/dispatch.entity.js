@@ -23,7 +23,7 @@ export class Dispatch {
      * @param {string} [params.createdAt=''] - Creation timestamp.
      * @param {string} [params.observations=''] - General observations.
      * @param {DispatchItem[]} [params.items=[]] - Dispatched material lines.
-     * @param {?string} [params.vehicleId=null] - Assigned vehicle id (matches Route.vehicleId in Transit Traceability).
+     * @param {?number} [params.vehicleId=null] - Assigned vehicle id (matches vehicles[].id and Route.vehicleId in Transit Traceability).
      * @param {?string} [params.vehiclePlate=null] - License plate of the assigned vehicle, for display.
      */
     constructor({ id = null, projectName = '', departureDate = '', estimatedTime = '', relatedOrderId = null,

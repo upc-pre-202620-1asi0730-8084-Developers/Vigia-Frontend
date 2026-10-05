@@ -765,7 +765,7 @@
           "date": "2025-04-15 08:05"
         }
       ],
-      "vehicleId": "2",
+      "vehicleId": 2,
       "vehiclePlate": "V3B-920"
     },
     {
@@ -802,7 +802,7 @@
           "date": "2025-04-13 12:00"
         }
       ],
-      "vehicleId": "1",
+      "vehicleId": 1,
       "vehiclePlate": "V3A-780"
     },
     {
