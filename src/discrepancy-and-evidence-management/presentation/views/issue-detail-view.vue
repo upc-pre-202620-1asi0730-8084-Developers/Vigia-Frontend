@@ -42,6 +42,24 @@ const discrepancyCase = computed(() => {
       item => item.id === Number(route.params.id)
   )
 })
+
+const closeDiscrepancyCase = async () => {
+  const result = await discrepancyStore.closeCase(
+      discrepancyCase.value.id
+  )
+
+  if (!result) {
+    return
+  }
+
+  alert(
+      result.closed
+          ? 'Case closed successfully.'
+          : result.message
+  )
+}
+
+
 </script>
 
 <template>
@@ -92,6 +110,10 @@ const discrepancyCase = computed(() => {
         <strong>Current Responsibility:</strong>
         {{ discrepancyCase.responsibility }}
       </p>
+      <button @click="closeDiscrepancyCase">
+        Close Case
+      </button>
+
 
     </div>
 
