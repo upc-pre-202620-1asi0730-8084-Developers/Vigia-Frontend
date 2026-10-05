@@ -35,6 +35,18 @@ const discrepancyCase = computed(() => {
       <p><strong>Priority:</strong> {{ discrepancyCase.priority }}</p>
       <p><strong>Reported:</strong> {{ discrepancyCase.reportedAt }}</p>
       <p><strong>Description:</strong> {{ discrepancyCase.description }}</p>
+      <h2>Evidence Timeline</h2>
+
+      <div
+          v-for="event in discrepancyCase.timeline"
+          :key="event.id"
+      >
+        <p><strong>{{ event.stage }}</strong></p>
+        <p>{{ event.title }}</p>
+        <p>{{ event.description }}</p>
+        <p>{{ event.date }}</p>
+        <hr>
+      </div>
     </div>
 
     <div v-else>
