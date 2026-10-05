@@ -2,7 +2,7 @@ import {createRouter, createWebHashHistory} from "vue-router";
 import useIamStore from "./iam/application/iam.store.js";
 import { ROLES, navigationItems } from "./shared/presentation/navigation.config.js";
 import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
-import { orderManagementRoutes } from './order-management-and-distpatch/presentation/order-management-routes.js'
+import orderManagementRoutes from './order-management-and-distpatch/presentation/order-management-routes.js'
 
 // Vistas
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');

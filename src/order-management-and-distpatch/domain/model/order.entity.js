@@ -1,21 +1,27 @@
+import {OrderItem} from "./order-item.entity.js";
+
 /**
- * Aggregate Root: Order — solicitud de materiales emitida desde una obra.
- * Agrupa sus OrderItem y el historial de decisiones del almacén.
+ * Order entity (material request) within the Order Management and Dispatch bounded context.
+ *
+ * @class Order
  */
 export class Order {
-    constructor({
-                    id,
-                    projectName,
-                    requesterName,
-                    status,
-                    priority,
-                    date,
-                    mainMaterial,
-                    items = [],
-                    observations = '',
-                    attachedFiles = [],
-                    timeline = []
-                }) {
+    /**
+     * @param {Object} params - Entity attributes.
+     * @param {?string} [params.id=null] - Order identifier (e.g. SOL-104).
+     * @param {string} [params.projectName=''] - Work that requested the materials.
+     * @param {string} [params.requesterName=''] - Person who created the order.
+     * @param {string} [params.status='PENDING'] - Order status.
+     * @param {string} [params.priority='AVERAGE'] - Order priority.
+     * @param {string} [params.date=''] - Creation date.
+     * @param {string} [params.mainMaterial=''] - Main requested material.
+     * @param {OrderItem[]} [params.items=[]] - Requested material lines.
+     * @param {string} [params.observations=''] - General observations.
+     * @param {Object[]} [params.attachedFiles=[]] - Attached files.
+     * @param {Object[]} [params.timeline=[]] - Order history events.
+     */
+    constructor({ id = null, projectName = '', requesterName = '', status = 'PENDING', priority = 'AVERAGE',
+                  date = '', mainMaterial = '', items = [], observations = '', attachedFiles = [], timeline = [] }) {
         this.id = id;
         this.projectName = projectName;
         this.requesterName = requesterName;
@@ -23,14 +29,9 @@ export class Order {
         this.priority = priority;
         this.date = date;
         this.mainMaterial = mainMaterial;
-        this.items = items;
+        this.items = items.map(item => item instanceof OrderItem ? item : new OrderItem({...item}));
         this.observations = observations;
         this.attachedFiles = attachedFiles;
         this.timeline = timeline;
-    }
-
-    /** Cantidad total solicitada (suma de las líneas OrderItem). */
-    get totalQuantity() {
-        return this.items.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
     }
 }

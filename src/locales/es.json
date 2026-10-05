@@ -523,5 +523,8 @@
         "confirmation": "Confirmación"
       }
     }
+  },
+  "errors": {
+    "occurred": "Ocurrieron errores"
   }
 }

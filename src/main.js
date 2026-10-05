@@ -28,9 +28,13 @@ import {
     Row,
     Select,
     SelectButton,
+    Step,
+    StepList,
+    Stepper,
     Tag,
     Toast,
     Textarea,
+    Timeline,
     ToastService,
     Toolbar
 } from "primevue";
@@ -88,6 +92,9 @@ createApp(App)
     .component('pv-dialog',         Dialog)
     .component('pv-select',         Select)
     .component('pv-select-button',  SelectButton)
+    .component('pv-step',           Step)
+    .component('pv-step-list',      StepList)
+    .component('pv-stepper',        Stepper)
     .component('pv-float-label',    FloatLabel)
     .component('pv-icon-field',     IconField)
     .component('pv-input-icon',     InputIcon)
@@ -98,6 +105,7 @@ createApp(App)
     .component('pv-drawer',         Drawer)
     .component('pv-tag',            Tag)
     .component('pv-textarea',       Textarea)
+    .component('pv-timeline',       Timeline)
     .component('pv-toolbar',        Toolbar)
     .component('pv-toast',          Toast)
     .directive('tooltip',           Tooltip)

@@ -1,37 +1,18 @@
-import { ROLES } from '../../shared/presentation/navigation.config.js';
+import {ROLES} from "../../shared/presentation/navigation.config.js";
 
-const OrdersListView = () => import('./views/orders-list-view.vue');
-const OrderDetailView = () => import('./views/order-detail-view.vue');
-const DispatchesListView = () => import('./views/dispatches-list-view.vue');
-const NewDispatchView = () => import('./views/new-dispatch-view.vue');
+// Lazy-loaded components
+const orderList = () => import('./views/order-list.vue');
+const orderDetail = () => import('./views/order-detail.vue');
+const dispatchList = () => import('./views/dispatch-list.vue');
+const dispatchForm = () => import('./views/dispatch-form.vue');
 
-/**
- * Rutas del Bounded Context BC-05 Ordering and Dispatch.
- * Cubre el flujo del Warehouse Manager: Orders (Solicitudes) y Dispatches (Despachos).
- */
-export const orderManagementRoutes = [
-    {
-        path: '/solicitudes',
-        name: 'solicitudes',
-        component: OrdersListView,
-        meta: { title: 'Solicitudes', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
-    },
-    {
-        path: '/solicitudes/:id',
-        name: 'solicitud-detalle',
-        component: OrderDetailView,
-        meta: { title: 'Detalle de solicitud', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
-    },
-    {
-        path: '/despachos',
-        name: 'despachos',
-        component: DispatchesListView,
-        meta: { title: 'Despachos', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
-    },
-    {
-        path: '/despachos/nuevo',
-        name: 'despacho-nuevo',
-        component: NewDispatchView,
-        meta: { title: 'Nuevo despacho', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
-    }
+const roles = [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER];
+
+const orderManagementRoutes = [
+    {   path: '/solicitudes',       name: 'ordering-orders',        component: orderList,      meta: {title: 'Solicitudes', roles}},
+    {   path: '/solicitudes/:id',   name: 'ordering-order-detail',  component: orderDetail,    meta: {title: 'Detalle de solicitud', roles}},
+    {   path: '/despachos',         name: 'ordering-dispatches',    component: dispatchList,   meta: {title: 'Despachos', roles}},
+    {   path: '/despachos/nuevo',   name: 'ordering-dispatch-new',  component: dispatchForm,   meta: {title: 'Nuevo despacho', roles}}
 ];
+
+export default orderManagementRoutes;
