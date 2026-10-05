@@ -35,7 +35,8 @@ export class DiscrepancyApi {
                         description: 'A difference was detected between dispatched and received quantities.',
                         date: '2026-10-03 11:45'
                     }
-                ]
+                ],
+                responsibility: null
             },
             {
                 id: 2,
@@ -68,7 +69,8 @@ export class DiscrepancyApi {
                         description: 'Several ceramic boxes were found damaged during reception.',
                         date: '2026-10-02 11:20'
                     }
-                ]
+                ],
+                responsibility: null
             },
             {
                 id: 3,
@@ -108,7 +110,8 @@ export class DiscrepancyApi {
                         description: 'The discrepancy was reviewed and the case was closed.',
                         date: '2026-10-01 15:30'
                     }
-                ]
+                ],
+                responsibility: 'Transport'
             }
         ]
 
@@ -120,6 +123,14 @@ export class DiscrepancyApi {
             caseId: caseId,
             fileName: `discrepancy-case-${caseId}-report.pdf`,
             generated: true
+        }
+    }
+
+    async determineResponsibility(caseId, responsibility) {
+        return {
+            caseId: caseId,
+            responsibility: responsibility,
+            updated: true
         }
     }
 }
