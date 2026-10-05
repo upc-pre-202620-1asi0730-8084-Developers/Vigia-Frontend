@@ -36,7 +36,10 @@ export class DiscrepancyApi {
                         date: '2026-10-03 11:45'
                     }
                 ],
-                responsibility: null
+                responsibility: null,
+                missingEvidence: [
+                    'Transport photographic evidence'
+                ]
             },
             {
                 id: 2,
@@ -70,7 +73,11 @@ export class DiscrepancyApi {
                         date: '2026-10-02 11:20'
                     }
                 ],
-                responsibility: null
+                responsibility: null,
+                missingEvidence: [
+                    'Warehouse loading photograph',
+                    'Reception signature'
+                ]
             },
             {
                 id: 3,
@@ -111,7 +118,8 @@ export class DiscrepancyApi {
                         date: '2026-10-01 15:30'
                     }
                 ],
-                responsibility: 'Transport'
+                responsibility: 'Transport',
+                missingEvidence: []
             }
         ]
 
