@@ -2,7 +2,9 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDiscrepancyStore } from '../../application/discrepancy.store.js'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const route = useRoute()
 const discrepancyStore = useDiscrepancyStore()
 const selectedResponsibility = ref('')
@@ -13,7 +15,7 @@ const generateReport = async () => {
   )
 
   if (result) {
-    alert(`Report generated: ${result.fileName}`)
+    alert(t('issues.report.generated', { fileName: result.fileName }))
   }
 }
 
@@ -25,7 +27,7 @@ onMounted(() => {
 
 const saveResponsibility = async () => {
   if (!selectedResponsibility.value) {
-    alert('Select a responsibility first.')
+    alert(t('issues.responsibility.required'))
     return
   }
 
@@ -34,7 +36,7 @@ const saveResponsibility = async () => {
       selectedResponsibility.value
   )
 
-  alert('Responsibility updated.')
+  alert(t('issues.responsibility.updated'))
 }
 
 const discrepancyCase = computed(() => {
@@ -54,8 +56,8 @@ const closeDiscrepancyCase = async () => {
 
   alert(
       result.closed
-          ? 'Case closed successfully.'
-          : result.message
+          ? t('issues.closure.success')
+          : t('issues.closure.responsibilityRequired')
   )
 }
 
@@ -64,33 +66,33 @@ const closeDiscrepancyCase = async () => {
 
 <template>
   <section>
-    <h1>Issue Detail</h1>
+    <h1>{{ t('issues.detailTitle') }}</h1>
 
     <div v-if="discrepancyStore.loading">
-      Loading issue...
+      {{ t('issues.loadingDetail') }}
     </div>
 
     <div v-else-if="discrepancyCase">
-      <p><strong>Dispatch:</strong> {{ discrepancyCase.dispatchId }}</p>
-      <p><strong>Project:</strong> {{ discrepancyCase.projectName }}</p>
-      <p><strong>Type:</strong> {{ discrepancyCase.issueType }}</p>
-      <p><strong>Status:</strong> {{ discrepancyCase.status }}</p>
-      <p><strong>Priority:</strong> {{ discrepancyCase.priority }}</p>
-      <p><strong>Reported:</strong> {{ discrepancyCase.reportedAt }}</p>
-      <p><strong>Description:</strong> {{ discrepancyCase.description }}</p>
-      <h2>Evidence Timeline</h2>
+      <p><strong>{{ t('issues.fields.dispatch') }}:</strong> {{ discrepancyCase.dispatchId }}</p>
+      <p><strong>{{ t('issues.fields.project') }}:</strong> {{ discrepancyCase.projectName }}</p>
+      <p><strong>{{ t('issues.fields.type') }}:</strong> {{ t(`issues.values.type.${discrepancyCase.issueType}`) }}</p>
+      <p><strong>{{ t('issues.fields.status') }}:</strong> {{ t(`issues.values.status.${discrepancyCase.status}`) }}</p>
+      <p><strong>{{ t('issues.fields.priority') }}:</strong> {{ t(`issues.values.priority.${discrepancyCase.priority}`) }}</p>
+      <p><strong>{{ t('issues.fields.reported') }}:</strong> {{ discrepancyCase.reportedAt }}</p>
+      <p><strong>{{ t('issues.fields.description') }}:</strong>{{ t(`issues.content.caseDescription.${discrepancyCase.description.replace(/\.$/, '')}`) }}</p>
+      <h2>{{ t('issues.timeline.title') }}</h2>
 
       <div
           v-for="event in discrepancyCase.timeline"
           :key="event.id"
       >
-        <p><strong>{{ event.stage }}</strong></p>
-        <p>{{ event.title }}</p>
-        <p>{{ event.description }}</p>
+        <p><strong>{{ t(`issues.values.stage.${event.stage}`) }}</strong></p>
+        <p>{{ t(`issues.content.timelineTitle.${event.title}`) }}</p>
+        <p>{{ t(`issues.content.timelineDescription.${event.description.replace(/\.$/, '')}`) }}</p>
         <p>{{ event.date }}</p>
         <hr>
       </div>
-      <h2>Missing Evidence</h2>
+      <h2>{{ t('issues.missingEvidence.title') }}</h2>
 
       <div v-if="discrepancyCase.missingEvidence.length > 0">
         <ul>
@@ -98,66 +100,66 @@ const closeDiscrepancyCase = async () => {
               v-for="evidence in discrepancyCase.missingEvidence"
               :key="evidence"
           >
-            {{ evidence }}
+            {{ t(`issues.content.missingEvidence.${evidence}`) }}
           </li>
         </ul>
       </div>
 
       <p v-else>
-        No missing evidence.
+        {{ t('issues.missingEvidence.none') }}
       </p>
-      <h2>Photographic Evidence</h2>
+      <h2>{{ t('issues.photographicEvidence.title') }}</h2>
 
       <div v-if="discrepancyCase.evidences.length > 0">
         <div
             v-for="evidence in discrepancyCase.evidences"
             :key="evidence.id"
         >
-          <p><strong>{{ evidence.type }}</strong></p>
-          <p>{{ evidence.caption }}</p>
+          <p><strong>{{ t(`issues.content.evidenceType.${evidence.type}`) }}</strong></p>
+          <p>{{ t(`issues.content.evidenceCaption.${evidence.caption.replace(/\.$/, '')}`) }}</p>
           <p>{{ evidence.capturedAt }}</p>
 
           <img
               :src="evidence.evidenceUrl"
-              :alt="evidence.caption"
+              :alt="t(`issues.content.evidenceCaption.${evidence.caption.replace(/\.$/, '')}`)"
               width="250"
           >
         </div>
       </div>
 
       <p v-else>
-        No photographic evidence available.
+        {{ t('issues.photographicEvidence.none') }}
       </p>
 
       <button @click="generateReport">
-        Generate Supporting Report
+        {{ t('issues.report.generate') }}
       </button>
-      <h2>Determine Responsibility</h2>
+      <h2>{{ t('issues.responsibility.title') }}</h2>
 
       <select v-model="selectedResponsibility">
-        <option value="">Select responsibility</option>
-        <option value="Warehouse">Warehouse</option>
-        <option value="Transport">Transport</option>
-        <option value="Site">Site</option>
+        <option value="">{{ t('issues.responsibility.select') }}</option>
+        <option value="Warehouse">{{ t('issues.responsibility.warehouse') }}</option>
+        <option value="Transport">{{ t('issues.responsibility.transport') }}</option>
+        <option value="Site">{{ t('issues.responsibility.site') }}</option>
       </select>
 
       <button @click="saveResponsibility">
-        Save Responsibility
+        {{ t('issues.responsibility.save') }}
       </button>
 
       <p v-if="discrepancyCase.responsibility">
-        <strong>Current Responsibility:</strong>
-        {{ discrepancyCase.responsibility }}
+        <strong>{{ t('issues.responsibility.current') }}:</strong>
+        {{ t(`issues.responsibility.${discrepancyCase.responsibility.toLowerCase()}`) }}
       </p>
       <button @click="closeDiscrepancyCase">
-        Close Case
+        {{ t('issues.closure.button') }}
       </button>
 
 
     </div>
 
     <div v-else>
-      Issue not found.
+      {{ t('issues.notFound') }}
     </div>
   </section>
 </template>

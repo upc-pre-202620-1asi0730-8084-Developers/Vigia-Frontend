@@ -117,6 +117,134 @@
     "close": "Cerrar",
     "loading": "Cargando datos..."
   },
+  "issues": {
+    "title": "Incidencias",
+    "detailTitle": "Detalle de incidencia",
+
+    "filters": {
+      "project": "Obra",
+      "status": "Estado",
+      "all": "Todos"
+    },
+
+    "values": {
+      "status": {
+        "Open": "Abierto",
+        "Under Review": "En revisión",
+        "Closed": "Cerrado"
+      },
+      "priority": {
+        "High": "Alta",
+        "Medium": "Media",
+        "Low": "Baja"
+      },
+      "type": {
+        "Missing materials": "Materiales faltantes",
+        "Damaged materials": "Materiales dañados",
+        "Quantity mismatch": "Diferencia de cantidad"
+      },
+      "stage": {
+        "Warehouse": "Almacén",
+        "Transit": "Transporte",
+        "Site": "Obra",
+        "Resolution": "Resolución"
+      }
+    },
+    "content": {
+      "timelineTitle": {
+        "Dispatch prepared": "Despacho preparado",
+        "Vehicle departed": "Vehículo salió del almacén",
+        "Reception discrepancy reported": "Discrepancia reportada en recepción",
+        "Load verified": "Carga verificada",
+        "Prolonged stop detected": "Detención prolongada detectada",
+        "Damaged materials reported": "Materiales dañados reportados",
+        "Dispatch registered": "Despacho registrado",
+        "Route completed": "Ruta completada",
+        "Quantity mismatch reported": "Diferencia de cantidad reportada",
+        "Case closed": "Caso cerrado"
+      },
+      "timelineDescription": {
+        "The order was prepared and verified at the warehouse": "El pedido fue preparado y verificado en el almacén.",
+        "The transport unit left the warehouse": "La unidad de transporte salió del almacén.",
+        "A difference was detected between dispatched and received quantities": "Se detectó una diferencia entre las cantidades despachadas y recibidas.",
+        "Ceramic boxes were counted and loaded for dispatch": "Las cajas de cerámica fueron contadas y cargadas para el despacho.",
+        "The vehicle remained stopped longer than expected during transit": "El vehículo permaneció detenido más tiempo del esperado durante el traslado.",
+        "Several ceramic boxes were found damaged during reception": "Se encontraron varias cajas de cerámica dañadas durante la recepción.",
+        "The material quantities were registered before departure": "Las cantidades de material fueron registradas antes de la salida.",
+        "The vehicle completed the planned route without incidents": "El vehículo completó la ruta planificada sin incidentes.",
+        "A minor difference was detected during reception": "Se detectó una diferencia menor durante la recepción.",
+        "The discrepancy was reviewed and the case was closed": "La discrepancia fue revisada y el caso fue cerrado."
+      },
+      "caseDescription": {
+        "Difference detected between dispatched and received cement bags": "Se detectó una diferencia entre las bolsas de cemento despachadas y recibidas.",
+        "Several ceramic boxes arrived damaged": "Varias cajas de cerámica llegaron dañadas.",
+        "Minor quantity difference already resolved": "La diferencia menor de cantidad ya fue resuelta."
+      },
+      "missingEvidence": {
+        "Transport photographic evidence": "Evidencia fotográfica del transporte",
+        "Warehouse loading photograph": "Fotografía de carga en almacén",
+        "Reception signature": "Firma de recepción"
+      },
+      "evidenceType": {
+        "Photo": "Foto"
+      },
+      "evidenceCaption": {
+        "Received cement bags during site inspection": "Bolsas de cemento recibidas durante la inspección en obra.",
+        "Damaged ceramic boxes found during reception": "Cajas de cerámica dañadas encontradas durante la recepción."
+      }
+    },
+    "fields": {
+      "dispatch": "Despacho",
+      "project": "Obra",
+      "type": "Tipo",
+      "status": "Estado",
+      "priority": "Prioridad",
+      "reported": "Reportado",
+      "description": "Descripción"
+    },
+
+    "timeline": {
+      "title": "Línea de tiempo de evidencia"
+    },
+
+    "missingEvidence": {
+      "title": "Evidencia faltante",
+      "none": "No falta evidencia."
+    },
+
+    "photographicEvidence": {
+      "title": "Evidencia fotográfica",
+      "none": "No hay evidencia fotográfica disponible."
+    },
+
+    "report": {
+      "generate": "Generar reporte de sustento",
+      "generated": "Reporte generado: {fileName}"
+    },
+
+    "responsibility": {
+      "title": "Determinar responsabilidad",
+      "select": "Seleccionar responsabilidad",
+      "warehouse": "Almacén",
+      "transport": "Transporte",
+      "site": "Obra",
+      "save": "Guardar responsabilidad",
+      "current": "Responsabilidad actual",
+      "required": "Primero selecciona una responsabilidad.",
+      "updated": "Responsabilidad actualizada."
+    },
+
+    "closure": {
+      "button": "Cerrar caso",
+      "success": "Caso cerrado correctamente.",
+      "responsibilityRequired": "Se debe determinar la responsabilidad antes de cerrar el caso."
+    },
+
+    "loading": "Cargando incidencias...",
+    "loadingDetail": "Cargando incidencia...",
+    "loadError": "Error al cargar las incidencias.",
+    "notFound": "Incidencia no encontrada."
+  },
   "receptions": {
     "perspective": {
       "siteManager": "Responsable de Obra",

@@ -117,6 +117,132 @@
     "close": "Close",
     "loading": "Loading data..."
   },
+  "issues": {
+    "title": "Issues",
+    "detailTitle": "Issue Detail",
+
+    "filters": {
+      "project": "Project",
+      "status": "Status",
+      "all": "All"
+    },
+
+    "values": {
+      "status": {
+        "Open": "Open",
+        "Under Review": "Under Review",
+        "Closed": "Closed"
+      },
+      "priority": {
+        "High": "High",
+        "Medium": "Medium",
+        "Low": "Low"
+      },
+      "type": {
+        "Missing materials": "Missing materials",
+        "Damaged materials": "Damaged materials",
+        "Quantity mismatch": "Quantity mismatch"
+      },
+      "stage": {
+        "Warehouse": "Warehouse",
+        "Transit": "Transit",
+        "Site": "Site",
+        "Resolution": "Resolution"
+      }
+    },
+    "content": {
+      "timelineTitle": {
+        "Dispatch prepared": "Dispatch prepared",
+        "Vehicle departed": "Vehicle departed",
+        "Reception discrepancy reported": "Reception discrepancy reported",
+        "Load verified": "Load verified",
+        "Prolonged stop detected": "Prolonged stop detected",
+        "Damaged materials reported": "Damaged materials reported",
+        "Dispatch registered": "Dispatch registered",
+        "Route completed": "Route completed",
+        "Quantity mismatch reported": "Quantity mismatch reported",
+        "Case closed": "Case closed"
+      },
+
+      "timelineDescription": {
+        "The order was prepared and verified at the warehouse": "The order was prepared and verified at the warehouse.",
+        "The transport unit left the warehouse": "The transport unit left the warehouse.",
+        "A difference was detected between dispatched and received quantities": "A difference was detected between dispatched and received quantities.",
+        "Ceramic boxes were counted and loaded for dispatch": "Ceramic boxes were counted and loaded for dispatch.",
+        "The vehicle remained stopped longer than expected during transit": "The vehicle remained stopped longer than expected during transit.",
+        "Several ceramic boxes were found damaged during reception": "Several ceramic boxes were found damaged during reception.",
+        "The material quantities were registered before departure": "The material quantities were registered before departure.",
+        "The vehicle completed the planned route without incidents": "The vehicle completed the planned route without incidents.",
+        "A minor difference was detected during reception": "A minor difference was detected during reception.",
+        "The discrepancy was reviewed and the case was closed": "The discrepancy was reviewed and the case was closed."
+      },
+
+      "caseDescription": {
+        "Difference detected between dispatched and received cement bags": "Difference detected between dispatched and received cement bags.",
+        "Several ceramic boxes arrived damaged": "Several ceramic boxes arrived damaged.",
+        "Minor quantity difference already resolved": "Minor quantity difference already resolved."
+      },
+
+      "missingEvidence": {
+        "Transport photographic evidence": "Transport photographic evidence",
+        "Warehouse loading photograph": "Warehouse loading photograph",
+        "Reception signature": "Reception signature"
+      },
+
+      "evidenceType": {
+        "Photo": "Photo"
+      },
+
+      "evidenceCaption": {
+        "Received cement bags during site inspection": "Received cement bags during site inspection.",
+        "Damaged ceramic boxes found during reception": "Damaged ceramic boxes found during reception."
+      }
+    },
+    "fields": {
+      "dispatch": "Dispatch",
+      "project": "Project",
+      "type": "Type",
+      "status": "Status",
+      "priority": "Priority",
+      "reported": "Reported",
+      "description": "Description"
+    },
+    "timeline": {
+      "title": "Evidence Timeline"
+    },
+    "missingEvidence": {
+      "title": "Missing Evidence",
+      "none": "No missing evidence."
+    },
+    "photographicEvidence": {
+      "title": "Photographic Evidence",
+      "none": "No photographic evidence available."
+    },
+    "report": {
+      "generate": "Generate Supporting Report",
+      "generated": "Report generated: {fileName}"
+    },
+    "responsibility": {
+      "title": "Determine Responsibility",
+      "select": "Select responsibility",
+      "warehouse": "Warehouse",
+      "transport": "Transport",
+      "site": "Site",
+      "save": "Save Responsibility",
+      "current": "Current Responsibility",
+      "required": "Select a responsibility first.",
+      "updated": "Responsibility updated."
+    },
+    "closure": {
+      "button": "Close Case",
+      "success": "Case closed successfully.",
+      "responsibilityRequired": "Responsibility must be determined before closing the case."
+    },
+    "loading": "Loading issues...",
+    "loadingDetail": "Loading issue...",
+    "loadError": "Error loading issues.",
+    "notFound": "Issue not found."
+  },
   "receptions": {
     "perspective": {
       "siteManager": "Site Manager",
