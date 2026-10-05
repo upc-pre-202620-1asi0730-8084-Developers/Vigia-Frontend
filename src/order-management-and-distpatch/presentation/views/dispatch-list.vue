@@ -78,7 +78,7 @@ const mainQuantity = (dispatch) => {
         <template #body="slotProps">{{ mainQuantity(slotProps.data) }}</template>
       </pv-column>
       <pv-column :header="t('dispatches.table.transport')">
-        <template #body="slotProps">{{ slotProps.data.transportId || t('dispatches.unassigned') }}</template>
+        <template #body="slotProps">{{ slotProps.data.vehiclePlate || t('dispatches.unassigned') }}</template>
       </pv-column>
       <pv-column :header="t('dispatches.table.exit')">
         <template #body="slotProps">{{ slotProps.data.departureDate }} · {{ slotProps.data.estimatedTime }}</template>

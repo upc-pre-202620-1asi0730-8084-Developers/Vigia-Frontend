@@ -3,6 +3,8 @@ import {DispatchItem} from "./dispatch-item.entity.js";
 /**
  * Dispatch entity (scheduled departure of materials to a work) within the
  * Order Management and Dispatch bounded context.
+ * Its id is referenced by Route.dispatchId and its vehicleId by Route.vehicleId
+ * in the Transit Traceability bounded context (BC-06).
  *
  * @class Dispatch
  */
@@ -21,11 +23,12 @@ export class Dispatch {
      * @param {string} [params.createdAt=''] - Creation timestamp.
      * @param {string} [params.observations=''] - General observations.
      * @param {DispatchItem[]} [params.items=[]] - Dispatched material lines.
-     * @param {?string} [params.transportId=null] - Assigned truck, if any.
+     * @param {?string} [params.vehicleId=null] - Assigned vehicle id (matches Route.vehicleId in Transit Traceability).
+     * @param {?string} [params.vehiclePlate=null] - License plate of the assigned vehicle, for display.
      */
     constructor({ id = null, projectName = '', departureDate = '', estimatedTime = '', relatedOrderId = null,
                   dispatchType = 'DEPARTURE_TO_WORK', priority = 'AVERAGE', status = 'IN_PREPARATION',
-                  createdBy = '', createdAt = '', observations = '', items = [], transportId = null }) {
+                  createdBy = '', createdAt = '', observations = '', items = [], vehicleId = null, vehiclePlate = null }) {
         this.id = id;
         this.projectName = projectName;
         this.departureDate = departureDate;
@@ -38,6 +41,7 @@ export class Dispatch {
         this.createdAt = createdAt;
         this.observations = observations;
         this.items = items.map(item => item instanceof DispatchItem ? item : new DispatchItem({...item}));
-        this.transportId = transportId;
+        this.vehicleId = vehicleId;
+        this.vehiclePlate = vehiclePlate;
     }
 }

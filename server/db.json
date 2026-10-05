@@ -675,9 +675,6 @@
           "observation": ""
         }
       ],
-      "transportId": null,
-      "transportPlate": null,
-      "driverName": null,
       "timeline": [
         {
           "id": 1,
@@ -686,7 +683,9 @@
           "description": "Dispatch DS-104 has been created.",
           "date": "2025-04-14 10:24"
         }
-      ]
+      ],
+      "vehicleId": null,
+      "vehiclePlate": null
     },
     {
       "id": "DS-105",
@@ -713,9 +712,6 @@
           "observation": ""
         }
       ],
-      "transportId": null,
-      "transportPlate": null,
-      "driverName": null,
       "timeline": [
         {
           "id": 1,
@@ -724,7 +720,9 @@
           "description": "Dispatch DS-105 has been created.",
           "date": "2025-04-14 09:00"
         }
-      ]
+      ],
+      "vehicleId": null,
+      "vehiclePlate": null
     },
     {
       "id": "DS-106",
@@ -751,9 +749,6 @@
           "observation": ""
         }
       ],
-      "transportId": "TR-022",
-      "transportPlate": "TR-022",
-      "driverName": "Mario Quispe",
       "timeline": [
         {
           "id": 1,
@@ -769,7 +764,9 @@
           "description": "The dispatch left the warehouse.",
           "date": "2025-04-15 08:05"
         }
-      ]
+      ],
+      "vehicleId": "2",
+      "vehiclePlate": "V3B-920"
     },
     {
       "id": "DS-107",
@@ -796,9 +793,6 @@
           "observation": ""
         }
       ],
-      "transportId": "TR-018",
-      "transportPlate": "TR-018",
-      "driverName": "Pedro Salas",
       "timeline": [
         {
           "id": 1,
@@ -807,7 +801,9 @@
           "description": "Dispatch DS-107 has been created.",
           "date": "2025-04-13 12:00"
         }
-      ]
+      ],
+      "vehicleId": "1",
+      "vehiclePlate": "V3A-780"
     },
     {
       "id": "DS-108",
@@ -834,9 +830,6 @@
           "observation": ""
         }
       ],
-      "transportId": null,
-      "transportPlate": null,
-      "driverName": null,
       "timeline": [
         {
           "id": 1,
@@ -845,7 +838,9 @@
           "description": "Dispatch DS-108 has been created.",
           "date": "2025-04-12 16:18"
         }
-      ]
+      ],
+      "vehicleId": null,
+      "vehiclePlate": null
     }
   ],
   "orders": [
