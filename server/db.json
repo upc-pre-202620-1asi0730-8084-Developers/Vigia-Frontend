@@ -624,5 +624,568 @@
       ],
       "evidences": []
     }
+  ],
+  "dispatches": [
+    {
+      "id": "DS-104",
+      "projectName": "Tower A (North Floor)",
+      "siteId": "OB-001",
+      "address": "Av. Insurgentes 123, CDMX",
+      "departureDate": "2025-04-14",
+      "estimatedTime": "14:30",
+      "relatedOrderId": "SOL-778",
+      "dispatchType": "DEPARTURE_TO_WORK",
+      "priority": "AVERAGE",
+      "status": "IN_PREPARATION",
+      "createdBy": "Carlos Mendoza",
+      "createdAt": "2025-04-14 10:24",
+      "internalReference": "REF-023",
+      "observations": "Materials ready for delivery on site. Coordinate with the resident on arrival.",
+      "items": [
+        {
+          "id": 1,
+          "code": "MAT-001",
+          "material": "Ready mixed concrete",
+          "quantity": 20,
+          "unit": "t",
+          "observation": "For first level slab"
+        },
+        {
+          "id": 2,
+          "code": "MAT-004",
+          "material": "Reinforcing steel (1/2\")",
+          "quantity": 500,
+          "unit": "kg",
+          "observation": "According to order SOL-778"
+        },
+        {
+          "id": 3,
+          "code": "MAT-006",
+          "material": "PVC pipe (4\")",
+          "quantity": 200,
+          "unit": "m",
+          "observation": ""
+        },
+        {
+          "id": 4,
+          "code": "MAT-011",
+          "material": "Plasticizer additive",
+          "quantity": 10,
+          "unit": "u",
+          "observation": ""
+        }
+      ],
+      "transportId": null,
+      "transportPlate": null,
+      "driverName": null,
+      "timeline": [
+        {
+          "id": 1,
+          "event": "Dispatch created",
+          "user": "Carlos Mendoza",
+          "description": "Dispatch DS-104 has been created.",
+          "date": "2025-04-14 10:24"
+        }
+      ]
+    },
+    {
+      "id": "DS-105",
+      "projectName": "South Shopping Center",
+      "siteId": "OB-002",
+      "address": "Calz. de Tlalpan 456, CDMX",
+      "departureDate": "2025-04-14",
+      "estimatedTime": "16:00",
+      "relatedOrderId": "SOL-103",
+      "dispatchType": "DEPARTURE_TO_WORK",
+      "priority": "AVERAGE",
+      "status": "SCHEDULED",
+      "createdBy": "Carlos Mendoza",
+      "createdAt": "2025-04-14 09:00",
+      "internalReference": "REF-024",
+      "observations": "",
+      "items": [
+        {
+          "id": 1,
+          "code": "MAT-004",
+          "material": "Reinforcing steel",
+          "quantity": 5,
+          "unit": "t",
+          "observation": ""
+        }
+      ],
+      "transportId": null,
+      "transportPlate": null,
+      "driverName": null,
+      "timeline": [
+        {
+          "id": 1,
+          "event": "Dispatch created",
+          "user": "Carlos Mendoza",
+          "description": "Dispatch DS-105 has been created.",
+          "date": "2025-04-14 09:00"
+        }
+      ]
+    },
+    {
+      "id": "DS-106",
+      "projectName": "Las Lomas Bridge",
+      "siteId": "OB-003",
+      "address": "Carr. Picacho-Ajusco Km 5",
+      "departureDate": "2025-04-15",
+      "estimatedTime": "08:00",
+      "relatedOrderId": "SOL-102",
+      "dispatchType": "DEPARTURE_TO_WORK",
+      "priority": "HIGH",
+      "status": "IN_TRANSIT",
+      "createdBy": "Carlos Mendoza",
+      "createdAt": "2025-04-13 15:00",
+      "internalReference": "REF-025",
+      "observations": "",
+      "items": [
+        {
+          "id": 1,
+          "code": "MAT-006",
+          "material": "PVC pipe",
+          "quantity": 200,
+          "unit": "m",
+          "observation": ""
+        }
+      ],
+      "transportId": "TR-022",
+      "transportPlate": "TR-022",
+      "driverName": "Mario Quispe",
+      "timeline": [
+        {
+          "id": 1,
+          "event": "Dispatch created",
+          "user": "Carlos Mendoza",
+          "description": "Dispatch DS-106 has been created.",
+          "date": "2025-04-13 15:00"
+        },
+        {
+          "id": 2,
+          "event": "In transit",
+          "user": "Carlos Mendoza",
+          "description": "The dispatch left the warehouse.",
+          "date": "2025-04-15 08:05"
+        }
+      ]
+    },
+    {
+      "id": "DS-107",
+      "projectName": "Central Hospital",
+      "siteId": "OB-004",
+      "address": "Av. Cuauhtémoc 330, CDMX",
+      "departureDate": "2025-04-15",
+      "estimatedTime": "11:00",
+      "relatedOrderId": "SOL-100",
+      "dispatchType": "DEPARTURE_TO_WORK",
+      "priority": "AVERAGE",
+      "status": "IN_PREPARATION",
+      "createdBy": "Carlos Mendoza",
+      "createdAt": "2025-04-13 12:00",
+      "internalReference": "REF-026",
+      "observations": "",
+      "items": [
+        {
+          "id": 1,
+          "code": "MAT-009",
+          "material": "Concrete blocks",
+          "quantity": 10000,
+          "unit": "u",
+          "observation": ""
+        }
+      ],
+      "transportId": "TR-018",
+      "transportPlate": "TR-018",
+      "driverName": "Pedro Salas",
+      "timeline": [
+        {
+          "id": 1,
+          "event": "Dispatch created",
+          "user": "Carlos Mendoza",
+          "description": "Dispatch DS-107 has been created.",
+          "date": "2025-04-13 12:00"
+        }
+      ]
+    },
+    {
+      "id": "DS-108",
+      "projectName": "Valley Residential",
+      "siteId": "OB-005",
+      "address": "Prol. Reforma 1200, CDMX",
+      "departureDate": "2025-04-15",
+      "estimatedTime": "09:00",
+      "relatedOrderId": "SOL-101",
+      "dispatchType": "DEPARTURE_TO_WORK",
+      "priority": "LOW",
+      "status": "SCHEDULED",
+      "createdBy": "Carlos Mendoza",
+      "createdAt": "2025-04-12 16:18",
+      "internalReference": "REF-027",
+      "observations": "",
+      "items": [
+        {
+          "id": 1,
+          "code": "MAT-005",
+          "material": "Cement",
+          "quantity": 20,
+          "unit": "t",
+          "observation": ""
+        }
+      ],
+      "transportId": null,
+      "transportPlate": null,
+      "driverName": null,
+      "timeline": [
+        {
+          "id": 1,
+          "event": "Dispatch created",
+          "user": "Carlos Mendoza",
+          "description": "Dispatch DS-108 has been created.",
+          "date": "2025-04-12 16:18"
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "SOL-104",
+      "projectName": "Tower A",
+      "requesterName": "Luis Ramírez",
+      "status": "PENDING",
+      "priority": "HIGH",
+      "date": "2025-04-14",
+      "mainMaterial": "Ready mixed concrete",
+      "items": [
+        {
+          "id": 1,
+          "material": "Ready mixed concrete",
+          "quantity": 20,
+          "unit": "t",
+          "observation": "For first level slab"
+        },
+        {
+          "id": 2,
+          "material": "Gravel",
+          "quantity": 5,
+          "unit": "t",
+          "observation": "Granulometry 3/4\""
+        },
+        {
+          "id": 3,
+          "material": "Additive",
+          "quantity": 2,
+          "unit": "u",
+          "observation": "Plasticizer additive"
+        }
+      ],
+      "observations": "Material required for casting the slab of the first level of Tower A. Requests delivery on site in accordance with the work program.",
+      "attachedFiles": [
+        {
+          "id": 1,
+          "name": "Work_Program_TowerA.pdf",
+          "type": "PDF",
+          "size": "1.2 MB"
+        },
+        {
+          "id": 2,
+          "name": "Material_list.xlsx",
+          "type": "XLSX",
+          "size": "320 KB"
+        }
+      ],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Luis Ramírez",
+          "description": "Order SOL-104 has been created for Tower A.",
+          "date": "2025-04-14 08:12"
+        },
+        {
+          "id": 2,
+          "title": "Under review",
+          "user": "Carlos Mendoza",
+          "description": "The order is under review by the warehouse area.",
+          "date": "2025-04-14 09:30"
+        },
+        {
+          "id": 3,
+          "title": "Pending approval",
+          "user": "Carlos Mendoza",
+          "description": "Waiting for a decision.",
+          "date": "2025-04-14 09:30"
+        }
+      ]
+    },
+    {
+      "id": "SOL-103",
+      "projectName": "Central Building",
+      "requesterName": "Ana Soto",
+      "status": "APPROVED",
+      "priority": "AVERAGE",
+      "date": "2025-04-14",
+      "mainMaterial": "Reinforcing steel",
+      "items": [
+        {
+          "id": 1,
+          "material": "Reinforcing steel",
+          "quantity": 5,
+          "unit": "t",
+          "observation": ""
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Ana Soto",
+          "description": "Order SOL-103 has been created.",
+          "date": "2025-04-14 07:40"
+        }
+      ]
+    },
+    {
+      "id": "SOL-102",
+      "projectName": "North Bridge",
+      "requesterName": "Luis Ramírez",
+      "status": "UNDER_REVIEW",
+      "priority": "HIGH",
+      "date": "2025-04-13",
+      "mainMaterial": "Gravel",
+      "items": [
+        {
+          "id": 1,
+          "material": "Gravel",
+          "quantity": 18,
+          "unit": "t",
+          "observation": "Unusual amount of gravel"
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Luis Ramírez",
+          "description": "Order SOL-102 has been created.",
+          "date": "2025-04-13 16:30"
+        }
+      ]
+    },
+    {
+      "id": "SOL-101",
+      "projectName": "Valley Residential",
+      "requesterName": "Ana Soto",
+      "status": "PENDING",
+      "priority": "AVERAGE",
+      "date": "2025-04-13",
+      "mainMaterial": "Cement",
+      "items": [
+        {
+          "id": 1,
+          "material": "Cement",
+          "quantity": 12,
+          "unit": "t",
+          "observation": ""
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Ana Soto",
+          "description": "Order SOL-101 has been created.",
+          "date": "2025-04-13 11:20"
+        }
+      ]
+    },
+    {
+      "id": "SOL-100",
+      "projectName": "Central Hospital",
+      "requesterName": "Juan Pérez",
+      "status": "APPROVED",
+      "priority": "LOW",
+      "date": "2025-04-12",
+      "mainMaterial": "PVC pipe (200 mm)",
+      "items": [
+        {
+          "id": 1,
+          "material": "PVC pipe (200 mm)",
+          "quantity": 50,
+          "unit": "pcs",
+          "observation": ""
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Juan Pérez",
+          "description": "Order SOL-100 has been created.",
+          "date": "2025-04-12 09:00"
+        }
+      ]
+    },
+    {
+      "id": "SOL-099",
+      "projectName": "North Plant",
+      "requesterName": "Ana Soto",
+      "status": "REJECTED",
+      "priority": "AVERAGE",
+      "date": "2025-04-12",
+      "mainMaterial": "Concrete blocks",
+      "items": [
+        {
+          "id": 1,
+          "material": "Concrete blocks",
+          "quantity": 1000,
+          "unit": "pcs",
+          "observation": ""
+        }
+      ],
+      "observations": "Rejected order for concrete blocks. Requires review.",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Ana Soto",
+          "description": "Order SOL-099 has been created.",
+          "date": "2025-04-12 08:00"
+        },
+        {
+          "id": 2,
+          "title": "Rejected",
+          "user": "Carlos Mendoza",
+          "description": "The order was rejected.",
+          "date": "2025-04-12 10:00"
+        }
+      ]
+    },
+    {
+      "id": "SOL-098",
+      "projectName": "South Shopping Center",
+      "requesterName": "Luis Ramírez",
+      "status": "UNDER_REVIEW",
+      "priority": "HIGH",
+      "date": "2025-04-11",
+      "mainMaterial": "Structural steel",
+      "items": [
+        {
+          "id": 1,
+          "material": "Structural steel",
+          "quantity": 8,
+          "unit": "t",
+          "observation": ""
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Luis Ramírez",
+          "description": "Order SOL-098 has been created.",
+          "date": "2025-04-11 14:00"
+        }
+      ]
+    },
+    {
+      "id": "SOL-097",
+      "projectName": "Tower B",
+      "requesterName": "Ana Soto",
+      "status": "APPROVED",
+      "priority": "AVERAGE",
+      "date": "2025-04-11",
+      "mainMaterial": "Ready mixed concrete",
+      "items": [
+        {
+          "id": 1,
+          "material": "Ready mixed concrete",
+          "quantity": 25,
+          "unit": "t",
+          "observation": ""
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Ana Soto",
+          "description": "Order SOL-097 has been created.",
+          "date": "2025-04-11 10:00"
+        }
+      ]
+    },
+    {
+      "id": "SOL-096",
+      "projectName": "Fractionation Lomas",
+      "requesterName": "Juan Pérez",
+      "status": "PENDING",
+      "priority": "LOW",
+      "date": "2025-04-10",
+      "mainMaterial": "Sand",
+      "items": [
+        {
+          "id": 1,
+          "material": "Sand",
+          "quantity": 30,
+          "unit": "t",
+          "observation": "Pending order for sand"
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Juan Pérez",
+          "description": "Order SOL-096 has been created.",
+          "date": "2025-04-10 09:15"
+        }
+      ]
+    },
+    {
+      "id": "SOL-095",
+      "projectName": "Treatment Plant",
+      "requesterName": "Ana Soto",
+      "status": "APPROVED",
+      "priority": "AVERAGE",
+      "date": "2025-04-10",
+      "mainMaterial": "PVC pipe (110 mm)",
+      "items": [
+        {
+          "id": 1,
+          "material": "PVC pipe (110 mm)",
+          "quantity": 200,
+          "unit": "pcs",
+          "observation": ""
+        }
+      ],
+      "observations": "",
+      "attachedFiles": [],
+      "timeline": [
+        {
+          "id": 1,
+          "title": "Order created",
+          "user": "Ana Soto",
+          "description": "Order SOL-095 has been created.",
+          "date": "2025-04-10 08:30"
+        }
+      ]
+    }
   ]
 }
