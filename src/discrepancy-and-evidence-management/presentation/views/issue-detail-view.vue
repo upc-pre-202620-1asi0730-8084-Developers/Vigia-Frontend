@@ -6,6 +6,16 @@ import { useDiscrepancyStore } from '../../application/discrepancy.store.js'
 const route = useRoute()
 const discrepancyStore = useDiscrepancyStore()
 
+const generateReport = async () => {
+  const result = await discrepancyStore.generateSupportingReport(
+      discrepancyCase.value.id
+  )
+
+  if (result) {
+    alert(`Report generated: ${result.fileName}`)
+  }
+}
+
 onMounted(() => {
   if (discrepancyStore.cases.length === 0) {
     discrepancyStore.loadCases()
@@ -47,6 +57,9 @@ const discrepancyCase = computed(() => {
         <p>{{ event.date }}</p>
         <hr>
       </div>
+      <button @click="generateReport">
+        Generate Supporting Report
+      </button>
     </div>
 
     <div v-else>

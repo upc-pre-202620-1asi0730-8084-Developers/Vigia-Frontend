@@ -21,11 +21,19 @@ export const useDiscrepancyStore = defineStore('discrepancy', () => {
             loading.value = false
         }
     }
-
+    const generateSupportingReport = async (caseId) => {
+        try {
+            return await discrepancyApi.generateSupportingReport(caseId)
+        } catch (err) {
+            error.value = err
+            return null
+        }
+    }
     return {
         cases,
         loading,
         error,
-        loadCases
+        loadCases,
+        generateSupportingReport
     }
 })
