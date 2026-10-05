@@ -29,11 +29,34 @@ export const useDiscrepancyStore = defineStore('discrepancy', () => {
             return null
         }
     }
+    const determineResponsibility = async (caseId, responsibility) => {
+        try {
+            const result = await discrepancyApi.determineResponsibility(
+                caseId,
+                responsibility
+            )
+
+            const discrepancyCase = cases.value.find(
+                item => item.id === caseId
+            )
+
+            if (discrepancyCase && result.updated) {
+                discrepancyCase.responsibility = result.responsibility
+            }
+
+            return result
+        } catch (err) {
+            error.value = err
+            return null
+        }
+    }
+
     return {
         cases,
         loading,
         error,
         loadCases,
-        generateSupportingReport
+        generateSupportingReport,
+        determineResponsibility
     }
 })
