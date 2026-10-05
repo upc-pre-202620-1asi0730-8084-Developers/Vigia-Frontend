@@ -8,7 +8,8 @@ export class DiscrepancyCase {
                     priority,
                     reportedAt,
                     description,
-                    timeline
+                    timeline,
+                    responsibility
                 }) {
         this.id = id
         this.dispatchId = dispatchId
@@ -19,5 +20,6 @@ export class DiscrepancyCase {
         this.reportedAt = reportedAt
         this.description = description
         this.timeline = timeline
+        this.responsibility = responsibility
     }
 }
