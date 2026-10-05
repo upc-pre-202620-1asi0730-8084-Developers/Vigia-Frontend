@@ -2,9 +2,12 @@
 import { computed, onMounted, ref } from 'vue'
 import { useDiscrepancyStore } from '../../application/discrepancy.store.js'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const discrepancyStore = useDiscrepancyStore()
 const router = useRouter()
+const { t } = useI18n()
+
 
 const openIssueDetail = (id) => {
   router.push(`/problemas/${id}`)
@@ -43,10 +46,12 @@ const filteredCases = computed(() => {
 
 <template>
   <section>
-    <h1>Issues</h1>
+    <h1>{{ t('issues.title') }}</h1>
 
     <div>
-      <label for="project-filter">Project</label>
+      <label for="project-filter">
+        {{ t('issues.filters.project') }}
+      </label>
 
       <select
           id="project-filter"
@@ -61,7 +66,9 @@ const filteredCases = computed(() => {
         </option>
       </select>
 
-      <label for="status-filter">Status</label>
+      <label for="status-filter">
+        {{ t('issues.filters.status') }}
+      </label>
 
       <select
           id="status-filter"
@@ -78,11 +85,11 @@ const filteredCases = computed(() => {
     </div>
 
     <div v-if="discrepancyStore.loading">
-      Loading issues...
+      {{ t('issues.loading') }}
     </div>
 
     <div v-else-if="discrepancyStore.error">
-      Error loading issues.
+      {{ t('issues.loadError') }}
     </div>
 
     <ul v-else>
@@ -94,7 +101,7 @@ const filteredCases = computed(() => {
       >
         {{ discrepancyCase.dispatchId }} -
         {{ discrepancyCase.projectName }} -
-        {{ discrepancyCase.status }}
+        {{ t(`issues.values.status.${discrepancyCase.status}`) }}
       </li>
     </ul>
   </section>
