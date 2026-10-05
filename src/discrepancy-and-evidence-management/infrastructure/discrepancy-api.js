@@ -133,4 +133,11 @@ export class DiscrepancyApi {
             updated: true
         }
     }
+    async closeCase(caseId) {
+        return {
+            caseId: caseId,
+            status: 'Closed',
+            closed: true
+        }
+    }
 }

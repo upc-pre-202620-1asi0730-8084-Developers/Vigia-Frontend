@@ -51,12 +51,39 @@ export const useDiscrepancyStore = defineStore('discrepancy', () => {
         }
     }
 
+    const closeCase = async (caseId) => {
+        const discrepancyCase = cases.value.find(
+            item => item.id === caseId
+        )
+
+        if (!discrepancyCase || !discrepancyCase.responsibility) {
+            return {
+                closed: false,
+                message: 'Responsibility must be determined before closing the case.'
+            }
+        }
+
+        try {
+            const result = await discrepancyApi.closeCase(caseId)
+
+            if (result.closed) {
+                discrepancyCase.status = result.status
+            }
+
+            return result
+        } catch (err) {
+            error.value = err
+            return null
+        }
+    }
+
     return {
         cases,
         loading,
         error,
         loadCases,
         generateSupportingReport,
-        determineResponsibility
+        determineResponsibility,
+        closeCase
     }
 })
