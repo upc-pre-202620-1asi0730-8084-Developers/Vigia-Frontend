@@ -1,9 +1,14 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useDiscrepancyStore } from '../../application/discrepancy.store.js'
+import { useRouter } from 'vue-router'
 
 const discrepancyStore = useDiscrepancyStore()
+const router = useRouter()
 
+const openIssueDetail = (id) => {
+  router.push(`/problemas/${id}`)
+}
 const selectedProject = ref('All')
 const selectedStatus = ref('All')
 
@@ -84,6 +89,8 @@ const filteredCases = computed(() => {
       <li
           v-for="discrepancyCase in filteredCases"
           :key="discrepancyCase.id"
+          @click="openIssueDetail(discrepancyCase.id)"
+          style="cursor: pointer;"
       >
         {{ discrepancyCase.dispatchId }} -
         {{ discrepancyCase.projectName }} -
