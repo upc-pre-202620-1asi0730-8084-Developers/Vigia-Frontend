@@ -4,6 +4,9 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useDispatchStore } from '../../application/dispatch.store.js';
 import { useOrderStore } from '../../application/order.store.js';
+import Stepper from 'primevue/stepper';
+import StepList from 'primevue/steplist';
+import Step from 'primevue/step';
 import { DISPATCH_TYPE, DISPATCH_PRIORITY } from '../../domain/dispatch-status.js';
 import { ORDER_STATUS } from '../../domain/order-status.js';
 
@@ -78,13 +81,13 @@ function cancel() {
     </header>
 
     <!-- Indicador de pasos del asistente -->
-    <div class="stepper">
-      <div v-for="(step, index) in steps" :key="step" class="step"
-           :class="{ active: index + 1 === currentStep, done: index + 1 < currentStep }">
-        <span class="step-number">{{ index + 1 }}</span>
-        <span class="step-label">{{ t(`dispatches.new.steps.${step}`) }}</span>
-      </div>
-    </div>
+    <Stepper :value="currentStep">
+      <StepList>
+        <Step v-for="(step, index) in steps" :key="step" :value="index + 1">
+          {{ t(`dispatches.new.steps.${step}`) }}
+        </Step>
+      </StepList>
+    </Stepper>
 
     <pv-card>
       <template #content>
@@ -143,7 +146,7 @@ function cancel() {
 
     <div class="actions">
       <pv-button :label="t('common.cancel')" outlined @click="cancel" />
-      <pv-button :label="t('dispatches.new.create')" icon="pi pi-check" icon-pos="right" class="btn-accent"
+      <pv-button :label="t('dispatches.new.create')" icon="pi pi-check" icon-pos="right"
                  :loading="submitting" @click="submit" />
     </div>
   </section>
@@ -151,22 +154,16 @@ function cancel() {
 
 <style scoped>
 .new-dispatch { width: 100%; display: flex; flex-direction: column; gap: var(--sp-16); }
-.new-dispatch :deep(.p-card) { color: var(--color-text-main); }
-.subtitle { color: var(--color-text-secondary); font-size: 14px; margin-top: 4px; }
+.new-dispatch, .new-dispatch :deep(.p-card), .new-dispatch :deep(.p-step), .new-dispatch :deep(.p-step-title) { color: var(--color-text-main); }
+.new-dispatch :deep(.p-button:not(.p-button-outlined):not(.p-button-text)) { color: #fff; }
+.new-dispatch :deep(.p-card) { }
+.subtitle { opacity: 0.7; font-size: 14px; margin-top: 4px; }
 
-.stepper { display: flex; gap: var(--sp-8); flex-wrap: wrap; }
-.step { display: flex; align-items: center; gap: var(--sp-8); flex: 1; min-width: 160px; opacity: 0.5; }
-.step.active, .step.done { opacity: 1; }
-.step-number { width: 32px; height: 32px; border-radius: 50%; background: #E5E7EB; color: var(--color-text-secondary);
-  display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
-.step.active .step-number { background: var(--color-accent); color: #212121; }
-.step.done .step-number { background: var(--color-primary); color: #fff; }
-.step-label { font-weight: 500; }
 
-.section-title { color: var(--color-primary); margin-bottom: 4px; }
+.section-title { margin-bottom: 4px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); margin-top: var(--sp-16); }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field label { font-size: 13px; font-weight: 500; color: var(--color-text-main); }
+.field label { font-size: 13px; font-weight: 500; }
 .field-full { grid-column: 1 / -1; }
 
 .actions { display: flex; justify-content: flex-end; gap: var(--sp-16); }

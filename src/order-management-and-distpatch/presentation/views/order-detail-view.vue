@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
+import Timeline from 'primevue/timeline';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useOrderStore } from '../../application/order.store.js';
@@ -125,7 +126,7 @@ function goBack() {
             <h3 class="section-title">{{ t('orders.detail.makeDecision') }}</h3>
             <p class="decision-hint">{{ t('orders.detail.decisionHint') }}</p>
             <div class="decision-actions">
-              <pv-button :label="t('orders.detail.approve')" icon="pi pi-check" class="btn-accent w-full"
+              <pv-button :label="t('orders.detail.approve')" icon="pi pi-check" class="w-full"
                          :disabled="order.status === ORDER_STATUS.APPROVED"
                          @click="decide(ORDER_STATUS.APPROVED, 'orders.detail.notes.approved')" />
               <pv-button :label="t('orders.detail.requestChanges')" icon="pi pi-pencil" outlined class="w-full"
@@ -142,16 +143,13 @@ function goBack() {
         <pv-card>
           <template #content>
             <h3 class="section-title">{{ t('orders.detail.history') }}</h3>
-            <ul class="timeline">
-              <li v-for="event in order.timeline" :key="event.id">
-                <span class="dot" />
-                <div>
-                  <strong>{{ event.title }}</strong>
-                  <p class="m-0">{{ event.description }}</p>
-                  <small>{{ event.user }} · {{ event.date }}</small>
-                </div>
-              </li>
-            </ul>
+            <Timeline :value="order.timeline">
+              <template #content="{ item }">
+                <strong>{{ item.title }}</strong>
+                <p class="m-0">{{ item.description }}</p>
+                <small>{{ item.user }} · {{ item.date }}</small>
+              </template>
+            </Timeline>
           </template>
         </pv-card>
       </div>
@@ -166,9 +164,11 @@ function goBack() {
 
 <style scoped>
 .order-detail { width: 100%; display: flex; flex-direction: column; gap: var(--sp-16); }
-.order-detail :deep(.p-card) { color: var(--color-text-main); }
+.order-detail, .order-detail :deep(.p-card), .order-detail :deep(.p-step) { color: var(--color-text-main); }
+.order-detail :deep(.p-button:not(.p-button-outlined):not(.p-button-text)) { color: #fff; }
+.order-detail :deep(.p-card) { }
 .view-header { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--sp-16); flex-wrap: wrap; }
-.subtitle { color: var(--color-text-secondary); font-size: 14px; margin-top: 4px; }
+.subtitle { opacity: 0.7; font-size: 14px; margin-top: 4px; }
 
 .detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-16); align-items: start; }
 .main-column, .side-column { display: flex; flex-direction: column; gap: var(--sp-16); }
@@ -177,26 +177,23 @@ function goBack() {
 .head-tags { display: flex; gap: var(--sp-24); }
 .d-block { display: block; margin-bottom: 4px; }
 
-.section-title { color: var(--color-primary); margin-bottom: var(--sp-16); }
+.section-title { margin-bottom: var(--sp-16); }
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
-.info-grid p { margin: 2px 0 0; font-weight: 500; color: var(--color-text-main); }
+.info-grid p { margin: 2px 0 0; font-weight: 500; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
 
-.observations { line-height: 1.6; color: var(--color-text-main); }
-.timeline p { color: var(--color-text-main); }
+.observations { line-height: 1.6; }
 .files-list, .timeline { list-style: none; padding: 0; margin: 0; }
-.files-list li { display: flex; align-items: center; gap: var(--sp-8); padding: var(--sp-8) 0; border-bottom: 1px solid #F0F0F0; }
+.files-list li { display: flex; align-items: center; gap: var(--sp-8); padding: var(--sp-8) 0; border-bottom: 1px solid var(--p-content-border-color); }
 .file-name { font-weight: 500; flex: 1; }
-.files-list .empty, .empty { color: var(--color-text-secondary); }
+.files-list .empty, .empty { }
 
-.decision-hint { color: var(--color-text-secondary); margin-bottom: var(--sp-16); }
+.decision-hint { margin-bottom: var(--sp-16); }
 .decision-actions { display: flex; flex-direction: column; gap: var(--sp-8); }
-.feedback { margin-top: var(--sp-16); color: var(--color-success); font-weight: 500; }
+.feedback { margin-top: var(--sp-16); font-weight: 500; }
 
-.timeline li { display: flex; gap: var(--sp-16); padding-bottom: var(--sp-16); position: relative; }
-.timeline .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent); margin-top: 4px; flex-shrink: 0; }
 
-.not-found { text-align: center; padding: var(--sp-48); color: var(--color-text-secondary); }
+.not-found { text-align: center; padding: var(--sp-48); }
 
 @media (max-width: 1100px) { .detail-grid { grid-template-columns: 1fr; } .two-col { grid-template-columns: 1fr; } }
 </style>

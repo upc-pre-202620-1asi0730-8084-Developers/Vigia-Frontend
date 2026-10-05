@@ -61,7 +61,7 @@ function totalQuantity(dispatch) {
         <h1 class="m-0">{{ t('dispatches.title') }}</h1>
         <p class="subtitle m-0">{{ t('dispatches.subtitle') }}</p>
       </div>
-      <pv-button :label="t('dispatches.newButton')" icon="pi pi-plus" class="btn-accent" @click="newDispatch" />
+      <pv-button :label="t('dispatches.newButton')" icon="pi pi-plus" @click="newDispatch" />
     </header>
 
     <!-- KPIs -->
@@ -143,19 +143,21 @@ function totalQuantity(dispatch) {
 
 <style scoped>
 .dispatches-view { width: 100%; display: flex; flex-direction: column; gap: var(--sp-16); }
-.dispatches-view :deep(.p-card) { color: var(--color-text-main); }
+.dispatches-view, .dispatches-view :deep(.p-card), .dispatches-view :deep(.p-step) { color: var(--color-text-main); }
+.dispatches-view :deep(.p-button:not(.p-button-outlined):not(.p-button-text)) { color: #fff; }
+.dispatches-view :deep(.p-card) { }
 .view-header { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--sp-16); flex-wrap: wrap; }
-.subtitle { color: var(--color-text-secondary); font-size: 14px; margin-top: 4px; }
+.subtitle { opacity: 0.7; font-size: 14px; margin-top: 4px; }
 
 .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-16); }
 .kpi-card :deep(.p-card-content) { padding: var(--sp-8) 0; }
-.kpi-label { color: var(--color-text-secondary); font-size: 13px; font-weight: 500; display: flex; align-items: center; }
-.kpi-value { font-size: 28px; font-weight: 700; color: var(--color-primary); margin-top: var(--sp-8); }
+.kpi-label { font-size: 13px; font-weight: 500; display: flex; align-items: center; }
+.kpi-value { font-size: 28px; font-weight: 700; margin-top: var(--sp-8); }
 
 .filters-row { display: flex; gap: var(--sp-16); align-items: center; flex-wrap: wrap; }
 .flex-1 { flex: 1 1 240px; }
 .filter-select { min-width: 180px; }
-.section-title { color: var(--color-primary); margin-bottom: var(--sp-16); }
+.section-title { margin-bottom: var(--sp-16); }
 
 @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .kpi-grid { grid-template-columns: 1fr; } }
