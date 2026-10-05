@@ -2,6 +2,7 @@ import {createRouter, createWebHashHistory} from "vue-router";
 import useIamStore from "./iam/application/iam.store.js";
 import { ROLES, navigationItems } from "./shared/presentation/navigation.config.js";
 import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
+import { orderManagementRoutes } from './order-management-and-distpatch/presentation/order-management-routes.js'
 
 // Vistas
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');
@@ -12,6 +13,7 @@ const receptionManagementView = () => import('./site-reception-and-verification/
 const routes = [
 
     ...discrepancyRoutes,
+    ...orderManagementRoutes,
     {
         path: '/',
         redirect: '/transporte'
@@ -33,18 +35,6 @@ const routes = [
         name: 'materiales',
         component: modulePlaceholder,
         meta: { title: 'Materiales', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
-    },
-    {
-        path: '/solicitudes',
-        name: 'solicitudes',
-        component: modulePlaceholder,
-        meta: { title: 'Solicitudes', roles: [ROLES.WAREHOUSE_MANAGER] }
-    },
-    {
-        path: '/despachos',
-        name: 'despachos',
-        component: modulePlaceholder,
-        meta: { title: 'Despachos', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
     },
     {
         path: '/transporte',
