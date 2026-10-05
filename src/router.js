@@ -7,7 +7,7 @@ const modulePlaceholder = () => import('./shared/presentation/views/module-place
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 const transportView = () => import('./fleet-and-device-management/presentation/views/transport-view.vue');
 const receptionManagementView = () => import('./site-reception-and-verification/presentation/views/reception-management-view.vue');
-
+const issuesListView = () => import('./discrepancy-and-evidence-management/presentation/views/issues-list-view.vue');
 const routes = [
     {
         path: '/',
@@ -58,7 +58,7 @@ const routes = [
     {
         path: '/problemas',
         name: 'problemas',
-        component: modulePlaceholder,
+        component: issuesListView,
         meta: { title: 'Problemas', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
     },
     {
