@@ -1,10 +1,11 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDiscrepancyStore } from '../../application/discrepancy.store.js'
 
 const route = useRoute()
 const discrepancyStore = useDiscrepancyStore()
+const selectedResponsibility = ref('')
 
 const generateReport = async () => {
   const result = await discrepancyStore.generateSupportingReport(
@@ -21,6 +22,20 @@ onMounted(() => {
     discrepancyStore.loadCases()
   }
 })
+
+const saveResponsibility = async () => {
+  if (!selectedResponsibility.value) {
+    alert('Select a responsibility first.')
+    return
+  }
+
+  await discrepancyStore.determineResponsibility(
+      discrepancyCase.value.id,
+      selectedResponsibility.value
+  )
+
+  alert('Responsibility updated.')
+}
 
 const discrepancyCase = computed(() => {
   return discrepancyStore.cases.find(
@@ -60,6 +75,24 @@ const discrepancyCase = computed(() => {
       <button @click="generateReport">
         Generate Supporting Report
       </button>
+      <h2>Determine Responsibility</h2>
+
+      <select v-model="selectedResponsibility">
+        <option value="">Select responsibility</option>
+        <option value="Warehouse">Warehouse</option>
+        <option value="Transport">Transport</option>
+        <option value="Site">Site</option>
+      </select>
+
+      <button @click="saveResponsibility">
+        Save Responsibility
+      </button>
+
+      <p v-if="discrepancyCase.responsibility">
+        <strong>Current Responsibility:</strong>
+        {{ discrepancyCase.responsibility }}
+      </p>
+
     </div>
 
     <div v-else>

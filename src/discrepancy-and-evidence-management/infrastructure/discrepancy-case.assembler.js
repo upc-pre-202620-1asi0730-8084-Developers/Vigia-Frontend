@@ -11,7 +11,8 @@ export class DiscrepancyCaseAssembler {
             priority: resource.priority,
             reportedAt: resource.reportedAt,
             description: resource.description,
-            timeline: resource.timeline
+            timeline: resource.timeline,
+            responsibility: resource.responsibility
         })
     }
 
