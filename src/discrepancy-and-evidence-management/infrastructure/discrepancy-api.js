@@ -2,6 +2,7 @@ import { DiscrepancyCaseAssembler } from './discrepancy-case.assembler.js'
 
 export class DiscrepancyApi {
     async getAllCases() {
+
         const resources = [
             {
                 id: 1,
@@ -112,5 +113,13 @@ export class DiscrepancyApi {
         ]
 
         return DiscrepancyCaseAssembler.toEntities(resources)
+    }
+
+    async generateSupportingReport(caseId) {
+        return {
+            caseId: caseId,
+            fileName: `discrepancy-case-${caseId}-report.pdf`,
+            generated: true
+        }
     }
 }
