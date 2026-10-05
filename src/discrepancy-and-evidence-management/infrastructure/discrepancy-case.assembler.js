@@ -13,7 +13,8 @@ export class DiscrepancyCaseAssembler {
             description: resource.description,
             timeline: resource.timeline,
             responsibility: resource.responsibility,
-            missingEvidence: resource.missingEvidence
+            missingEvidence: resource.missingEvidence,
+            evidences: resource.evidences
         })
     }
 
