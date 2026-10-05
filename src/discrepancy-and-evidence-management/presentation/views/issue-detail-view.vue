@@ -90,6 +90,23 @@ const closeDiscrepancyCase = async () => {
         <p>{{ event.date }}</p>
         <hr>
       </div>
+      <h2>Missing Evidence</h2>
+
+      <div v-if="discrepancyCase.missingEvidence.length > 0">
+        <ul>
+          <li
+              v-for="evidence in discrepancyCase.missingEvidence"
+              :key="evidence"
+          >
+            {{ evidence }}
+          </li>
+        </ul>
+      </div>
+
+      <p v-else>
+        No missing evidence.
+      </p>
+
       <button @click="generateReport">
         Generate Supporting Report
       </button>
