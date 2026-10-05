@@ -1,17 +1,76 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useDiscrepancyStore } from '../../application/discrepancy.store.js'
 
 const discrepancyStore = useDiscrepancyStore()
 
+const selectedProject = ref('All')
+const selectedStatus = ref('All')
+
 onMounted(() => {
   discrepancyStore.loadCases()
+})
+
+const projects = computed(() => {
+  const uniqueProjects = [
+    ...new Set(discrepancyStore.cases.map(item => item.projectName))
+  ]
+
+  return ['All', ...uniqueProjects]
+})
+
+const statuses = ['All', 'Open', 'Under Review', 'Closed']
+
+const filteredCases = computed(() => {
+  return discrepancyStore.cases.filter(item => {
+    const matchesProject =
+        selectedProject.value === 'All' ||
+        item.projectName === selectedProject.value
+
+    const matchesStatus =
+        selectedStatus.value === 'All' ||
+        item.status === selectedStatus.value
+
+    return matchesProject && matchesStatus
+  })
 })
 </script>
 
 <template>
   <section>
     <h1>Issues</h1>
+
+    <div>
+      <label for="project-filter">Project</label>
+
+      <select
+          id="project-filter"
+          v-model="selectedProject"
+      >
+        <option
+            v-for="project in projects"
+            :key="project"
+            :value="project"
+        >
+          {{ project }}
+        </option>
+      </select>
+
+      <label for="status-filter">Status</label>
+
+      <select
+          id="status-filter"
+          v-model="selectedStatus"
+      >
+        <option
+            v-for="status in statuses"
+            :key="status"
+            :value="status"
+        >
+          {{ status }}
+        </option>
+      </select>
+    </div>
 
     <div v-if="discrepancyStore.loading">
       Loading issues...
@@ -23,7 +82,7 @@ onMounted(() => {
 
     <ul v-else>
       <li
-          v-for="discrepancyCase in discrepancyStore.cases"
+          v-for="discrepancyCase in filteredCases"
           :key="discrepancyCase.id"
       >
         {{ discrepancyCase.dispatchId }} -
