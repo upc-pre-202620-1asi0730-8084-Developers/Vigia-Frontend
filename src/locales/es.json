@@ -260,6 +260,50 @@
       "DISCREPANCY_CLOSED": "Caso de discrepancia cerrado para {detail}"
     }
   },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Gestiona la información de tu cuenta y tus preferencias.",
+    "profile": {
+      "title": "Mi perfil",
+      "subtitle": "Mantén tu información actualizada para una mejor experiencia.",
+      "edit": "Editar",
+      "name": "Nombre",
+      "email": "Correo",
+      "role": "Rol",
+      "phone": "Teléfono",
+      "roleHint": "El rol lo asigna el administrador.",
+      "cancel": "Cancelar",
+      "save": "Guardar cambios",
+      "saved": "Perfil actualizado",
+      "loadError": "No se pudo cargar el perfil."
+    },
+    "account": {
+      "title": "Cuenta",
+      "currentRole": "Rol actual",
+      "username": "Usuario"
+    },
+    "preferences": {
+      "title": "Preferencias",
+      "subtitle": "Elige tu idioma y zona horaria preferidos.",
+      "language": "Idioma",
+      "timezone": "Zona horaria",
+      "saved": "Preferencias actualizadas"
+    },
+    "languages": {
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "timezones": {
+      "America/Lima": "Lima (GMT-5)",
+      "America/Bogota": "Bogotá (GMT-5)",
+      "America/Mexico_City": "Ciudad de México (GMT-6)",
+      "America/Santiago": "Santiago (GMT-3)"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "invalidEmail": "Ingresa un correo válido."
+    }
+  },
   "transit": {
     "title": "Trazabilidad en tránsito",
     "subtitle": "Seguimiento en tiempo real de los despachos en ruta hacia su obra destino",
