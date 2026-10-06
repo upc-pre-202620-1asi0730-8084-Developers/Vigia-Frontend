@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "companyId": "c0a80101-0000-0000-0000-000000000001",
+    "licensePlate": "V3A-780",
+    "brand": "Volvo",
+    "model": "FMX 440",
+    "maxCapacityTons": 32,
+    "gpsDeviceId": "GPS-TR-101",
+    "currentPos": {
+      "latitude": -12.0464,
+      "longitude": -77.0428
+    }
+  },
+  {
+    "id": 2,
+    "companyId": "c0a80101-0000-0000-0000-000000000001",
+    "licensePlate": "V3B-920",
+    "brand": "Scania",
+    "model": "G440 XT",
+    "maxCapacityTons": 28,
+    "gpsDeviceId": "GPS-TR-001",
+    "currentPos": {
+      "latitude": -12.0968,
+      "longitude": -77.0347
+    }
+  },
+  {
+    "id": 3,
+    "companyId": "c0a80101-0000-0000-0000-000000000001",
+    "licensePlate": "V3C-450",
+    "brand": "Mercedes-Benz",
+    "model": "Actros 3344",
+    "maxCapacityTons": 30,
+    "gpsDeviceId": null,
+    "currentPos": null
+  }
+]

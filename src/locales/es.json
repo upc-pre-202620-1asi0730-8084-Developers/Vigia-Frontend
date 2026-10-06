@@ -1,0 +1,889 @@
+{
+  "brand": {
+    "name": "Vigía",
+    "tagline": "Trazabilidad de materiales de construcción"
+  },
+  "nav": {
+    "home": "Inicio",
+    "sites": "Obras",
+    "materials": "Materiales",
+    "orders": "Solicitudes",
+    "dispatches": "Despachos",
+    "transport": "Transporte",
+    "receptions": "Recepciones",
+    "issues": "Problemas",
+    "history": "Historial",
+    "reports": "Reportes",
+    "settings": "Configuración",
+    "more": "Más",
+    "roleSelector": "Rol activo:",
+    "language": "Idioma"
+  },
+  "roles": {
+    "ADMIN": "Supervisor (Admin)",
+    "WAREHOUSE_MANAGER": "Responsable de almacén",
+    "SITE_MANAGER": "Responsable de obra"
+  },
+  "fleet": {
+    "title": "Transporte y Flota",
+    "subtitle": "Gestión de unidades de transporte, dispositivos telemáticos y geocercas de predios",
+    "tabs": {
+      "vehicles": "Unidades",
+      "geofences": "Geocercas",
+      "tracking": "Seguimiento en tránsito"
+    },
+    "vehicles": {
+      "title": "Flota de Transporte",
+      "new": "Registrar unidad",
+      "plate": "Placa",
+      "brand": "Marca",
+      "model": "Modelo",
+      "capacity": "Capacidad (t)",
+      "gpsDevice": "Dispositivo GPS",
+      "status": "Estado",
+      "actions": "Acciones",
+      "pairAction": "Vincular dispositivo",
+      "empty": "Aún no hay unidades registradas. Registra la primera unidad para poder asignarla a un despacho.",
+      "pairedTag": "Vinculado",
+      "unpairedTag": "Sin dispositivo",
+      "registeredToast": "Unidad de transporte registrada",
+      "pairedToast": "Dispositivo GPS vinculado a la unidad",
+      "dialog": {
+        "registerTitle": "Registrar unidad de transporte",
+        "pairTitle": "Vincular dispositivo GPS",
+        "plateLabel": "Placa de la unidad",
+        "platePlaceholder": "Ej. ABC-123",
+        "brandLabel": "Marca",
+        "brandPlaceholder": "Ej. Volvo",
+        "modelLabel": "Modelo",
+        "modelPlaceholder": "Ej. FMX 440",
+        "capacityLabel": "Capacidad máxima (t)",
+        "gpsLabel": "ID del dispositivo GPS (opcional)",
+        "gpsPlaceholder": "Ej. GPS-TR-101",
+        "gpsDeviceLabel": "ID del dispositivo GPS",
+        "submitRegister": "Registrar unidad",
+        "submitPair": "Vincular dispositivo",
+        "cancel": "Cancelar"
+      }
+    },
+    "geofences": {
+      "title": "Geocercas de Predios",
+      "new": "Definir geocerca",
+      "typeLabel": "Tipo de predio",
+      "siteLabel": "Predio",
+      "nameLabel": "Nombre de la geocerca",
+      "namePlaceholder": "Ej. Geocerca Almacén Lurín",
+      "radiusLabel": "Radio (metros)",
+      "centerLabel": "Ubicación del centro",
+      "centerSelected": "Centro fijado en: {lat}, {lng}",
+      "centerNotSelected": "Haz clic en el mapa para ubicar el centro de la geocerca.",
+      "submit": "Definir geocerca",
+      "cancel": "Cancelar",
+      "definedWarehouseToast": "Geocerca de almacén definida",
+      "definedJobSiteToast": "Geocerca de obra definida",
+      "empty": "Aún no hay geocercas registradas.",
+      "types": {
+        "WAREHOUSE": "Almacén",
+        "JOB_SITE": "Obra"
+      },
+      "existingGeofences": "Geocercas definidas",
+      "legend": {
+        "warehouse": "Geocerca de almacén",
+        "jobSite": "Geocerca de obra",
+        "selected": "Centro seleccionado"
+      }
+    },
+    "errors": {
+      "plateRequired": "Ingresa la placa de la unidad.",
+      "capacityInvalid": "Ingresa una capacidad mayor a 0 toneladas.",
+      "plateDuplicate": "Ya existe una unidad registrada con la placa {plate}.",
+      "deviceAlreadyAssigned": "El dispositivo {deviceId} ya está vinculado a la unidad {plate}. Ingresa otro dispositivo.",
+      "siteAlreadyHasGeofence": "Este predio ya tiene una geocerca definida.",
+      "nameRequired": "Ingresa el nombre de la geocerca.",
+      "siteRequired": "Selecciona el predio.",
+      "radiusInvalid": "Ingresa un radio válido entre 10 y 5000 metros.",
+      "centerRequired": "Selecciona un punto en el mapa para ubicar la geocerca.",
+      "deviceRequired": "Ingresa el ID del dispositivo GPS.",
+      "networkError": "No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "projects": {
+    "title": "Obras",
+    "subtitle": "Supervisa el estado general de las obras",
+    "kpi": {
+      "active": "Obras activas",
+      "atRisk": "Obras en riesgo",
+      "inProgress": "En curso",
+      "delayed": "Retrasadas"
+    },
+    "filters": {
+      "status": "Estado",
+      "zone": "Zona",
+      "manager": "Responsable de obra",
+      "all": "Todas",
+      "clear": "Limpiar filtros"
+    },
+    "list": {
+      "title": "Lista de obras",
+      "total": "Total: {count} obras",
+      "empty": "Ninguna obra coincide con los filtros seleccionados."
+    },
+    "table": {
+      "index": "#",
+      "project": "Obra",
+      "zone": "Zona",
+      "manager": "Responsable",
+      "progress": "Avance",
+      "dispatches": "Despachos",
+      "receptions": "Recepciones",
+      "incidents": "Incidencias",
+      "status": "Estado"
+    },
+    "status": {
+      "IN_PROGRESS": "En curso",
+      "DELAYED": "Retrasada",
+      "AT_RISK": "En riesgo"
+    },
+    "zone": {
+      "LIMA": "Lima",
+      "NORTH": "Norte",
+      "SOUTH": "Sur",
+      "CENTER": "Centro",
+      "EAST": "Este"
+    },
+    "byZone": {
+      "title": "Obras por zona",
+      "projects": "obras",
+      "topZone": "Zona con más obras",
+      "topZoneValue": "{zone} ({count} obras)"
+    }
+  },
+  "inventory": {
+    "title": "Materiales",
+    "subtitle": "Supervisa el inventario, el consumo y las alertas de materiales",
+    "kpi": {
+      "monitored": "Materiales monitoreados",
+      "lowStock": "Stock bajo",
+      "categories": "Categorías",
+      "todayMovements": "Movimientos de hoy"
+    },
+    "filters": {
+      "category": "Categoría",
+      "project": "Obra",
+      "status": "Estado",
+      "allCategories": "Todas las categorías",
+      "allProjects": "Todas las obras",
+      "allStatuses": "Todos los estados",
+      "stockAlerts": "Alertas de stock",
+      "clear": "Limpiar filtros"
+    },
+    "table": {
+      "title": "Estado del inventario",
+      "material": "Material",
+      "category": "Categoría",
+      "currentStock": "Stock actual",
+      "minimumStock": "Stock mínimo",
+      "project": "Obra asociada",
+      "status": "Estado",
+      "empty": "Ningún material coincide con los filtros seleccionados."
+    },
+    "stockStatus": {
+      "IN_STOCK": "En stock",
+      "LOW_STOCK": "Stock bajo"
+    },
+    "category": {
+      "CEMENTS": "Cementos",
+      "STEEL": "Acero",
+      "MASONRY": "Albañilería",
+      "AGGREGATES": "Agregados",
+      "INSTALLATIONS": "Instalaciones",
+      "ELECTRICAL": "Eléctricos",
+      "FINISHES": "Acabados"
+    },
+    "charts": {
+      "mostUsed": "Materiales más usados",
+      "withdrawals": "Salidas por obra",
+      "withdrawalsUnit": "movimientos de salida",
+      "byCategory": "Distribución por categoría",
+      "materials": "materiales",
+      "label": "Período",
+      "last7Days": "Últimos 7 días",
+      "all": "Todo el período"
+    }
+  },
+  "history": {
+    "title": "Historial",
+    "subtitle": "Revisa los movimientos y eventos registrados en el sistema",
+    "filters": {
+      "dateRange": "Rango de fechas",
+      "from": "Desde",
+      "to": "Hasta",
+      "type": "Tipo",
+      "user": "Usuario",
+      "reference": "Referencia",
+      "allTypes": "Todos los tipos",
+      "allUsers": "Todos los usuarios",
+      "searchReference": "Buscar por referencia...",
+      "clear": "Limpiar filtros"
+    },
+    "log": {
+      "title": "Registro de actividad",
+      "showing": "{count} de {total} registros",
+      "empty": "Ningún registro coincide con los filtros seleccionados."
+    },
+    "table": {
+      "dateTime": "Fecha y hora",
+      "type": "Tipo",
+      "description": "Descripción",
+      "user": "Usuario",
+      "reference": "Referencia",
+      "status": "Estado"
+    },
+    "type": {
+      "DISPATCH": "Despacho",
+      "TRANSPORT": "Transporte",
+      "RECEPTION": "Recepción",
+      "DISCREPANCY": "Discrepancia"
+    },
+    "status": {
+      "COMPLETED": "Completado",
+      "IN_TRANSIT": "En tránsito",
+      "PENDING": "Pendiente",
+      "WITH_DISCREPANCY": "Con discrepancia",
+      "CLOSED": "Cerrado"
+    },
+    "action": {
+      "DISPATCH_CREATED": "Despacho creado para {detail}",
+      "TRANSIT_STARTED": "En tránsito hacia {detail}",
+      "RECEPTION_RECORDED": "Recepción registrada en {detail}",
+      "RECEPTION_WITH_DISCREPANCY": "Recepción registrada con discrepancia en {detail}",
+      "ARRIVAL_REGISTERED": "Llegada registrada en {detail}",
+      "DISCREPANCY_REPORTED": "Caso de discrepancia abierto para {detail}",
+      "DISCREPANCY_CLOSED": "Caso de discrepancia cerrado para {detail}"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Gestiona la información de tu cuenta y tus preferencias.",
+    "profile": {
+      "title": "Mi perfil",
+      "subtitle": "Mantén tu información actualizada para una mejor experiencia.",
+      "edit": "Editar",
+      "name": "Nombre",
+      "email": "Correo",
+      "role": "Rol",
+      "phone": "Teléfono",
+      "roleHint": "El rol lo asigna el administrador.",
+      "cancel": "Cancelar",
+      "save": "Guardar cambios",
+      "saved": "Perfil actualizado",
+      "loadError": "No se pudo cargar el perfil."
+    },
+    "account": {
+      "title": "Cuenta",
+      "currentRole": "Rol actual",
+      "username": "Usuario"
+    },
+    "preferences": {
+      "title": "Preferencias",
+      "subtitle": "Elige tu idioma y zona horaria preferidos.",
+      "language": "Idioma",
+      "timezone": "Zona horaria",
+      "saved": "Preferencias actualizadas"
+    },
+    "languages": {
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "timezones": {
+      "America/Lima": "Lima (GMT-5)",
+      "America/Bogota": "Bogotá (GMT-5)",
+      "America/Mexico_City": "Ciudad de México (GMT-6)",
+      "America/Santiago": "Santiago (GMT-3)"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "invalidEmail": "Ingresa un correo válido."
+    }
+  },
+  "transit": {
+    "title": "Trazabilidad en tránsito",
+    "subtitle": "Seguimiento en tiempo real de los despachos en ruta hacia su obra destino",
+    "kpi": {
+      "active": "Recorridos en tránsito",
+      "deviated": "Desvíos de ruta",
+      "stopped": "Detenciones prolongadas",
+      "pending": "Notificaciones pendientes a obra"
+    },
+    "list": {
+      "title": "Recorridos",
+      "empty": "No hay recorridos en seguimiento. Un recorrido inicia cuando la unidad sale de la geocerca del almacén."
+    },
+    "table": {
+      "route": "Recorrido",
+      "dispatch": "Despacho",
+      "truck": "Unidad",
+      "destination": "Destino",
+      "lastUpdate": "Última actualización",
+      "status": "Estado"
+    },
+    "status": {
+      "IN_TRANSIT": "En tránsito",
+      "DEVIATED": "Desvío de ruta",
+      "STOPPED": "Detenido",
+      "SIGNAL_LOST": "Señal perdida",
+      "ARRIVED": "Llegó"
+    },
+    "map": {
+      "title": "Seguimiento en tiempo real",
+      "selectRoute": "Selecciona un recorrido para verlo en el mapa.",
+      "planned": "Ruta prevista",
+      "travelled": "Ruta recorrida",
+      "current": "Posición actual",
+      "destination": "Geocerca de destino",
+      "speed": "Velocidad"
+    },
+    "summary": {
+      "origin": "Origen",
+      "destination": "Destino",
+      "departure": "Salida",
+      "eta": "Llegada estimada",
+      "arrivedAt": "Llegó a las",
+      "distance": "Distancia recorrida",
+      "positions": "Posiciones recibidas"
+    },
+    "simulation": {
+      "title": "Simulación de telemetría GPS",
+      "hint": "No hay un dispositivo GPS conectado. Simula los reportes de la plataforma de telemetría para probar las reglas de seguimiento.",
+      "onRoute": "Reportar posición",
+      "deviation": "Simular desvío",
+      "stop": "Simular detención",
+      "signalLost": "Simular pérdida de señal"
+    },
+    "alerts": {
+      "title": "Alertas de tránsito",
+      "empty": "Este recorrido no tiene alertas.",
+      "notify": "Notificar a obra",
+      "notified": "Obra notificada",
+      "type": {
+        "ROUTE_DEVIATION": "Desvío de ruta detectado",
+        "PROLONGED_STOP": "Detención prolongada detectada",
+        "SIGNAL_LOST": "Señal del dispositivo perdida",
+        "SIGNAL_RECOVERED": "Señal del dispositivo recuperada",
+        "GEOFENCE_ENTRY": "Ingreso a la geocerca de destino"
+      },
+      "detail": {
+        "ROUTE_DEVIATION": "A {value} m de la ruta prevista",
+        "PROLONGED_STOP": "Detenido durante {value} min"
+      }
+    },
+    "toast": {
+      "positionReported": "Posición incorporada al recorrido",
+      "alertRaised": "Alerta de tránsito",
+      "siteNotified": "Obra de destino notificada",
+      "arrived": "La unidad ingresó a la geocerca de la obra destino",
+      "error": "No se pudo completar la operación"
+    }
+  },
+  "modules": {
+    "placeholderTitle": "Módulo {name}",
+    "placeholderDesc": "Este módulo está planificado para el rol {role}. La navegación y permisos de acceso se encuentran activos."
+  },
+  "home": {
+    "greeting": "Hola, {name}",
+    "subtitle": {
+      "ADMIN": "Vista general de la operación",
+      "WAREHOUSE_MANAGER": "Solicitudes, despachos y stock del almacén",
+      "SITE_MANAGER": "Llegadas, recepciones y avance de tus obras"
+    },
+    "kpi": {
+      "activeProjects": "Obras activas",
+      "dispatchesInTransit": "Despachos en tránsito",
+      "receptionsWithDifference": "Recepciones con diferencia",
+      "openIncidents": "Incidencias abiertas",
+      "pendingOrders": "Solicitudes pendientes",
+      "dispatchesToLeave": "Despachos por salir",
+      "vehiclesInTransit": "Unidades en tránsito",
+      "lowStock": "Materiales con stock bajo",
+      "myProjects": "Mis obras",
+      "upcomingArrivals": "Llegadas próximas",
+      "receptionsToVerify": "Recepciones por verificar"
+    },
+    "attention": {
+      "title": "Requiere mi atención",
+      "empty": "No hay nada que requiera tu atención ahora.",
+      "type": "Tipo",
+      "description": "Descripción",
+      "reference": "Referencia",
+      "site": "Obra",
+      "priority": "Prioridad",
+      "items": {
+        "receptionDifference": "Diferencia en recepción",
+        "projectAtRisk": "Obra en riesgo",
+        "projectDelayed": "Obra retrasada",
+        "openCase": "Caso de discrepancia abierto",
+        "transitAlert": "Alerta de tránsito sin notificar a la obra",
+        "urgentOrder": "Solicitud urgente por aprobar",
+        "lowStock": "Stock bajo: {material}",
+        "dispatchWithoutVehicle": "Despacho sin unidad asignada",
+        "arrivalToVerify": "Llegada por verificar",
+        "upcomingArrival": "Llegada prevista {time}"
+      }
+    },
+    "priority": {
+      "HIGH": "Alta",
+      "MEDIUM": "Media",
+      "LOW": "Baja"
+    },
+    "projects": {
+      "title": "Estado general de obras",
+      "myTitle": "Mis obras",
+      "empty": "No tienes obras asignadas."
+    },
+    "operations": {
+      "title": "Estado de operaciones",
+      "dispatches": "despachos"
+    },
+    "dispatches": {
+      "title": "Próximos despachos",
+      "empty": "No hay despachos pendientes.",
+      "departure": "Salida",
+      "vehicle": "Unidad"
+    },
+    "inventory": {
+      "title": "Estado del inventario",
+      "materials": "materiales",
+      "inStock": "En stock",
+      "lowStock": "Stock bajo"
+    },
+    "arrivals": {
+      "title": "Próximas llegadas",
+      "empty": "No hay llegadas previstas."
+    },
+    "activity": {
+      "title": "Actividad reciente",
+      "empty": "No hay actividad reciente."
+    },
+    "seeAll": "Ver todo"
+  },
+  "common": {
+    "actions": "Acciones",
+    "viewDetails": "Ver detalles",
+    "viewAll": "Ver todos",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "loading": "Cargando datos..."
+  },
+  "issues": {
+    "title": "Incidencias",
+    "detailTitle": "Detalle de incidencia",
+    "filters": {
+      "project": "Obra",
+      "status": "Estado",
+      "all": "Todos"
+    },
+    "values": {
+      "status": {
+        "Open": "Abierto",
+        "Under Review": "En revisión",
+        "Closed": "Cerrado"
+      },
+      "priority": {
+        "High": "Alta",
+        "Medium": "Media",
+        "Low": "Baja"
+      },
+      "type": {
+        "Missing materials": "Materiales faltantes",
+        "Damaged materials": "Materiales dañados",
+        "Quantity mismatch": "Diferencia de cantidad"
+      },
+      "stage": {
+        "Warehouse": "Almacén",
+        "Transit": "Transporte",
+        "Site": "Obra",
+        "Resolution": "Resolución"
+      }
+    },
+    "content": {
+      "timelineTitle": {
+        "Dispatch prepared": "Despacho preparado",
+        "Vehicle departed": "Vehículo salió del almacén",
+        "Reception discrepancy reported": "Discrepancia reportada en recepción",
+        "Load verified": "Carga verificada",
+        "Prolonged stop detected": "Detención prolongada detectada",
+        "Damaged materials reported": "Materiales dañados reportados",
+        "Dispatch registered": "Despacho registrado",
+        "Route completed": "Ruta completada",
+        "Quantity mismatch reported": "Diferencia de cantidad reportada",
+        "Case closed": "Caso cerrado"
+      },
+      "timelineDescription": {
+        "The order was prepared and verified at the warehouse": "El pedido fue preparado y verificado en el almacén.",
+        "The transport unit left the warehouse": "La unidad de transporte salió del almacén.",
+        "A difference was detected between dispatched and received quantities": "Se detectó una diferencia entre las cantidades despachadas y recibidas.",
+        "Ceramic boxes were counted and loaded for dispatch": "Las cajas de cerámica fueron contadas y cargadas para el despacho.",
+        "The vehicle remained stopped longer than expected during transit": "El vehículo permaneció detenido más tiempo del esperado durante el traslado.",
+        "Several ceramic boxes were found damaged during reception": "Se encontraron varias cajas de cerámica dañadas durante la recepción.",
+        "The material quantities were registered before departure": "Las cantidades de material fueron registradas antes de la salida.",
+        "The vehicle completed the planned route without incidents": "El vehículo completó la ruta planificada sin incidentes.",
+        "A minor difference was detected during reception": "Se detectó una diferencia menor durante la recepción.",
+        "The discrepancy was reviewed and the case was closed": "La discrepancia fue revisada y el caso fue cerrado."
+      },
+      "caseDescription": {
+        "Difference detected between dispatched and received cement bags": "Se detectó una diferencia entre las bolsas de cemento despachadas y recibidas.",
+        "Several ceramic boxes arrived damaged": "Varias cajas de cerámica llegaron dañadas.",
+        "Minor quantity difference already resolved": "La diferencia menor de cantidad ya fue resuelta."
+      },
+      "missingEvidence": {
+        "Transport photographic evidence": "Evidencia fotográfica del transporte",
+        "Warehouse loading photograph": "Fotografía de carga en almacén",
+        "Reception signature": "Firma de recepción"
+      },
+      "evidenceType": {
+        "Photo": "Foto"
+      },
+      "evidenceCaption": {
+        "Received cement bags during site inspection": "Bolsas de cemento recibidas durante la inspección en obra.",
+        "Damaged ceramic boxes found during reception": "Cajas de cerámica dañadas encontradas durante la recepción."
+      }
+    },
+    "fields": {
+      "dispatch": "Despacho",
+      "project": "Obra",
+      "type": "Tipo",
+      "status": "Estado",
+      "priority": "Prioridad",
+      "reported": "Reportado",
+      "description": "Descripción"
+    },
+    "timeline": {
+      "title": "Línea de tiempo de evidencia"
+    },
+    "missingEvidence": {
+      "title": "Evidencia faltante",
+      "none": "No falta evidencia."
+    },
+    "photographicEvidence": {
+      "title": "Evidencia fotográfica",
+      "none": "No hay evidencia fotográfica disponible."
+    },
+    "report": {
+      "generate": "Generar reporte de sustento",
+      "generated": "Reporte generado: {fileName}"
+    },
+    "responsibility": {
+      "title": "Determinar responsabilidad",
+      "select": "Seleccionar responsabilidad",
+      "warehouse": "Almacén",
+      "transport": "Transporte",
+      "site": "Obra",
+      "save": "Guardar responsabilidad",
+      "current": "Responsabilidad actual",
+      "required": "Primero selecciona una responsabilidad.",
+      "updated": "Responsabilidad actualizada."
+    },
+    "closure": {
+      "button": "Cerrar caso",
+      "success": "Caso cerrado correctamente.",
+      "responsibilityRequired": "Se debe determinar la responsabilidad antes de cerrar el caso."
+    },
+    "loading": "Cargando incidencias...",
+    "loadingDetail": "Cargando incidencia...",
+    "loadError": "Error al cargar las incidencias.",
+    "notFound": "Incidencia no encontrada."
+  },
+  "receptions": {
+    "perspective": {
+      "siteManager": "Responsable de Obra",
+      "supervisor": "Supervisor"
+    },
+    "siteManager": {
+      "title": "Recepciones",
+      "subtitle": "Registra y coteja lo que llegó a la obra."
+    },
+    "supervisor": {
+      "title": "Recepciones",
+      "subtitle": "Controla los materiales recibidos y compara con las cantidades despachadas",
+      "kpiToday": "Recepciones hoy",
+      "kpiPending": "Pendientes",
+      "kpiDiscrepancies": "Con discrepancias",
+      "kpiCompleted": "Completadas",
+      "vsPrevDay": "vs. día anterior",
+      "filterProject": "Proyecto",
+      "filterStatus": "Estado",
+      "dateRange": "Rango de fechas",
+      "stockAlerts": "Alertas de stock",
+      "clearFilters": "Limpiar filtros",
+      "applyFilters": "Aplicar filtros",
+      "tableTitle": "Recepciones",
+      "receptionsCount": "recepciones",
+      "colId": "ID",
+      "colProject": "Proyecto",
+      "colDispatch": "Despacho",
+      "colReceivedDate": "Fecha recepción",
+      "colReceivedBy": "Recibido por",
+      "colStatus": "Estado",
+      "showing": "Mostrando",
+      "of": "de",
+      "rowsPerPage": "Filas por página",
+      "detailsTitle": "Detalle de recepción",
+      "materialsReceived": "Materiales recibidos",
+      "reportDiscrepancy": "Reportar discrepancia",
+      "confirmReception": "Confirmar recepción"
+    },
+    "kpi": {
+      "todayReceptions": "Recepciones del día",
+      "completed": "Completadas",
+      "partial": "Parciales / Discrepancias",
+      "vsYesterday": "vs. ayer",
+      "vsPrevWeek": "vs. semana anterior"
+    },
+    "arrivals": {
+      "title": "Próximas llegadas (En tránsito)",
+      "id": "ID Despacho",
+      "material": "Material",
+      "origin": "Origen",
+      "truck": "Camión",
+      "eta": "Llegada estimada",
+      "status": "Estado",
+      "registerAction": "Registrar llegada"
+    },
+    "registered": {
+      "title": "Recepciones registradas"
+    },
+    "table": {
+      "id": "ID",
+      "material": "Material",
+      "sent": "Enviado",
+      "received": "Recibido",
+      "diff": "Diferencia",
+      "status": "Estado",
+      "responsible": "Responsable",
+      "date": "Fecha",
+      "unit": "Unidad"
+    },
+    "status": {
+      "completed": "Completado",
+      "partial": "Parcial",
+      "withDifference": "Con diferencia",
+      "underReview": "Bajo revisión",
+      "pending": "Pendiente",
+      "inTransit": "En tránsito"
+    },
+    "details": {
+      "title": "Detalle de recepción",
+      "origin": "Origen",
+      "driverGuide": "Conductor / Guía",
+      "truck": "Camión",
+      "dateTime": "Fecha y hora",
+      "responsible": "Responsable",
+      "location": "Ubicación / Obra",
+      "observations": "Observaciones",
+      "noObservations": "Sin observaciones registradas."
+    },
+    "comparison": {
+      "title": "Comparación de cantidades"
+    },
+    "checklist": {
+      "title": "Checklist de recepción en obra",
+      "goodCondition": "Material en buen estado",
+      "verifiedQuantity": "Cantidad verificada",
+      "guideReceived": "Guía de remisión recibida",
+      "photoEvidence": "Evidencia fotográfica",
+      "observationsRecorded": "Observaciones registradas",
+      "viewPhotos": "Ver fotos"
+    },
+    "actions": {
+      "registerReception": "Registrar recepción",
+      "reportIssue": "Reportar problema",
+      "confirmReception": "Confirmar recepción",
+      "editReception": "Editar recepción"
+    },
+    "dialog": {
+      "registerTitle": "Registrar recepción de material en obra",
+      "selectArrival": "Despacho en camino",
+      "selectArrivalHelp": "Selecciona un despacho en tránsito para precargar automáticamente sus datos.",
+      "dispatchId": "ID de Despacho",
+      "deliveryGuide": "Nº Guía de remisión",
+      "origin": "Origen del material",
+      "site": "Obra de destino",
+      "truckPlate": "Placa del camión",
+      "driver": "Conductor",
+      "itemsToVerify": "Materiales a cotejar",
+      "addItem": "Agregar material",
+      "observations": "Observaciones en obra",
+      "observationsPlaceholder": "Anota cualquier detalle sobre la descarga o condiciones del material...",
+      "saveAction": "Confirmar y registrar",
+      "requiredFields": "Por favor completa el ID de despacho y número de guía.",
+      "errorSaving": "Ocurrió un error al registrar la recepción.",
+      "saved": "Recepción registrada"
+    },
+    "discrepancy": {
+      "title": "Reportar discrepancia en recepción",
+      "typeLabel": "Tipo de discrepancia detectada",
+      "observationsLabel": "Descripción detallada de la discrepancia",
+      "observationsPlaceholder": "Describe el faltante, rotura o irregularidad detectada al descargar...",
+      "evidenceTitle": "Evidencia fotográfica obligatoria (US-10)",
+      "evidenceSubtitle": "Adjunta una fotografía clara que sustente la diferencia detectada en obra.",
+      "samplePhotos": "Fotos de muestra en obra:",
+      "photoUrl": "URL de la fotografía",
+      "captionLabel": "Leyenda o anotación de la foto",
+      "submitAction": "Reportar discrepancia",
+      "fieldsRequired": "Por favor ingresa las observaciones y la leyenda de la foto.",
+      "errorSaving": "Error al registrar la discrepancia.",
+      "reported": "Discrepancia reportada"
+    },
+    "evidence": {
+      "galleryTitle": "Galería de evidencias fotográficas",
+      "noEvidence": "No hay fotografías adjuntas a esta recepción."
+    }
+  },
+  "orders": {
+    "title": "Solicitudes",
+    "subtitle": "Revisa y gestiona las solicitudes de materiales de construcción.",
+    "listTitle": "Lista de solicitudes",
+    "attentionTitle": "Solicitudes que requieren atención",
+    "attentionEmpty": "Sin solicitudes pendientes.",
+    "kpi": {
+      "pending": "Pendientes",
+      "approved": "Aprobadas",
+      "underReview": "En revisión",
+      "urgent": "Urgentes"
+    },
+    "filters": {
+      "search": "Buscar por ID, obra o material...",
+      "status": "Estado",
+      "work": "Obra",
+      "all": "Todas",
+      "clean": "Limpiar filtros"
+    },
+    "table": {
+      "id": "ID",
+      "work": "Obra",
+      "materials": "Materiales",
+      "quantity": "Cantidad",
+      "date": "Fecha",
+      "status": "Estado",
+      "priority": "Prioridad"
+    },
+    "status": {
+      "PENDING": "Pendiente",
+      "UNDER_REVIEW": "En revisión",
+      "APPROVED": "Aprobada",
+      "REJECTED": "Rechazada"
+    },
+    "priority": {
+      "HIGH": "Alta",
+      "AVERAGE": "Media",
+      "LOW": "Baja"
+    },
+    "detail": {
+      "title": "Detalle de solicitud",
+      "subtitle": "Revisa la información completa y toma una decisión.",
+      "back": "Volver a solicitudes",
+      "materialsRequest": "Solicitud de materiales",
+      "generalInfo": "Información general",
+      "work": "Obra",
+      "date": "Fecha",
+      "requester": "Solicitante",
+      "mainMaterial": "Material principal",
+      "requestedMaterials": "Materiales solicitados",
+      "material": "Material",
+      "qty": "Cantidad",
+      "unit": "Unidad",
+      "observation": "Observación",
+      "observations": "Observaciones",
+      "noObservations": "Sin observaciones.",
+      "attachedFiles": "Archivos adjuntos",
+      "noFiles": "Sin archivos adjuntos.",
+      "makeDecision": "Tomar una decisión",
+      "decisionHint": "Selecciona una acción para esta solicitud.",
+      "approve": "Aprobar solicitud",
+      "requestChanges": "Solicitar cambios",
+      "reject": "Rechazar",
+      "history": "Historial de la solicitud",
+      "notFound": "Solicitud no encontrada.",
+      "feedbackSaved": "Solicitud actualizada a: {status}",
+      "feedbackError": "No se pudo actualizar la solicitud.",
+      "notes": {
+        "approved": "Solicitud aprobada",
+        "changes": "Se solicitaron cambios",
+        "rejected": "Solicitud rechazada"
+      }
+    }
+  },
+  "dispatches": {
+    "title": "Despachos",
+    "subtitle": "Organiza y controla la salida de materiales hacia las obras.",
+    "listTitle": "Lista de despachos",
+    "newButton": "Nuevo despacho",
+    "unassigned": "Sin asignar",
+    "kpi": {
+      "inPreparation": "En preparación",
+      "scheduled": "Programados",
+      "inTransit": "En tránsito",
+      "withIncident": "Con incidencia"
+    },
+    "filters": {
+      "search": "Buscar por ID, obra o material...",
+      "status": "Estado",
+      "all": "Todos",
+      "clean": "Limpiar filtros"
+    },
+    "table": {
+      "id": "ID",
+      "work": "Obra",
+      "materials": "Materiales",
+      "quantity": "Cantidad",
+      "transport": "Transporte",
+      "exit": "Salida",
+      "status": "Estado"
+    },
+    "status": {
+      "IN_PREPARATION": "En preparación",
+      "SCHEDULED": "Programado",
+      "IN_TRANSIT": "En tránsito",
+      "NEAR_SITE": "Cerca de obra",
+      "DELIVERED": "Entregado",
+      "WITH_INCIDENT": "Con incidencia"
+    },
+    "priority": {
+      "HIGH": "Alta",
+      "AVERAGE": "Media",
+      "LOW": "Baja"
+    },
+    "types": {
+      "DEPARTURE_TO_WORK": "Salida a obra",
+      "TRANSFER": "Traslado",
+      "RETURN": "Retorno"
+    },
+    "new": {
+      "title": "Nuevo despacho",
+      "subtitle": "Crea y programa la salida de materiales hacia una obra.",
+      "infoTitle": "Información del despacho",
+      "infoSubtitle": "Completa los datos generales para programar la salida de materiales.",
+      "work": "Obra",
+      "workPlaceholder": "Nombre de la obra de destino",
+      "relatedOrder": "Solicitud relacionada",
+      "relatedOrderPlaceholder": "Selecciona una solicitud aprobada",
+      "departureDate": "Fecha de salida",
+      "estimatedTime": "Hora estimada",
+      "dispatchType": "Tipo de despacho",
+      "priority": "Prioridad",
+      "observations": "Observaciones",
+      "observationsPlaceholder": "Agrega información adicional sobre el despacho...",
+      "create": "Crear despacho",
+      "validationError": "Completa los campos obligatorios (*) para continuar.",
+      "steps": {
+        "information": "Información",
+        "materials": "Materiales",
+        "transportation": "Transporte",
+        "confirmation": "Confirmación"
+      }
+    }
+  },
+  "errors": {
+    "occurred": "Ocurrieron errores"
+  }
+}

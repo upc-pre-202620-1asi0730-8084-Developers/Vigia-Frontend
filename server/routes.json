@@ -1,0 +1,13 @@
+{
+  "/api/v1/upcoming-arrivals": "/upcomingArrivals",
+  "/api/v1/upcoming-arrivals/*": "/upcomingArrivals/$1",
+  "/upcoming-arrivals": "/upcomingArrivals",
+  "/upcoming-arrivals/*": "/upcomingArrivals/$1",
+  "/api/v1/discrepancy-cases": "/discrepancyCases",
+  "/api/v1/discrepancy-cases/*": "/discrepancyCases/$1",
+  "/api/v1/inventory-movements": "/inventoryMovements",
+  "/api/v1/inventory-movements/*": "/inventoryMovements/$1",
+  "/api/v1/activity-records": "/activityRecords",
+  "/api/v1/activity-records/*": "/activityRecords/$1",
+  "/api/v1/*": "/$1"
+}
