@@ -8,7 +8,7 @@ import {ORDER_STATUS, orderPrioritySeverity, orderStatusSeverity} from "../../do
 const {t} = useI18n();
 const router = useRouter();
 const store = useOrderManagementStore();
-const {orders, ordersLoaded, errors, pendingCount, approvedCount, underReviewCount, urgentCount} = toRefs(store);
+const {orders, ordersLoading, errors, pendingCount, approvedCount, underReviewCount, urgentCount} = toRefs(store);
 const {fetchOrders} = store;
 
 const search = ref('');
@@ -59,7 +59,7 @@ const totalQuantity = (order) => order.items.reduce((sum, item) => sum + Number(
     </div>
     <pv-data-table
         :value="filteredOrders"
-        :loading="!ordersLoaded"
+        :loading="ordersLoading"
         striped-rows
         table-style="min-width: 50rem"
         paginator

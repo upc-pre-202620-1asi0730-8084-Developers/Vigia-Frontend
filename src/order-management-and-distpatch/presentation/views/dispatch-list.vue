@@ -8,7 +8,7 @@ import {DISPATCH_STATUS, dispatchStatusSeverity} from "../../domain/dispatch-sta
 const {t} = useI18n();
 const router = useRouter();
 const store = useOrderManagementStore();
-const {dispatches, dispatchesLoaded, errors, inPreparationCount, scheduledCount, inTransitCount, withIncidentCount} = toRefs(store);
+const {dispatches, dispatchesLoading, errors, inPreparationCount, scheduledCount, inTransitCount, withIncidentCount} = toRefs(store);
 const {fetchDispatches} = store;
 
 const search = ref('');
@@ -62,7 +62,7 @@ const mainQuantity = (dispatch) => {
     </div>
     <pv-data-table
         :value="filteredDispatches"
-        :loading="!dispatchesLoaded"
+        :loading="dispatchesLoading"
         striped-rows
         table-style="min-width: 50rem"
         paginator

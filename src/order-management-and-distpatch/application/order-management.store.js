@@ -47,6 +47,16 @@ const useOrderManagementStore = defineStore('orderManagement', () => {
      * @type {import('vue').Ref<boolean>}
      */
     const dispatchesLoaded = ref(false);
+    /**
+     * Whether an orders request is in progress.
+     * @type {import('vue').Ref<boolean>}
+     */
+    const ordersLoading = ref(false);
+    /**
+     * Whether a dispatches request is in progress.
+     * @type {import('vue').Ref<boolean>}
+     */
+    const dispatchesLoading = ref(false);
 
     /** Number of orders by status / priority. */
     const pendingCount = computed(() => orders.value.filter(o => o.status === ORDER_STATUS.PENDING).length);
@@ -62,27 +72,37 @@ const useOrderManagementStore = defineStore('orderManagement', () => {
 
     /**
      * Loads orders from infrastructure and updates the application state.
+     * Errors from a previous attempt are cleared so a retry does not repeat them.
      * @returns {void}
      */
     function fetchOrders() {
+        errors.value = [];
+        ordersLoading.value = true;
         orderManagementApi.getOrders().then(response => {
             orders.value = OrderAssembler.toEntitiesFromResponse(response);
             ordersLoaded.value = true;
         }).catch(error => {
             errors.value.push(error);
+        }).finally(() => {
+            ordersLoading.value = false;
         });
     }
 
     /**
      * Loads dispatches from infrastructure and updates the application state.
+     * Errors from a previous attempt are cleared so a retry does not repeat them.
      * @returns {void}
      */
     function fetchDispatches() {
+        errors.value = [];
+        dispatchesLoading.value = true;
         orderManagementApi.getDispatches().then(response => {
             dispatches.value = DispatchAssembler.toEntitiesFromResponse(response);
             dispatchesLoaded.value = true;
         }).catch(error => {
             errors.value.push(error);
+        }).finally(() => {
+            dispatchesLoading.value = false;
         });
     }
 
@@ -205,6 +225,8 @@ const useOrderManagementStore = defineStore('orderManagement', () => {
         errors,
         ordersLoaded,
         dispatchesLoaded,
+        ordersLoading,
+        dispatchesLoading,
         pendingCount,
         approvedCount,
         underReviewCount,
