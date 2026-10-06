@@ -206,7 +206,9 @@
       "withdrawalsUnit": "outgoing movements",
       "byCategory": "Distribution by category",
       "materials": "materials",
-      "period": "April 2025"
+      "label": "Period",
+      "last7Days": "Last 7 days",
+      "all": "Whole period"
     }
   },
   "history": {
