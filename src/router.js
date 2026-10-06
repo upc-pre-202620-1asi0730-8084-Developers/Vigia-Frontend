@@ -4,6 +4,7 @@ import { ROLES, navigationItems } from "./shared/presentation/navigation.config.
 import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
 import orderManagementRoutes from './order-management-and-distpatch/presentation/order-management-routes.js'
 import projectManagementRoutes from './project-management/presentation/project-management-routes.js'
+import activityHistoryRoutes from './activity-history/presentation/activity-history-routes.js'
 import inventoryManagementRoutes from './inventory-management/presentation/inventory-management-routes.js'
 
 // Vistas
@@ -17,6 +18,7 @@ const routes = [
     ...discrepancyRoutes,
     ...orderManagementRoutes,
     ...projectManagementRoutes,
+    ...activityHistoryRoutes,
     ...inventoryManagementRoutes,
     {
         path: '/',
@@ -41,12 +43,6 @@ const routes = [
         meta: { title: 'Recepciones en Obra', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
     },
 
-    {
-        path: '/historial',
-        name: 'historial',
-        component: modulePlaceholder,
-        meta: { title: 'Historial', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER, ROLES.SITE_MANAGER] }
-    },
     {
         path: '/reportes',
         name: 'reportes',
