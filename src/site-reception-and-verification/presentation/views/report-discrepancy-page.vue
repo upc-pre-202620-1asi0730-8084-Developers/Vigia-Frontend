@@ -1,23 +1,21 @@
 <script setup>
-import { ref, reactive, watch } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRoute, useRouter } from 'vue-router';
+import { useToast } from 'primevue';
 import { useReceptionStore } from '../../application/reception.store.js';
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: false
-  },
-  reception: {
-    type: Object,
-    default: null
-  }
-});
-
-const emit = defineEmits(['update:visible', 'reported']);
-
+/**
+ * Page to report a discrepancy with photographic evidence for a reception (US-10).
+ * Route: /recepciones/:id/discrepancia
+ */
 const { t } = useI18n();
+const route = useRoute();
+const router = useRouter();
+const toast = useToast();
 const receptionStore = useReceptionStore();
+
+const reception = computed(() => receptionStore.receptions.find(r => String(r.id) === String(route.params.id)) ?? null);
 
 const isSubmitting = ref(false);
 const errorMessage = ref('');
@@ -52,17 +50,19 @@ const form = reactive({
   selectedPreset: 0
 });
 
-watch(() => props.visible, (newVal) => {
-  if (newVal) {
-    errorMessage.value = '';
-    form.observations = props.reception?.observations || 'Diferencia constatada en obra al momento del pesaje y cubicaje.';
+onMounted(async () => {
+  try {
+    if (!receptionStore.receptions.length) await receptionStore.fetchReceptions();
+  } catch (err) {
+    errorMessage.value = err.message || t('receptions.discrepancy.errorSaving');
   }
+  form.observations = reception.value?.observations || 'Diferencia constatada en obra al momento del pesaje y cubicaje.';
 });
 
 function onSelectPreset(index) {
   form.selectedPreset = index;
   form.evidenceUrl = samplePhotos[index].url;
-  form.caption = `${samplePhotos[index].label} en ${props.reception?.siteName || 'obra'}.`;
+  form.caption = `${samplePhotos[index].label} en ${reception.value?.siteName || 'obra'}.`;
 }
 
 async function onSubmit() {
@@ -82,13 +82,13 @@ async function onSubmit() {
       capturedAt: new Date().toISOString()
     };
 
-    const updated = await receptionStore.reportDiscrepancy(props.reception.id, {
+    await receptionStore.reportDiscrepancy(reception.value.id, {
       observations: `[${form.discrepancyType}] ${form.observations}`,
       evidence: evidence
     });
 
-    emit('reported', updated);
-    emit('update:visible', false);
+    toast.add({ severity: 'success', summary: t('receptions.discrepancy.reported'), detail: reception.value.id, life: 3000 });
+    goBack();
   } catch (err) {
     errorMessage.value = err.message || t('receptions.discrepancy.errorSaving');
   } finally {
@@ -96,20 +96,18 @@ async function onSubmit() {
   }
 }
 
-function closeDialog() {
-  emit('update:visible', false);
+function goBack() {
+  router.push('/recepciones');
 }
 </script>
 
 <template>
-  <pv-dialog
-    :visible="visible"
-    modal
-    :header="t('receptions.discrepancy.title') + (reception ? ` (${reception.id})` : '')"
-    :style="{ width: '90vw', maxWidth: '640px' }"
-    @update:visible="closeDialog"
-  >
-    <div class="discrepancy-dialog-content">
+  <div class="p-4">
+    <div class="page-header">
+      <pv-button :label="t('nav.receptions')" icon="pi pi-arrow-left" link class="back-link" @click="goBack" />
+      <h1 class="m-0">{{ t('receptions.discrepancy.title') + (reception ? ` (${reception.id})` : '') }}</h1>
+    </div>
+    <div class="vigia-card discrepancy-dialog-content">
       <div v-if="errorMessage" class="error-banner mb-3">
         <i class="pi pi-exclamation-triangle mr-2"></i>
         <span>{{ errorMessage }}</span>
@@ -189,14 +187,12 @@ function closeDialog() {
           <pv-input-text v-model="form.caption" class="w-full" placeholder="Ej. Tarima con sacos faltantes en obra" />
         </div>
       </div>
-    </div>
 
-    <template #footer>
-      <div class="flex justify-content-end gap-2">
+      <div class="form-footer">
         <pv-button
           :label="t('common.cancel')"
           class="btn-secondary"
-          @click="closeDialog"
+          @click="goBack"
           :disabled="isSubmitting"
         />
         <pv-button
@@ -207,14 +203,30 @@ function closeDialog() {
           :loading="isSubmitting"
         />
       </div>
-    </template>
-  </pv-dialog>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.page-header {
+  margin-bottom: var(--sp-16);
+}
+
+.back-link {
+  padding-left: 0;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-8);
+  margin-top: var(--sp-16);
+  padding-top: var(--sp-16);
+  border-top: 1px solid var(--p-content-border-color);
+}
+
 .discrepancy-dialog-content {
-  max-height: 75vh;
-  overflow-y: auto;
+  max-width: 48rem;
 }
 
 .error-banner {

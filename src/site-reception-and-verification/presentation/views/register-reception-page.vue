@@ -1,23 +1,19 @@
 <script setup>
-import { ref, reactive, watch, computed } from 'vue';
+import { ref, reactive, computed, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRoute, useRouter } from 'vue-router';
+import { useToast } from 'primevue';
 import { useReceptionStore } from '../../application/reception.store.js';
 import useIamStore from '../../../iam/application/iam.store.js';
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: false
-  },
-  preselectedArrival: {
-    type: Object,
-    default: null
-  }
-});
-
-const emit = defineEmits(['update:visible', 'saved']);
-
+/**
+ * Page to register the reception of a dispatch at the site (US-09).
+ * Query ?arrival=<id> preloads an upcoming arrival and ?reception=<id> an existing reception.
+ */
 const { t } = useI18n();
+const route = useRoute();
+const router = useRouter();
+const toast = useToast();
 const receptionStore = useReceptionStore();
 const iamStore = useIamStore();
 
@@ -61,16 +57,26 @@ const arrivalOptions = computed(() => {
   }));
 });
 
-watch(() => props.visible, (newVal) => {
-  if (newVal) {
-    errorMessage.value = '';
-    if (props.preselectedArrival) {
-      applyArrival(props.preselectedArrival);
-    } else if (receptionStore.upcomingArrivals.length > 0) {
-      applyArrival(receptionStore.upcomingArrivals[0]);
-    }
+onMounted(async () => {
+  try {
+    if (!receptionStore.upcomingArrivals.length) await receptionStore.fetchUpcomingArrivals();
+    if (route.query.reception && !receptionStore.receptions.length) await receptionStore.fetchReceptions();
+  } catch (err) {
+    errorMessage.value = err.message || t('receptions.dialog.errorSaving');
   }
+  applyQuerySelection();
 });
+
+// Reapply the selection when only the query changes (e.g. browser back/forward between arrivals).
+watch(() => route.query, applyQuerySelection);
+
+/** Preloads the arrival (?arrival=) or reception (?reception=) named in the URL, or the first upcoming arrival. */
+function applyQuerySelection() {
+  const preselected = route.query.reception
+      ? receptionStore.receptions.find(r => String(r.id) === String(route.query.reception))
+      : receptionStore.upcomingArrivals.find(a => String(a.id || a.dispatchId) === String(route.query.arrival));
+  applyArrival(preselected || receptionStore.upcomingArrivals[0]);
+}
 
 function applyArrival(arrival) {
   if (!arrival) return;
@@ -147,8 +153,8 @@ async function onSubmit() {
     };
 
     const newReception = await receptionStore.registerReception(payload);
-    emit('saved', newReception);
-    emit('update:visible', false);
+    toast.add({ severity: 'success', summary: t('receptions.dialog.saved'), detail: newReception?.id, life: 3000 });
+    goBack();
   } catch (err) {
     errorMessage.value = err.message || t('receptions.dialog.errorSaving');
   } finally {
@@ -156,20 +162,18 @@ async function onSubmit() {
   }
 }
 
-function closeDialog() {
-  emit('update:visible', false);
+function goBack() {
+  router.push('/recepciones');
 }
 </script>
 
 <template>
-  <pv-dialog
-    :visible="visible"
-    modal
-    :header="t('receptions.dialog.registerTitle')"
-    :style="{ width: '90vw', maxWidth: '780px' }"
-    @update:visible="closeDialog"
-  >
-    <div class="register-dialog-content">
+  <div class="p-4">
+    <div class="page-header">
+      <pv-button :label="t('nav.receptions')" icon="pi pi-arrow-left" link class="back-link" @click="goBack" />
+      <h1 class="m-0">{{ t('receptions.dialog.registerTitle') }}</h1>
+    </div>
+    <div class="vigia-card register-dialog-content">
       <div v-if="errorMessage" class="error-banner mb-3">
         <i class="pi pi-exclamation-triangle mr-2"></i>
         <span>{{ errorMessage }}</span>
@@ -319,14 +323,12 @@ function closeDialog() {
           :placeholder="t('receptions.dialog.observationsPlaceholder')"
         />
       </div>
-    </div>
 
-    <template #footer>
-      <div class="flex justify-content-end gap-2">
+      <div class="form-footer">
         <pv-button
           :label="t('common.cancel')"
           class="btn-secondary"
-          @click="closeDialog"
+          @click="goBack"
           :disabled="isSubmitting"
         />
         <pv-button
@@ -337,15 +339,30 @@ function closeDialog() {
           :loading="isSubmitting"
         />
       </div>
-    </template>
-  </pv-dialog>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.page-header {
+  margin-bottom: var(--sp-16);
+}
+
+.back-link {
+  padding-left: 0;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-8);
+  margin-top: var(--sp-16);
+  padding-top: var(--sp-16);
+  border-top: 1px solid var(--p-content-border-color);
+}
+
 .register-dialog-content {
-  max-height: 75vh;
-  overflow-y: auto;
-  padding-right: var(--sp-4);
+  max-width: 56rem;
 }
 
 .error-banner {

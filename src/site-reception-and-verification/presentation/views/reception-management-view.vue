@@ -1,29 +1,26 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 import { useReceptionStore } from '../../application/reception.store.js';
 import useIamStore from '../../../iam/application/iam.store.js';
 import { ROLES } from '../../../shared/presentation/navigation.config.js';
 
 import SiteManagerReceptionView from '../components/site-manager-reception-view.vue';
 import SupervisorReceptionView from '../components/supervisor-reception-view.vue';
-import RegisterReceptionDialog from '../components/register-reception-dialog.vue';
-import ReportDiscrepancyDialog from '../components/report-discrepancy-dialog.vue';
 import EvidenceGalleryDialog from '../components/evidence-gallery-dialog.vue';
 
 const { t } = useI18n();
+const router = useRouter();
 const receptionStore = useReceptionStore();
 const iamStore = useIamStore();
 
 // Modo de vista: 'site_manager' (Responsable de Obra) o 'supervisor' (Supervisor / Admin)
 const currentPerspective = ref('site_manager');
 
-// Dialogs reactivos
-const isRegisterOpen = ref(false);
-const isDiscrepancyOpen = ref(false);
+// Galería de evidencias (solo lectura); registrar y reportar discrepancias se hacen en páginas propias
 const isGalleryOpen = ref(false);
 const targetReception = ref(null);
-const targetArrival = ref(null);
 
 // Sincronizar automáticamente la perspectiva inicial según el rol activo de IAM
 watch(
@@ -63,14 +60,18 @@ const viewHeader = computed(() => {
   };
 });
 
-function openRegisterDialog(arrival = null) {
-  targetArrival.value = arrival;
-  isRegisterOpen.value = true;
+/**
+ * Opens the register reception page, preloading an upcoming arrival or an existing reception.
+ * @param {?Object} source - Upcoming arrival or reception selected in the list.
+ */
+function goToRegister(source = null) {
+  const query = !source ? {} : source.arrivedAt ? { reception: source.id } : { arrival: source.id || source.dispatchId };
+  router.push({ name: 'reception-new', query });
 }
 
-function openDiscrepancyDialog(reception) {
-  targetReception.value = reception;
-  isDiscrepancyOpen.value = true;
+/** @param {Object} reception - Reception whose discrepancy is reported. */
+function goToDiscrepancy(reception) {
+  router.push({ name: 'reception-discrepancy', params: { id: reception.id } });
 }
 
 function openGalleryDialog(reception) {
@@ -133,7 +134,7 @@ async function handleConfirmReception(reception) {
           :label="t('receptions.actions.registerReception')"
           icon="pi pi-plus"
           class="btn-accent"
-          @click="openRegisterDialog(null)"
+          @click="goToRegister(null)"
         />
       </div>
     </div>
@@ -147,33 +148,23 @@ async function handleConfirmReception(reception) {
     <!-- Vista 1: Responsable de Obra (Mockup 4receptions.png) -->
     <div v-else-if="currentPerspective === 'site_manager'">
       <SiteManagerReceptionView
-        @reportIssue="openDiscrepancyDialog"
-        @editReception="openRegisterDialog"
+        @reportIssue="goToDiscrepancy"
+        @editReception="goToRegister"
         @viewGallery="openGalleryDialog"
-        @registerArrival="openRegisterDialog"
+        @registerArrival="goToRegister"
       />
     </div>
 
     <!-- Vista 2: Supervisor (Mockup Modern Receptions Dashboard with Stock Alerts.png) -->
     <div v-else-if="currentPerspective === 'supervisor'">
       <SupervisorReceptionView
-        @reportDiscrepancy="openDiscrepancyDialog"
+        @reportDiscrepancy="goToDiscrepancy"
         @confirmReception="handleConfirmReception"
         @viewGallery="openGalleryDialog"
       />
     </div>
 
-    <!-- Modals de Gestión -->
-    <RegisterReceptionDialog
-      v-model:visible="isRegisterOpen"
-      :preselectedArrival="targetArrival"
-    />
-
-    <ReportDiscrepancyDialog
-      v-model:visible="isDiscrepancyOpen"
-      :reception="targetReception"
-    />
-
+    <!-- Galería de evidencias (solo lectura) -->
     <EvidenceGalleryDialog
       v-model:visible="isGalleryOpen"
       :reception="targetReception"
