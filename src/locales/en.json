@@ -28,7 +28,8 @@
     "subtitle": "Management of transport units, telematics devices, and facility geofences",
     "tabs": {
       "vehicles": "Transport Units",
-      "geofences": "Geofences"
+      "geofences": "Geofences",
+      "tracking": "Transit tracking"
     },
     "vehicles": {
       "title": "Transportation Fleet",
@@ -103,6 +104,85 @@
       "centerRequired": "Selecciona un punto en el mapa para ubicar la geocerca.",
       "deviceRequired": "Ingresa el ID del dispositivo GPS.",
       "networkError": "No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "transit": {
+    "title": "Transit traceability",
+    "subtitle": "Real-time tracking of dispatches on route to their destination site",
+    "kpi": {
+      "active": "Routes in transit",
+      "deviated": "Route deviations",
+      "stopped": "Prolonged stops",
+      "pending": "Pending site notifications"
+    },
+    "list": {
+      "title": "Routes",
+      "empty": "There are no routes being tracked. A route starts when a vehicle leaves the warehouse geofence."
+    },
+    "table": {
+      "route": "Route",
+      "dispatch": "Dispatch",
+      "truck": "Truck",
+      "destination": "Destination",
+      "lastUpdate": "Last update",
+      "status": "Status"
+    },
+    "status": {
+      "IN_TRANSIT": "In transit",
+      "DEVIATED": "Route deviation",
+      "STOPPED": "Stopped",
+      "SIGNAL_LOST": "Signal lost",
+      "ARRIVED": "Arrived"
+    },
+    "map": {
+      "title": "Real-time tracking",
+      "selectRoute": "Select a route to see it on the map.",
+      "planned": "Planned route",
+      "travelled": "Travelled route",
+      "current": "Current position",
+      "destination": "Destination geofence",
+      "speed": "Speed"
+    },
+    "summary": {
+      "origin": "Origin",
+      "destination": "Destination",
+      "departure": "Departure",
+      "eta": "Estimated arrival",
+      "arrivedAt": "Arrived at",
+      "distance": "Distance travelled",
+      "positions": "Positions received"
+    },
+    "simulation": {
+      "title": "GPS telemetry simulation",
+      "hint": "No GPS device is connected. Simulate the reports of the telemetry platform to test the tracking rules.",
+      "onRoute": "Report position",
+      "deviation": "Simulate deviation",
+      "stop": "Simulate stop",
+      "signalLost": "Simulate signal loss"
+    },
+    "alerts": {
+      "title": "Transit alerts",
+      "empty": "No alerts for this route.",
+      "notify": "Notify site",
+      "notified": "Site notified",
+      "type": {
+        "ROUTE_DEVIATION": "Route deviation detected",
+        "PROLONGED_STOP": "Prolonged stop detected",
+        "SIGNAL_LOST": "Device signal lost",
+        "SIGNAL_RECOVERED": "Device signal recovered",
+        "GEOFENCE_ENTRY": "Entered destination geofence"
+      },
+      "detail": {
+        "ROUTE_DEVIATION": "{value} m away from the planned route",
+        "PROLONGED_STOP": "Stopped for {value} min"
+      }
+    },
+    "toast": {
+      "positionReported": "Position incorporated into the route",
+      "alertRaised": "Transit alert",
+      "siteNotified": "Destination site notified",
+      "arrived": "The vehicle entered the destination site geofence",
+      "error": "The operation could not be completed"
     }
   },
   "modules": {
