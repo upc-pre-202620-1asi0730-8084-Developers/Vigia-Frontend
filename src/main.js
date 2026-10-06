@@ -76,7 +76,9 @@ const VigiaPreset = definePreset(Material, {
 createApp(App)
     .use(i18n)
     .use(PrimeVue, {
-        theme: { preset: VigiaPreset },
+        // La paleta de Vigía es solo clara: el modo oscuro de PrimeVue se activa únicamente con la
+        // clase .app-dark (no usada), así el tema oscuro del sistema no pinta componentes en negro.
+        theme: { preset: VigiaPreset, options: { darkModeSelector: '.app-dark' } },
         ripple: true,
         license: primeUiLicenseKey
     })
