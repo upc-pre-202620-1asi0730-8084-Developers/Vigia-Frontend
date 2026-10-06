@@ -1182,5 +1182,78 @@
         }
       ]
     }
+  ],
+  "routes": [
+    {
+      "id": "RT-001",
+      "dispatchId": "DS-106",
+      "vehicleId": 2,
+      "vehiclePlate": "V3B-920",
+      "originName": "Almacén Central Lurín",
+      "destinationGeofenceId": 2,
+      "destination": {
+        "name": "Obra Torres de San Isidro",
+        "latitude": -12.0968,
+        "longitude": -77.0347,
+        "radiusMeters": 180
+      },
+      "plannedPath": [
+        {
+          "latitude": -12.2741,
+          "longitude": -76.8715
+        },
+        {
+          "latitude": -12.235,
+          "longitude": -76.905
+        },
+        {
+          "latitude": -12.19,
+          "longitude": -76.948
+        },
+        {
+          "latitude": -12.155,
+          "longitude": -76.99
+        },
+        {
+          "latitude": -12.125,
+          "longitude": -77.015
+        },
+        {
+          "latitude": -12.105,
+          "longitude": -77.028
+        },
+        {
+          "latitude": -12.0968,
+          "longitude": -77.0347
+        }
+      ],
+      "positions": [
+        {
+          "latitude": -12.2741,
+          "longitude": -76.8715,
+          "speedKmh": 0,
+          "reportedAt": "2025-04-15T13:00:00.000Z"
+        },
+        {
+          "latitude": -12.2569,
+          "longitude": -76.8863,
+          "speedKmh": 30,
+          "reportedAt": "2025-04-15T13:05:00.000Z"
+        },
+        {
+          "latitude": -12.2396,
+          "longitude": -76.901,
+          "speedKmh": 30,
+          "reportedAt": "2025-04-15T13:10:00.000Z"
+        }
+      ],
+      "alerts": [],
+      "status": "IN_TRANSIT",
+      "startedAt": "2025-04-15T13:00:00.000Z",
+      "estimatedArrival": "2025-04-15T14:15:00.000Z",
+      "arrivedAt": null,
+      "deviationThresholdMeters": 300,
+      "stopThresholdMinutes": 15
+    }
   ]
 }

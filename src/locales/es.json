@@ -28,7 +28,8 @@
     "subtitle": "Gestión de unidades de transporte, dispositivos telemáticos y geocercas de predios",
     "tabs": {
       "vehicles": "Unidades",
-      "geofences": "Geocercas"
+      "geofences": "Geocercas",
+      "tracking": "Seguimiento en tránsito"
     },
     "vehicles": {
       "title": "Flota de Transporte",
@@ -103,6 +104,85 @@
       "centerRequired": "Selecciona un punto en el mapa para ubicar la geocerca.",
       "deviceRequired": "Ingresa el ID del dispositivo GPS.",
       "networkError": "No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "transit": {
+    "title": "Trazabilidad en tránsito",
+    "subtitle": "Seguimiento en tiempo real de los despachos en ruta hacia su obra destino",
+    "kpi": {
+      "active": "Recorridos en tránsito",
+      "deviated": "Desvíos de ruta",
+      "stopped": "Detenciones prolongadas",
+      "pending": "Notificaciones pendientes a obra"
+    },
+    "list": {
+      "title": "Recorridos",
+      "empty": "No hay recorridos en seguimiento. Un recorrido inicia cuando la unidad sale de la geocerca del almacén."
+    },
+    "table": {
+      "route": "Recorrido",
+      "dispatch": "Despacho",
+      "truck": "Unidad",
+      "destination": "Destino",
+      "lastUpdate": "Última actualización",
+      "status": "Estado"
+    },
+    "status": {
+      "IN_TRANSIT": "En tránsito",
+      "DEVIATED": "Desvío de ruta",
+      "STOPPED": "Detenido",
+      "SIGNAL_LOST": "Señal perdida",
+      "ARRIVED": "Llegó"
+    },
+    "map": {
+      "title": "Seguimiento en tiempo real",
+      "selectRoute": "Selecciona un recorrido para verlo en el mapa.",
+      "planned": "Ruta prevista",
+      "travelled": "Ruta recorrida",
+      "current": "Posición actual",
+      "destination": "Geocerca de destino",
+      "speed": "Velocidad"
+    },
+    "summary": {
+      "origin": "Origen",
+      "destination": "Destino",
+      "departure": "Salida",
+      "eta": "Llegada estimada",
+      "arrivedAt": "Llegó a las",
+      "distance": "Distancia recorrida",
+      "positions": "Posiciones recibidas"
+    },
+    "simulation": {
+      "title": "Simulación de telemetría GPS",
+      "hint": "No hay un dispositivo GPS conectado. Simula los reportes de la plataforma de telemetría para probar las reglas de seguimiento.",
+      "onRoute": "Reportar posición",
+      "deviation": "Simular desvío",
+      "stop": "Simular detención",
+      "signalLost": "Simular pérdida de señal"
+    },
+    "alerts": {
+      "title": "Alertas de tránsito",
+      "empty": "Este recorrido no tiene alertas.",
+      "notify": "Notificar a obra",
+      "notified": "Obra notificada",
+      "type": {
+        "ROUTE_DEVIATION": "Desvío de ruta detectado",
+        "PROLONGED_STOP": "Detención prolongada detectada",
+        "SIGNAL_LOST": "Señal del dispositivo perdida",
+        "SIGNAL_RECOVERED": "Señal del dispositivo recuperada",
+        "GEOFENCE_ENTRY": "Ingreso a la geocerca de destino"
+      },
+      "detail": {
+        "ROUTE_DEVIATION": "A {value} m de la ruta prevista",
+        "PROLONGED_STOP": "Detenido durante {value} min"
+      }
+    },
+    "toast": {
+      "positionReported": "Posición incorporada al recorrido",
+      "alertRaised": "Alerta de tránsito",
+      "siteNotified": "Obra de destino notificada",
+      "arrived": "La unidad ingresó a la geocerca de la obra destino",
+      "error": "No se pudo completar la operación"
     }
   },
   "modules": {
