@@ -158,6 +158,57 @@
       "topZoneValue": "{zone} ({count} obras)"
     }
   },
+  "inventory": {
+    "title": "Materiales",
+    "subtitle": "Supervisa el inventario, el consumo y las alertas de materiales",
+    "kpi": {
+      "monitored": "Materiales monitoreados",
+      "lowStock": "Stock bajo",
+      "categories": "Categorías",
+      "todayMovements": "Movimientos de hoy"
+    },
+    "filters": {
+      "category": "Categoría",
+      "project": "Obra",
+      "status": "Estado",
+      "allCategories": "Todas las categorías",
+      "allProjects": "Todas las obras",
+      "allStatuses": "Todos los estados",
+      "stockAlerts": "Alertas de stock",
+      "clear": "Limpiar filtros"
+    },
+    "table": {
+      "title": "Estado del inventario",
+      "material": "Material",
+      "category": "Categoría",
+      "currentStock": "Stock actual",
+      "minimumStock": "Stock mínimo",
+      "project": "Obra asociada",
+      "status": "Estado",
+      "empty": "Ningún material coincide con los filtros seleccionados."
+    },
+    "stockStatus": {
+      "IN_STOCK": "En stock",
+      "LOW_STOCK": "Stock bajo"
+    },
+    "category": {
+      "CEMENTS": "Cementos",
+      "STEEL": "Acero",
+      "MASONRY": "Albañilería",
+      "AGGREGATES": "Agregados",
+      "INSTALLATIONS": "Instalaciones",
+      "ELECTRICAL": "Eléctricos",
+      "FINISHES": "Acabados"
+    },
+    "charts": {
+      "mostUsed": "Materiales más usados",
+      "withdrawals": "Salidas por obra",
+      "withdrawalsUnit": "movimientos de salida",
+      "byCategory": "Distribución por categoría",
+      "materials": "materiales",
+      "period": "Abril 2025"
+    }
+  },
   "transit": {
     "title": "Trazabilidad en tránsito",
     "subtitle": "Seguimiento en tiempo real de los despachos en ruta hacia su obra destino",

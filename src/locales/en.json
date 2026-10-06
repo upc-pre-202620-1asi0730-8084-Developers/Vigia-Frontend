@@ -158,6 +158,57 @@
       "topZoneValue": "{zone} ({count} projects)"
     }
   },
+  "inventory": {
+    "title": "Inventory",
+    "subtitle": "Monitor inventory, consumption and material alerts",
+    "kpi": {
+      "monitored": "Monitored materials",
+      "lowStock": "Low stock",
+      "categories": "Categories",
+      "todayMovements": "Today's movements"
+    },
+    "filters": {
+      "category": "Category",
+      "project": "Project",
+      "status": "Status",
+      "allCategories": "All categories",
+      "allProjects": "All projects",
+      "allStatuses": "All statuses",
+      "stockAlerts": "Stock alerts",
+      "clear": "Clear filters"
+    },
+    "table": {
+      "title": "Inventory status",
+      "material": "Material",
+      "category": "Category",
+      "currentStock": "Current stock",
+      "minimumStock": "Minimum stock",
+      "project": "Associated project",
+      "status": "Status",
+      "empty": "No materials match the selected filters."
+    },
+    "stockStatus": {
+      "IN_STOCK": "In stock",
+      "LOW_STOCK": "Low stock"
+    },
+    "category": {
+      "CEMENTS": "Cements",
+      "STEEL": "Steel",
+      "MASONRY": "Masonry",
+      "AGGREGATES": "Aggregates",
+      "INSTALLATIONS": "Installations",
+      "ELECTRICAL": "Electrical",
+      "FINISHES": "Finishes"
+    },
+    "charts": {
+      "mostUsed": "Most used materials",
+      "withdrawals": "Withdrawals by project",
+      "withdrawalsUnit": "outgoing movements",
+      "byCategory": "Distribution by category",
+      "materials": "materials",
+      "period": "April 2025"
+    }
+  },
   "transit": {
     "title": "Transit traceability",
     "subtitle": "Real-time tracking of dispatches on route to their destination site",
