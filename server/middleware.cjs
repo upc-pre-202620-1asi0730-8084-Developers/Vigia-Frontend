@@ -1,18 +1,12 @@
-const fs = require('fs');
-const path = require('path');
+const loadDatabase = require('./db.cjs');
 
-const dbFilePath = path.join(__dirname, 'db.json');
-
+// json-server expone la base en memoria en req.app.db; el dataset de server/data
+// solo se lee como respaldo cuando el middleware se usa fuera de json-server.
 function readDb(req) {
     if (req && req.app && req.app.db) {
         return req.app.db.getState();
     }
-    try {
-        const raw = fs.readFileSync(dbFilePath, 'utf8');
-        return JSON.parse(raw);
-    } catch (e) {
-        return { vehicles: [], geofences: [], unassociatedTelemetryEvents: [], receptions: [], upcomingArrivals: [] };
-    }
+    return loadDatabase();
 }
 
 function persistDb(req, data) {
@@ -21,11 +15,7 @@ function persistDb(req, data) {
         req.app.db.write();
         return;
     }
-    try {
-        fs.writeFileSync(dbFilePath, JSON.stringify(data, null, 2), 'utf8');
-    } catch (e) {
-        console.error('Error escribiendo db.json:', e);
-    }
+    console.warn('persistDb: sin base de json-server, los cambios no se guardan.');
 }
 
 module.exports = function(req, res, next) {
