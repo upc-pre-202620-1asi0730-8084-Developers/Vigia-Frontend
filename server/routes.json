@@ -7,5 +7,7 @@
   "/api/v1/discrepancy-cases/*": "/discrepancyCases/$1",
   "/api/v1/inventory-movements": "/inventoryMovements",
   "/api/v1/inventory-movements/*": "/inventoryMovements/$1",
+  "/api/v1/activity-records": "/activityRecords",
+  "/api/v1/activity-records/*": "/activityRecords/$1",
   "/api/v1/*": "/$1"
 }

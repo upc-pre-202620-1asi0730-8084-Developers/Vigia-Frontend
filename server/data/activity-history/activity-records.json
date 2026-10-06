@@ -1,0 +1,232 @@
+[
+  {
+    "id": "ACT-023",
+    "occurredAt": "2026-10-03T12:00:00-05:00",
+    "type": "DISCREPANCY",
+    "action": "DISCREPANCY_REPORTED",
+    "detail": "Residencial Miraflores",
+    "userName": "María Torres",
+    "reference": "DSP-001",
+    "status": "WITH_DISCREPANCY"
+  },
+  {
+    "id": "ACT-022",
+    "occurredAt": "2026-10-02T12:00:00-05:00",
+    "type": "DISCREPANCY",
+    "action": "DISCREPANCY_REPORTED",
+    "detail": "Edificio San Isidro",
+    "userName": "María Torres",
+    "reference": "DSP-002",
+    "status": "PENDING"
+  },
+  {
+    "id": "ACT-021",
+    "occurredAt": "2026-10-01T15:30:00-05:00",
+    "type": "DISCREPANCY",
+    "action": "DISCREPANCY_CLOSED",
+    "detail": "Proyecto Surco",
+    "userName": "María Torres",
+    "reference": "DSP-003",
+    "status": "CLOSED"
+  },
+  {
+    "id": "ACT-020",
+    "occurredAt": "2026-09-30T12:00:00-05:00",
+    "type": "DISCREPANCY",
+    "action": "DISCREPANCY_REPORTED",
+    "detail": "Proyecto Surco",
+    "userName": "María Torres",
+    "reference": "DSP-003",
+    "status": "CLOSED"
+  },
+  {
+    "id": "ACT-019",
+    "occurredAt": "2025-04-15T13:00:00.000Z",
+    "type": "TRANSPORT",
+    "action": "TRANSIT_STARTED",
+    "detail": "Obra Torres de San Isidro",
+    "userName": "Carlos Mendoza",
+    "reference": "RT-001",
+    "status": "IN_TRANSIT"
+  },
+  {
+    "id": "ACT-018",
+    "occurredAt": "2025-04-14T16:20:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Torre A",
+    "userName": "Juan Pérez",
+    "reference": "RC-101",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-017",
+    "occurredAt": "2025-04-14T10:24:00-05:00",
+    "type": "DISPATCH",
+    "action": "DISPATCH_CREATED",
+    "detail": "Tower A (North Floor)",
+    "userName": "Carlos Mendoza",
+    "reference": "DS-104",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-016",
+    "occurredAt": "2025-04-14T09:00:00-05:00",
+    "type": "DISPATCH",
+    "action": "DISPATCH_CREATED",
+    "detail": "South Shopping Center",
+    "userName": "Carlos Mendoza",
+    "reference": "DS-105",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-015",
+    "occurredAt": "2025-04-14T10:24:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Torre A",
+    "userName": "Juan Pérez",
+    "reference": "RC-104",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-014",
+    "occurredAt": "2025-04-14T09:50:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Torre A",
+    "userName": "Juan Pérez",
+    "reference": "RC-103",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-013",
+    "occurredAt": "2025-04-14T09:20:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Torre A",
+    "userName": "Juan Pérez",
+    "reference": "REC-089",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-012",
+    "occurredAt": "2025-04-14T08:15:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_WITH_DISCREPANCY",
+    "detail": "Concrete Plant",
+    "userName": "Juan Pérez",
+    "reference": "RC-102",
+    "status": "WITH_DISCREPANCY"
+  },
+  {
+    "id": "ACT-011",
+    "occurredAt": "2025-04-14T07:30:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_WITH_DISCREPANCY",
+    "detail": "Planta Norte",
+    "userName": "Ana López",
+    "reference": "REC-088",
+    "status": "WITH_DISCREPANCY"
+  },
+  {
+    "id": "ACT-010",
+    "occurredAt": "2025-04-13T15:00:00-05:00",
+    "type": "DISPATCH",
+    "action": "DISPATCH_CREATED",
+    "detail": "Las Lomas Bridge",
+    "userName": "Carlos Mendoza",
+    "reference": "DS-106",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-009",
+    "occurredAt": "2025-04-13T12:00:00-05:00",
+    "type": "DISPATCH",
+    "action": "DISPATCH_CREATED",
+    "detail": "Central Hospital",
+    "userName": "Carlos Mendoza",
+    "reference": "DS-107",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-008",
+    "occurredAt": "2025-04-13T16:20:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_WITH_DISCREPANCY",
+    "detail": "Torre A",
+    "userName": "Juan Pérez",
+    "reference": "RC-100",
+    "status": "WITH_DISCREPANCY"
+  },
+  {
+    "id": "ACT-007",
+    "occurredAt": "2025-04-13T16:20:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Centro Comercial Sur",
+    "userName": "Carlos Rivas",
+    "reference": "REC-087",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-006",
+    "occurredAt": "2025-04-13T14:10:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Puente Río",
+    "userName": "José Méndez",
+    "reference": "REC-086",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-005",
+    "occurredAt": "2025-04-13T11:40:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Torre A",
+    "userName": "Juan Pérez",
+    "reference": "RC-099",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-004",
+    "occurredAt": "2025-04-13T11:30:00Z",
+    "type": "RECEPTION",
+    "action": "ARRIVAL_REGISTERED",
+    "detail": "Hospital Central",
+    "userName": "María González",
+    "reference": "REC-085",
+    "status": "PENDING"
+  },
+  {
+    "id": "ACT-003",
+    "occurredAt": "2025-04-12T16:18:00-05:00",
+    "type": "DISPATCH",
+    "action": "DISPATCH_CREATED",
+    "detail": "Valley Residential",
+    "userName": "Carlos Mendoza",
+    "reference": "DS-108",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-002",
+    "occurredAt": "2025-04-12T17:00:00Z",
+    "type": "RECEPTION",
+    "action": "RECEPTION_RECORDED",
+    "detail": "Residencial Valle",
+    "userName": "Luis Ramírez",
+    "reference": "REC-084",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "ACT-001",
+    "occurredAt": "2025-04-12T09:15:00Z",
+    "type": "RECEPTION",
+    "action": "ARRIVAL_REGISTERED",
+    "detail": "Planta Norte",
+    "userName": "Ana López",
+    "reference": "REC-083",
+    "status": "PENDING"
+  }
+]
