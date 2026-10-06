@@ -107,6 +107,57 @@
       "networkError": "No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."
     }
   },
+  "projects": {
+    "title": "Obras",
+    "subtitle": "Supervisa el estado general de las obras",
+    "kpi": {
+      "active": "Obras activas",
+      "atRisk": "Obras en riesgo",
+      "inProgress": "En curso",
+      "delayed": "Retrasadas"
+    },
+    "filters": {
+      "status": "Estado",
+      "zone": "Zona",
+      "manager": "Responsable de obra",
+      "all": "Todas",
+      "clear": "Limpiar filtros"
+    },
+    "list": {
+      "title": "Lista de obras",
+      "total": "Total: {count} obras",
+      "empty": "Ninguna obra coincide con los filtros seleccionados."
+    },
+    "table": {
+      "index": "#",
+      "project": "Obra",
+      "zone": "Zona",
+      "manager": "Responsable",
+      "progress": "Avance",
+      "dispatches": "Despachos",
+      "receptions": "Recepciones",
+      "incidents": "Incidencias",
+      "status": "Estado"
+    },
+    "status": {
+      "IN_PROGRESS": "En curso",
+      "DELAYED": "Retrasada",
+      "AT_RISK": "En riesgo"
+    },
+    "zone": {
+      "LIMA": "Lima",
+      "NORTH": "Norte",
+      "SOUTH": "Sur",
+      "CENTER": "Centro",
+      "EAST": "Este"
+    },
+    "byZone": {
+      "title": "Obras por zona",
+      "projects": "obras",
+      "topZone": "Zona con más obras",
+      "topZoneValue": "{zone} ({count} obras)"
+    }
+  },
   "transit": {
     "title": "Trazabilidad en tránsito",
     "subtitle": "Seguimiento en tiempo real de los despachos en ruta hacia su obra destino",

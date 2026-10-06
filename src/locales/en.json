@@ -107,6 +107,57 @@
       "networkError": "No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."
     }
   },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Monitor the overall status of projects",
+    "kpi": {
+      "active": "Active projects",
+      "atRisk": "Projects at risk",
+      "inProgress": "In progress",
+      "delayed": "Delayed"
+    },
+    "filters": {
+      "status": "Status",
+      "zone": "Zone",
+      "manager": "Project manager",
+      "all": "All",
+      "clear": "Clear filters"
+    },
+    "list": {
+      "title": "Project list",
+      "total": "Total: {count} projects",
+      "empty": "No projects match the selected filters."
+    },
+    "table": {
+      "index": "#",
+      "project": "Project",
+      "zone": "Zone",
+      "manager": "Project manager",
+      "progress": "Progress",
+      "dispatches": "Dispatches",
+      "receptions": "Receptions",
+      "incidents": "Incidents",
+      "status": "Status"
+    },
+    "status": {
+      "IN_PROGRESS": "In progress",
+      "DELAYED": "Delayed",
+      "AT_RISK": "At risk"
+    },
+    "zone": {
+      "LIMA": "Lima",
+      "NORTH": "North",
+      "SOUTH": "South",
+      "CENTER": "Center",
+      "EAST": "East"
+    },
+    "byZone": {
+      "title": "Projects by zone",
+      "projects": "projects",
+      "topZone": "Zone with the most projects",
+      "topZoneValue": "{zone} ({count} projects)"
+    }
+  },
   "transit": {
     "title": "Transit traceability",
     "subtitle": "Real-time tracking of dispatches on route to their destination site",
