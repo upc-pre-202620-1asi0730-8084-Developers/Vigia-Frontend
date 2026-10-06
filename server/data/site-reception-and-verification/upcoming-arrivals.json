@@ -1,0 +1,50 @@
+[
+  {
+    "id": "TR-315",
+    "dispatchId": "DES-250",
+    "material": "Gravel (24 t)",
+    "origin": "Los Pinos Quarry",
+    "truck": "TR-890",
+    "truckPlate": "TR-890 (Plates TU-901-VW)",
+    "driverName": "Mario Quispe",
+    "deliveryGuideNumber": "GR-78501",
+    "estimatedArrival": "Today, 16:00",
+    "status": "In transit",
+    "siteName": "Torre A",
+    "siteId": "SITE-001",
+    "dispatchedQuantity": 24,
+    "unit": "t"
+  },
+  {
+    "id": "TR-428",
+    "dispatchId": "DES-251",
+    "material": "Cement (20 t)",
+    "origin": "Cemex Plant",
+    "truck": "TR-441",
+    "truckPlate": "TR-441 (Plates PQ-678-RS)",
+    "driverName": "Raúl Flores",
+    "deliveryGuideNumber": "GR-78502",
+    "estimatedArrival": "Today, 18:30",
+    "status": "In transit",
+    "siteName": "Planta Norte",
+    "siteId": "SITE-003",
+    "dispatchedQuantity": 20,
+    "unit": "t"
+  },
+  {
+    "id": "TR-512",
+    "dispatchId": "DES-252",
+    "material": "Rebar (10 t)",
+    "origin": "Central Warehouse",
+    "truck": "TR-205",
+    "truckPlate": "TR-205 (Plates LM-345-NO)",
+    "driverName": "Pedro Castillo",
+    "deliveryGuideNumber": "GR-78503",
+    "estimatedArrival": "Tomorrow, 09:00",
+    "status": "Scheduled",
+    "siteName": "Puente Río",
+    "siteId": "SITE-005",
+    "dispatchedQuantity": 10,
+    "unit": "t"
+  }
+]
