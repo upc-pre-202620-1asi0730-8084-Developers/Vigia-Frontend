@@ -49,6 +49,10 @@ interface ImportMetaEnv {
    */
   readonly VITE_INVENTORY_MOVEMENTS_ENDPOINT_PATH: string;
   /**
+   * # VITE_ACTIVITY_RECORDS_ENDPOINT_PATH is the path to the activity records' endpoint (Activity History).
+   */
+  readonly VITE_ACTIVITY_RECORDS_ENDPOINT_PATH: string;
+  /**
    * # VITE_PRIME_UI_LICENSE_KEY is the license key for the Prime UI library.
    */
   readonly VITE_PRIME_UI_LICENSE_KEY: string;
