@@ -16,7 +16,8 @@
     "reports": "Reports",
     "settings": "Settings",
     "more": "More",
-    "roleSelector": "Active role:"
+    "roleSelector": "Active role:",
+    "language": "Language"
   },
   "roles": {
     "ADMIN": "Supervisor (Admin)",
