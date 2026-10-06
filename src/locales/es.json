@@ -716,7 +716,8 @@
       "observationsPlaceholder": "Anota cualquier detalle sobre la descarga o condiciones del material...",
       "saveAction": "Confirmar y registrar",
       "requiredFields": "Por favor completa el ID de despacho y número de guía.",
-      "errorSaving": "Ocurrió un error al registrar la recepción."
+      "errorSaving": "Ocurrió un error al registrar la recepción.",
+      "saved": "Recepción registrada"
     },
     "discrepancy": {
       "title": "Reportar discrepancia en recepción",
@@ -730,7 +731,8 @@
       "captionLabel": "Leyenda o anotación de la foto",
       "submitAction": "Reportar discrepancia",
       "fieldsRequired": "Por favor ingresa las observaciones y la leyenda de la foto.",
-      "errorSaving": "Error al registrar la discrepancia."
+      "errorSaving": "Error al registrar la discrepancia.",
+      "reported": "Discrepancia reportada"
     },
     "evidence": {
       "galleryTitle": "Galería de evidencias fotográficas",

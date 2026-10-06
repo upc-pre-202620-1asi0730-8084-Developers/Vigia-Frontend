@@ -14,6 +14,10 @@ const modulePlaceholder = () => import('./shared/presentation/views/module-place
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 const transportView = () => import('./fleet-and-device-management/presentation/views/transport-view.vue');
 const receptionManagementView = () => import('./site-reception-and-verification/presentation/views/reception-management-view.vue');
+const vehicleRegisterForm = () => import('./fleet-and-device-management/presentation/views/vehicle-register-form.vue');
+const vehiclePairDeviceForm = () => import('./fleet-and-device-management/presentation/views/vehicle-pair-device-form.vue');
+const registerReceptionPage = () => import('./site-reception-and-verification/presentation/views/register-reception-page.vue');
+const reportDiscrepancyPage = () => import('./site-reception-and-verification/presentation/views/report-discrepancy-page.vue');
 
 const routes = [
 
@@ -35,10 +39,34 @@ const routes = [
         meta: { title: 'Transporte y Flota', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
     },
     {
+        path: '/transporte/unidades/nueva',
+        name: 'vehicle-new',
+        component: vehicleRegisterForm,
+        meta: { title: 'Registrar unidad', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
+    },
+    {
+        path: '/transporte/unidades/:id/gps',
+        name: 'vehicle-pair-device',
+        component: vehiclePairDeviceForm,
+        meta: { title: 'Vincular dispositivo GPS', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
+    },
+    {
         path: '/recepciones',
         name: 'recepciones',
         component: receptionManagementView,
         meta: { title: 'Recepciones en Obra', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
+    },
+    {
+        path: '/recepciones/nueva',
+        name: 'reception-new',
+        component: registerReceptionPage,
+        meta: { title: 'Registrar recepción', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
+    },
+    {
+        path: '/recepciones/:id/discrepancia',
+        name: 'reception-discrepancy',
+        component: reportDiscrepancyPage,
+        meta: { title: 'Reportar discrepancia', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
     },
 
     {

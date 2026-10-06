@@ -716,7 +716,8 @@
       "observationsPlaceholder": "Note any detail about unloading or material condition...",
       "saveAction": "Confirm and register",
       "requiredFields": "Please fill in the dispatch ID and delivery guide number.",
-      "errorSaving": "An error occurred while saving the reception."
+      "errorSaving": "An error occurred while saving the reception.",
+      "saved": "Reception registered"
     },
     "discrepancy": {
       "title": "Report Reception Discrepancy",
@@ -730,7 +731,8 @@
       "captionLabel": "Photo Caption / Legend",
       "submitAction": "Report discrepancy",
       "fieldsRequired": "Please enter observations and a photo caption.",
-      "errorSaving": "Error reporting discrepancy."
+      "errorSaving": "Error reporting discrepancy.",
+      "reported": "Discrepancy reported"
     },
     "evidence": {
       "galleryTitle": "Photographic Evidence Gallery",
