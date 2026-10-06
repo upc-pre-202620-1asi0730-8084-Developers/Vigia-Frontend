@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "json-server server/db.cjs --routes server/routes.json --middlewares server/middleware.cjs --port 3000"
+    "server": "node server/start.cjs"
   },
   "keywords": [
     "vue",

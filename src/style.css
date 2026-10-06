@@ -3,6 +3,9 @@
 @import "@fontsource/roboto/700.css";
 
 :root {
+  /* Controles nativos (select, scroll) siempre en claro, igual que la paleta */
+  color-scheme: light;
+
   /* Tokens de Color (§4.1.1) */
   --color-primary: #1B3A5C;
   --color-primary-light: #3D6B94;
