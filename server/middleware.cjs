@@ -1,21 +1,13 @@
-const loadDatabase = require('./db.cjs');
-
-// json-server expone la base en memoria en req.app.db; el dataset de server/data
-// solo se lee como respaldo cuando el middleware se usa fuera de json-server.
+// Reglas de negocio del mock API. No depende de Node: la base llega en req.app.db
+// (getState / setState / write), que entrega json-server o la API en memoria del
+// navegador (src/shared/infrastructure/in-memory-api.js) usada en producción.
 function readDb(req) {
-    if (req && req.app && req.app.db) {
-        return req.app.db.getState();
-    }
-    return loadDatabase();
+    return req.app.db.getState();
 }
 
 function persistDb(req, data) {
-    if (req && req.app && req.app.db) {
-        req.app.db.setState(data);
-        req.app.db.write();
-        return;
-    }
-    console.warn('persistDb: sin base de json-server, los cambios no se guardan.');
+    req.app.db.setState(data);
+    req.app.db.write();
 }
 
 module.exports = function(req, res, next) {

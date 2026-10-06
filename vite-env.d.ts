@@ -9,6 +9,10 @@
 interface ImportMetaEnv {
   readonly VITE_LEARNING_PLATFORM_API_URL: string;
   /**
+   * # VITE_USE_IN_MEMORY_API answers API requests from the in-browser mock API ("true" on static hosting).
+   */
+  readonly VITE_USE_IN_MEMORY_API?: string;
+  /**
    * # VITE_CATEGORIES_ENDPOINT_PATH is the path to the categories' endpoint.
    */
   readonly VITE_CATEGORIES_ENDPOINT_PATH: string;
