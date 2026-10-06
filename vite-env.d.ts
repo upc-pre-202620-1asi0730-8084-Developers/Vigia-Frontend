@@ -37,6 +37,10 @@ interface ImportMetaEnv {
    */
   readonly VITE_DISCREPANCY_CASES_ENDPOINT_PATH: string;
   /**
+   * # VITE_PROJECTS_ENDPOINT_PATH is the path to the projects' endpoint (Project Management).
+   */
+  readonly VITE_PROJECTS_ENDPOINT_PATH: string;
+  /**
    * # VITE_PRIME_UI_LICENSE_KEY is the license key for the Prime UI library.
    */
   readonly VITE_PRIME_UI_LICENSE_KEY: string;
