@@ -41,6 +41,14 @@ interface ImportMetaEnv {
    */
   readonly VITE_PROJECTS_ENDPOINT_PATH: string;
   /**
+   * # VITE_MATERIALS_ENDPOINT_PATH is the path to the materials' endpoint (Inventory Management).
+   */
+  readonly VITE_MATERIALS_ENDPOINT_PATH: string;
+  /**
+   * # VITE_INVENTORY_MOVEMENTS_ENDPOINT_PATH is the path to the inventory movements' endpoint (Inventory Management).
+   */
+  readonly VITE_INVENTORY_MOVEMENTS_ENDPOINT_PATH: string;
+  /**
    * # VITE_PRIME_UI_LICENSE_KEY is the license key for the Prime UI library.
    */
   readonly VITE_PRIME_UI_LICENSE_KEY: string;

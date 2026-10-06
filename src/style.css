@@ -210,3 +210,11 @@ p, span, div, td, th {
   font-size: 12px;
   margin-top: 4px;
 }
+
+/* Tarjeta de contenido (indicadores, filtros, tablas y gráficos de los módulos) */
+.vigia-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--p-content-border-color);
+  border-radius: var(--radius-actionable);
+  padding: var(--sp-16);
+}

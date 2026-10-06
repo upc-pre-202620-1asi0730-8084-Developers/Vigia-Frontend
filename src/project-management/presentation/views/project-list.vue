@@ -4,6 +4,7 @@ import {computed, onMounted, ref, toRefs} from "vue";
 import useProjectManagementStore from "../../application/project-management.store.js";
 import {PROJECT_STATUS, PROJECT_ZONE, projectStatusSeverity} from "../../domain/project-status.js";
 import DonutChart from "../../../shared/presentation/components/donut-chart.vue";
+import KpiCard from "../../../shared/presentation/components/kpi-card.vue";
 
 const {t} = useI18n();
 const store = useProjectManagementStore();
@@ -79,13 +80,7 @@ const kpis = computed(() => [
 
     <div class="grid mb-2">
       <div v-for="kpi in kpis" :key="kpi.key" class="col-12 md:col-6 xl:col-3">
-        <div class="vigia-card kpi-card">
-          <span class="kpi-icon" :class="`tone-${kpi.tone}`"><i :class="kpi.icon" aria-hidden="true" /></span>
-          <div>
-            <div class="kpi-label">{{ t(`projects.kpi.${kpi.key}`) }}</div>
-            <div class="kpi-value">{{ kpi.value }}</div>
-          </div>
-        </div>
+        <KpiCard :icon="kpi.icon" :tone="kpi.tone" :label="t(`projects.kpi.${kpi.key}`)" :value="kpi.value" />
       </div>
     </div>
 
@@ -171,46 +166,6 @@ const kpis = computed(() => [
 <style scoped>
 .subtitle {
   color: var(--color-text-secondary);
-}
-
-.vigia-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--p-content-border-color);
-  border-radius: var(--radius-actionable);
-  padding: var(--sp-16);
-}
-
-.kpi-card {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-16);
-  height: 100%;
-}
-
-.kpi-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.tone-primary { color: var(--color-primary); background-color: color-mix(in srgb, var(--color-primary) 10%, transparent); }
-.tone-error { color: var(--color-error); background-color: color-mix(in srgb, var(--color-error) 12%, transparent); }
-.tone-success { color: var(--color-success); background-color: color-mix(in srgb, var(--color-success) 12%, transparent); }
-.tone-accent { color: var(--color-accent); background-color: color-mix(in srgb, var(--color-accent) 15%, transparent); }
-
-.kpi-label {
-  color: var(--color-text-secondary);
-  font-weight: 500;
-}
-
-.kpi-value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--color-text-main);
 }
 
 .filters {
