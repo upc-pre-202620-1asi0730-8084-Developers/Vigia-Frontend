@@ -209,6 +209,57 @@
       "period": "Abril 2025"
     }
   },
+  "history": {
+    "title": "Historial",
+    "subtitle": "Revisa los movimientos y eventos registrados en el sistema",
+    "filters": {
+      "dateRange": "Rango de fechas",
+      "from": "Desde",
+      "to": "Hasta",
+      "type": "Tipo",
+      "user": "Usuario",
+      "reference": "Referencia",
+      "allTypes": "Todos los tipos",
+      "allUsers": "Todos los usuarios",
+      "searchReference": "Buscar por referencia...",
+      "clear": "Limpiar filtros"
+    },
+    "log": {
+      "title": "Registro de actividad",
+      "showing": "{count} de {total} registros",
+      "empty": "Ningún registro coincide con los filtros seleccionados."
+    },
+    "table": {
+      "dateTime": "Fecha y hora",
+      "type": "Tipo",
+      "description": "Descripción",
+      "user": "Usuario",
+      "reference": "Referencia",
+      "status": "Estado"
+    },
+    "type": {
+      "DISPATCH": "Despacho",
+      "TRANSPORT": "Transporte",
+      "RECEPTION": "Recepción",
+      "DISCREPANCY": "Discrepancia"
+    },
+    "status": {
+      "COMPLETED": "Completado",
+      "IN_TRANSIT": "En tránsito",
+      "PENDING": "Pendiente",
+      "WITH_DISCREPANCY": "Con discrepancia",
+      "CLOSED": "Cerrado"
+    },
+    "action": {
+      "DISPATCH_CREATED": "Despacho creado para {detail}",
+      "TRANSIT_STARTED": "En tránsito hacia {detail}",
+      "RECEPTION_RECORDED": "Recepción registrada en {detail}",
+      "RECEPTION_WITH_DISCREPANCY": "Recepción registrada con discrepancia en {detail}",
+      "ARRIVAL_REGISTERED": "Llegada registrada en {detail}",
+      "DISCREPANCY_REPORTED": "Caso de discrepancia abierto para {detail}",
+      "DISCREPANCY_CLOSED": "Caso de discrepancia cerrado para {detail}"
+    }
+  },
   "transit": {
     "title": "Trazabilidad en tránsito",
     "subtitle": "Seguimiento en tiempo real de los despachos en ruta hacia su obra destino",
