@@ -4,28 +4,16 @@ import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import Sidebar from './sidebar.vue';
 import LanguageSwitcher from './language-switcher.vue';
+import RoleSelector from './role-selector.vue';
 import FooterContent from './footer-content.vue';
 import { navigationItems } from '../navigation.config.js';
-import useIamStore from '../../../iam/application/iam.store.js';
 
 const { t } = useI18n();
 const route = useRoute();
-const iamStore = useIamStore();
-
-const rolesList = computed(() => {
-  return iamStore.testUsers.map(user => ({
-    label: `${t(user.label)} (${user.name})`,
-    value: user.role
-  }));
-});
 
 const currentNav = computed(() => {
   return navigationItems.find(item => route.path.startsWith(item.path)) || { key: 'home', labelKey: 'nav.home', icon: 'pi pi-home' };
 });
-
-const onRoleChange = (event) => {
-  iamStore.setRole(event.value);
-};
 </script>
 
 <template>
@@ -56,15 +44,7 @@ const onRoleChange = (event) => {
         <div class="topbar-end">
           <div class="role-selector-container">
             <label for="role-select" class="role-label">{{ t('nav.roleSelector') }}</label>
-            <pv-select
-              id="role-select"
-              :model-value="iamStore.currentRole"
-              :options="rolesList"
-              option-label="label"
-              option-value="value"
-              class="role-dropdown"
-              @change="onRoleChange"
-            />
+            <RoleSelector id="role-select" class="role-dropdown" />
           </div>
           <LanguageSwitcher />
         </div>

@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { navigationItems } from '../navigation.config.js';
 import useIamStore from '../../../iam/application/iam.store.js';
+import RoleSelector from './role-selector.vue';
 
 const { t } = useI18n();
 const route = useRoute();
@@ -35,18 +36,6 @@ const moreMobileItems = computed(() => {
 const navigateFromMore = (path) => {
   moreDialogVisible.value = false;
   router.push(path);
-};
-
-// Opciones de rol para el selector interactivo en la barra lateral
-const rolesOptions = computed(() => {
-  return iamStore.testUsers.map(user => ({
-    label: `${t(user.label)} (${user.name})`,
-    value: user.role
-  }));
-});
-
-const onRoleChange = (event) => {
-  iamStore.setRole(event.value);
 };
 </script>
 
@@ -96,15 +85,7 @@ const onRoleChange = (event) => {
           <i class="pi pi-sliders-h mr-1" aria-hidden="true"></i>
           {{ t('nav.roleSelector') }}
         </label>
-        <pv-select
-          id="sidebar-role-select"
-          :model-value="iamStore.currentRole"
-          :options="rolesOptions"
-          option-label="label"
-          option-value="value"
-          class="sidebar-role-dropdown"
-          @change="onRoleChange"
-        />
+        <RoleSelector id="sidebar-role-select" class="sidebar-role-dropdown" />
       </div>
     </div>
   </aside>
@@ -168,14 +149,7 @@ const onRoleChange = (event) => {
         <i class="pi pi-sliders-h mr-1" aria-hidden="true"></i>
         {{ t('nav.roleSelector') }}
       </span>
-      <pv-select
-        :model-value="iamStore.currentRole"
-        :options="rolesOptions"
-        option-label="label"
-        option-value="value"
-        class="w-full mt-2"
-        @change="onRoleChange"
-      />
+      <RoleSelector class="w-full mt-2" />
     </div>
   </pv-dialog>
 </template>
