@@ -4,6 +4,7 @@ import { ROLES, navigationItems } from "./shared/presentation/navigation.config.
 import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
 import orderManagementRoutes from './order-management-and-distpatch/presentation/order-management-routes.js'
 import projectManagementRoutes from './project-management/presentation/project-management-routes.js'
+import settingsRoutes from './iam/presentation/settings-routes.js'
 import activityHistoryRoutes from './activity-history/presentation/activity-history-routes.js'
 import inventoryManagementRoutes from './inventory-management/presentation/inventory-management-routes.js'
 
@@ -18,6 +19,7 @@ const routes = [
     ...discrepancyRoutes,
     ...orderManagementRoutes,
     ...projectManagementRoutes,
+    ...settingsRoutes,
     ...activityHistoryRoutes,
     ...inventoryManagementRoutes,
     {
@@ -48,12 +50,6 @@ const routes = [
         name: 'reportes',
         component: modulePlaceholder,
         meta: { title: 'Reportes', roles: [ROLES.ADMIN] }
-    },
-    {
-        path: '/configuracion',
-        name: 'configuracion',
-        component: modulePlaceholder,
-        meta: { title: 'Configuración', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER, ROLES.SITE_MANAGER] }
     },
     {
         path: '/:pathMatch(.*)*',
