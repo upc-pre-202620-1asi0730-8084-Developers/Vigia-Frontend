@@ -11,12 +11,14 @@ export const useIamStore = defineStore('iam', () => {
     const currentRole = ref(ROLES.WAREHOUSE_MANAGER);
     const companyId = ref("c0a80101-0000-0000-0000-000000000001");
     const currentUsername = ref("Miguel Rojas");
+    // Id del usuario activo en el dataset de usuarios (server/data/iam/users.json)
+    const currentUserId = ref("c0a80101-0000-0000-0000-000000000009");
     const isSignedIn = ref(true);
 
     const testUsers = [
-        { name: "María Torres", role: ROLES.ADMIN, label: "roles.ADMIN" },
-        { name: "Miguel Rojas", role: ROLES.WAREHOUSE_MANAGER, label: "roles.WAREHOUSE_MANAGER" },
-        { name: "Juan Pérez", role: ROLES.SITE_MANAGER, label: "roles.SITE_MANAGER" }
+        { userId: "c0a80101-0000-0000-0000-000000000002", name: "María Torres", role: ROLES.ADMIN, label: "roles.ADMIN" },
+        { userId: "c0a80101-0000-0000-0000-000000000009", name: "Miguel Rojas", role: ROLES.WAREHOUSE_MANAGER, label: "roles.WAREHOUSE_MANAGER" },
+        { userId: "c0a80101-0000-0000-0000-000000000003", name: "Juan Pérez", role: ROLES.SITE_MANAGER, label: "roles.SITE_MANAGER" }
     ];
 
     function setRole(newRole) {
@@ -24,6 +26,7 @@ export const useIamStore = defineStore('iam', () => {
         const matched = testUsers.find(u => u.role === newRole);
         if (matched) {
             currentUsername.value = matched.name;
+            currentUserId.value = matched.userId;
         }
     }
 
@@ -31,6 +34,7 @@ export const useIamStore = defineStore('iam', () => {
         currentRole,
         companyId,
         currentUsername,
+        currentUserId,
         isSignedIn,
         testUsers,
         setRole

@@ -260,6 +260,50 @@
       "DISCREPANCY_CLOSED": "Discrepancy case closed for {detail}"
     }
   },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account information and preferences.",
+    "profile": {
+      "title": "My profile",
+      "subtitle": "Keep your information up to date for a better experience.",
+      "edit": "Edit",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "phone": "Phone",
+      "roleHint": "The role is assigned by the administrator.",
+      "cancel": "Cancel",
+      "save": "Save changes",
+      "saved": "Profile updated",
+      "loadError": "The profile could not be loaded."
+    },
+    "account": {
+      "title": "Account",
+      "currentRole": "Current role",
+      "username": "Username"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "subtitle": "Set your preferred language and time zone.",
+      "language": "Language",
+      "timezone": "Time zone",
+      "saved": "Preferences updated"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Spanish"
+    },
+    "timezones": {
+      "America/Lima": "Lima (GMT-5)",
+      "America/Bogota": "Bogotá (GMT-5)",
+      "America/Mexico_City": "Mexico City (GMT-6)",
+      "America/Santiago": "Santiago (GMT-3)"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "invalidEmail": "Enter a valid email."
+    }
+  },
   "transit": {
     "title": "Transit traceability",
     "subtitle": "Real-time tracking of dispatches on route to their destination site",
