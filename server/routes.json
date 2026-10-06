@@ -5,5 +5,7 @@
   "/upcoming-arrivals/*": "/upcomingArrivals/$1",
   "/api/v1/discrepancy-cases": "/discrepancyCases",
   "/api/v1/discrepancy-cases/*": "/discrepancyCases/$1",
+  "/api/v1/inventory-movements": "/inventoryMovements",
+  "/api/v1/inventory-movements/*": "/inventoryMovements/$1",
   "/api/v1/*": "/$1"
 }

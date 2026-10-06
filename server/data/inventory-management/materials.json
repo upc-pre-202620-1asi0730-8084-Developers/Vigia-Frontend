@@ -1,0 +1,142 @@
+[
+  {
+    "id": "MAT-001",
+    "name": "Portland Cement 42.5 kg",
+    "category": "CEMENTS",
+    "unit": "bags",
+    "currentStock": 320,
+    "minimumStock": 200,
+    "projectId": "OB-001",
+    "projectName": "Tower A"
+  },
+  {
+    "id": "MAT-002",
+    "name": "Ready mixed concrete",
+    "category": "CEMENTS",
+    "unit": "m³",
+    "currentStock": 45,
+    "minimumStock": 60,
+    "projectId": "OB-004",
+    "projectName": "Central Hospital"
+  },
+  {
+    "id": "MAT-003",
+    "name": "1/2\" Corrugated Steel",
+    "category": "STEEL",
+    "unit": "kg",
+    "currentStock": 1250,
+    "minimumStock": 1000,
+    "projectId": "OB-006",
+    "projectName": "North Plant"
+  },
+  {
+    "id": "MAT-004",
+    "name": "3/8\" Corrugated Steel",
+    "category": "STEEL",
+    "unit": "kg",
+    "currentStock": 640,
+    "minimumStock": 800,
+    "projectId": "OB-002",
+    "projectName": "South Shopping Center"
+  },
+  {
+    "id": "MAT-005",
+    "name": "15 cm Concrete Block",
+    "category": "MASONRY",
+    "unit": "u",
+    "currentStock": 450,
+    "minimumStock": 500,
+    "projectId": "OB-005",
+    "projectName": "Valley Residential"
+  },
+  {
+    "id": "MAT-006",
+    "name": "King Kong Brick",
+    "category": "MASONRY",
+    "unit": "u",
+    "currentStock": 3200,
+    "minimumStock": 2000,
+    "projectId": "OB-007",
+    "projectName": "Tower B"
+  },
+  {
+    "id": "MAT-007",
+    "name": "Fine Sand",
+    "category": "AGGREGATES",
+    "unit": "m³",
+    "currentStock": 28,
+    "minimumStock": 50,
+    "projectId": "OB-002",
+    "projectName": "South Shopping Center"
+  },
+  {
+    "id": "MAT-008",
+    "name": "3/4\" Gravel",
+    "category": "AGGREGATES",
+    "unit": "m³",
+    "currentStock": 75,
+    "minimumStock": 60,
+    "projectId": "OB-006",
+    "projectName": "North Plant"
+  },
+  {
+    "id": "MAT-009",
+    "name": "4\" PVC Pipe",
+    "category": "INSTALLATIONS",
+    "unit": "u",
+    "currentStock": 120,
+    "minimumStock": 100,
+    "projectId": "OB-004",
+    "projectName": "Central Hospital"
+  },
+  {
+    "id": "MAT-010",
+    "name": "1/2\" Copper Pipe",
+    "category": "INSTALLATIONS",
+    "unit": "m",
+    "currentStock": 180,
+    "minimumStock": 150,
+    "projectId": "OB-003",
+    "projectName": "Las Lomas Bridge"
+  },
+  {
+    "id": "MAT-011",
+    "name": "THHN #12 Cable",
+    "category": "ELECTRICAL",
+    "unit": "rolls",
+    "currentStock": 8,
+    "minimumStock": 20,
+    "projectId": "OB-001",
+    "projectName": "Tower A"
+  },
+  {
+    "id": "MAT-012",
+    "name": "Electrical Panel 12 circuits",
+    "category": "ELECTRICAL",
+    "unit": "u",
+    "currentStock": 14,
+    "minimumStock": 10,
+    "projectId": "OB-008",
+    "projectName": "Treatment Plant"
+  },
+  {
+    "id": "MAT-013",
+    "name": "19 L White Paint",
+    "category": "FINISHES",
+    "unit": "u",
+    "currentStock": 36,
+    "minimumStock": 30,
+    "projectId": "OB-005",
+    "projectName": "Valley Residential"
+  },
+  {
+    "id": "MAT-014",
+    "name": "Porcelain Tile 60x60",
+    "category": "FINISHES",
+    "unit": "m²",
+    "currentStock": 210,
+    "minimumStock": 250,
+    "projectId": "OB-007",
+    "projectName": "Tower B"
+  }
+]
