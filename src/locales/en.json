@@ -209,6 +209,57 @@
       "period": "April 2025"
     }
   },
+  "history": {
+    "title": "History",
+    "subtitle": "Review recorded movements and events in the system",
+    "filters": {
+      "dateRange": "Date range",
+      "from": "From",
+      "to": "To",
+      "type": "Type",
+      "user": "User",
+      "reference": "Reference",
+      "allTypes": "All types",
+      "allUsers": "All users",
+      "searchReference": "Search by reference...",
+      "clear": "Clear filters"
+    },
+    "log": {
+      "title": "Activity log",
+      "showing": "{count} of {total} records",
+      "empty": "No records match the selected filters."
+    },
+    "table": {
+      "dateTime": "Date & time",
+      "type": "Type",
+      "description": "Description",
+      "user": "User",
+      "reference": "Reference",
+      "status": "Status"
+    },
+    "type": {
+      "DISPATCH": "Dispatch",
+      "TRANSPORT": "Transport",
+      "RECEPTION": "Reception",
+      "DISCREPANCY": "Discrepancy"
+    },
+    "status": {
+      "COMPLETED": "Completed",
+      "IN_TRANSIT": "In transit",
+      "PENDING": "Pending",
+      "WITH_DISCREPANCY": "With discrepancy",
+      "CLOSED": "Closed"
+    },
+    "action": {
+      "DISPATCH_CREATED": "Dispatch created for {detail}",
+      "TRANSIT_STARTED": "In transit to {detail}",
+      "RECEPTION_RECORDED": "Reception recorded at {detail}",
+      "RECEPTION_WITH_DISCREPANCY": "Reception recorded with discrepancy at {detail}",
+      "ARRIVAL_REGISTERED": "Arrival registered at {detail}",
+      "DISCREPANCY_REPORTED": "Discrepancy case opened for {detail}",
+      "DISCREPANCY_CLOSED": "Discrepancy case closed for {detail}"
+    }
+  },
   "transit": {
     "title": "Transit traceability",
     "subtitle": "Real-time tracking of dispatches on route to their destination site",
