@@ -389,6 +389,83 @@
     "placeholderTitle": "Módulo {name}",
     "placeholderDesc": "Este módulo está planificado para el rol {role}. La navegación y permisos de acceso se encuentran activos."
   },
+  "home": {
+    "greeting": "Hola, {name}",
+    "subtitle": {
+      "ADMIN": "Vista general de la operación",
+      "WAREHOUSE_MANAGER": "Solicitudes, despachos y stock del almacén",
+      "SITE_MANAGER": "Llegadas, recepciones y avance de tus obras"
+    },
+    "kpi": {
+      "activeProjects": "Obras activas",
+      "dispatchesInTransit": "Despachos en tránsito",
+      "receptionsWithDifference": "Recepciones con diferencia",
+      "openIncidents": "Incidencias abiertas",
+      "pendingOrders": "Solicitudes pendientes",
+      "dispatchesToLeave": "Despachos por salir",
+      "vehiclesInTransit": "Unidades en tránsito",
+      "lowStock": "Materiales con stock bajo",
+      "myProjects": "Mis obras",
+      "upcomingArrivals": "Llegadas próximas",
+      "receptionsToVerify": "Recepciones por verificar"
+    },
+    "attention": {
+      "title": "Requiere mi atención",
+      "empty": "No hay nada que requiera tu atención ahora.",
+      "type": "Tipo",
+      "description": "Descripción",
+      "reference": "Referencia",
+      "site": "Obra",
+      "priority": "Prioridad",
+      "items": {
+        "receptionDifference": "Diferencia en recepción",
+        "projectAtRisk": "Obra en riesgo",
+        "projectDelayed": "Obra retrasada",
+        "openCase": "Caso de discrepancia abierto",
+        "transitAlert": "Alerta de tránsito sin notificar a la obra",
+        "urgentOrder": "Solicitud urgente por aprobar",
+        "lowStock": "Stock bajo: {material}",
+        "dispatchWithoutVehicle": "Despacho sin unidad asignada",
+        "arrivalToVerify": "Llegada por verificar",
+        "upcomingArrival": "Llegada prevista {time}"
+      }
+    },
+    "priority": {
+      "HIGH": "Alta",
+      "MEDIUM": "Media",
+      "LOW": "Baja"
+    },
+    "projects": {
+      "title": "Estado general de obras",
+      "myTitle": "Mis obras",
+      "empty": "No tienes obras asignadas."
+    },
+    "operations": {
+      "title": "Estado de operaciones",
+      "dispatches": "despachos"
+    },
+    "dispatches": {
+      "title": "Próximos despachos",
+      "empty": "No hay despachos pendientes.",
+      "departure": "Salida",
+      "vehicle": "Unidad"
+    },
+    "inventory": {
+      "title": "Estado del inventario",
+      "materials": "materiales",
+      "inStock": "En stock",
+      "lowStock": "Stock bajo"
+    },
+    "arrivals": {
+      "title": "Próximas llegadas",
+      "empty": "No hay llegadas previstas."
+    },
+    "activity": {
+      "title": "Actividad reciente",
+      "empty": "No hay actividad reciente."
+    },
+    "seeAll": "Ver todo"
+  },
   "common": {
     "actions": "Acciones",
     "viewDetails": "Ver detalles",

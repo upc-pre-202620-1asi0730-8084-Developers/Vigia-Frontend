@@ -389,6 +389,83 @@
     "placeholderTitle": "{name} Module",
     "placeholderDesc": "This module is planned for role {role}. Navigation and role permissions are active."
   },
+  "home": {
+    "greeting": "Hello, {name}",
+    "subtitle": {
+      "ADMIN": "General view of the operation",
+      "WAREHOUSE_MANAGER": "Requests, dispatches and stock of the warehouse",
+      "SITE_MANAGER": "Arrivals, receptions and progress of your sites"
+    },
+    "kpi": {
+      "activeProjects": "Active projects",
+      "dispatchesInTransit": "Dispatches in transit",
+      "receptionsWithDifference": "Receptions with difference",
+      "openIncidents": "Open incidents",
+      "pendingOrders": "Pending requests",
+      "dispatchesToLeave": "Dispatches to leave",
+      "vehiclesInTransit": "Vehicles in transit",
+      "lowStock": "Low stock materials",
+      "myProjects": "My projects",
+      "upcomingArrivals": "Upcoming arrivals",
+      "receptionsToVerify": "Receptions to verify"
+    },
+    "attention": {
+      "title": "Needs my attention",
+      "empty": "Nothing needs your attention right now.",
+      "type": "Type",
+      "description": "Description",
+      "reference": "Reference",
+      "site": "Site",
+      "priority": "Priority",
+      "items": {
+        "receptionDifference": "Difference in reception",
+        "projectAtRisk": "Project at risk",
+        "projectDelayed": "Project delayed",
+        "openCase": "Open discrepancy case",
+        "transitAlert": "Transit alert not notified to the site",
+        "urgentOrder": "Urgent request pending approval",
+        "lowStock": "Low stock: {material}",
+        "dispatchWithoutVehicle": "Dispatch without assigned vehicle",
+        "arrivalToVerify": "Arrival to verify",
+        "upcomingArrival": "Arrival expected {time}"
+      }
+    },
+    "priority": {
+      "HIGH": "High",
+      "MEDIUM": "Medium",
+      "LOW": "Low"
+    },
+    "projects": {
+      "title": "Overall project status",
+      "myTitle": "My projects",
+      "empty": "You have no projects assigned."
+    },
+    "operations": {
+      "title": "Operations status",
+      "dispatches": "dispatches"
+    },
+    "dispatches": {
+      "title": "Upcoming dispatches",
+      "empty": "There are no pending dispatches.",
+      "departure": "Departure",
+      "vehicle": "Vehicle"
+    },
+    "inventory": {
+      "title": "Inventory status",
+      "materials": "materials",
+      "inStock": "In stock",
+      "lowStock": "Low stock"
+    },
+    "arrivals": {
+      "title": "Upcoming arrivals",
+      "empty": "No arrivals are expected."
+    },
+    "activity": {
+      "title": "Recent activity",
+      "empty": "No recent activity."
+    },
+    "seeAll": "See all"
+  },
   "common": {
     "actions": "Actions",
     "viewDetails": "View details",
