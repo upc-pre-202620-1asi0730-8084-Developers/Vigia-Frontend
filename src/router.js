@@ -3,6 +3,7 @@ import useIamStore from "./iam/application/iam.store.js";
 import { ROLES, navigationItems } from "./shared/presentation/navigation.config.js";
 import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
 import orderManagementRoutes from './order-management-and-distpatch/presentation/order-management-routes.js'
+import projectManagementRoutes from './project-management/presentation/project-management-routes.js'
 
 // Vistas
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');
@@ -14,6 +15,7 @@ const routes = [
 
     ...discrepancyRoutes,
     ...orderManagementRoutes,
+    ...projectManagementRoutes,
     {
         path: '/',
         redirect: '/transporte'
@@ -23,12 +25,6 @@ const routes = [
         name: 'inicio',
         component: modulePlaceholder,
         meta: { title: 'Inicio', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER, ROLES.SITE_MANAGER] }
-    },
-    {
-        path: '/obras',
-        name: 'obras',
-        component: modulePlaceholder,
-        meta: { title: 'Obras', roles: [ROLES.ADMIN, ROLES.SITE_MANAGER] }
     },
     {
         path: '/materiales',
