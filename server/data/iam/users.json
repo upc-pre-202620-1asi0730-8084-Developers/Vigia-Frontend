@@ -4,69 +4,99 @@
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "mtorres",
     "fullName": "María Torres",
-    "role": "ADMIN"
+    "role": "ADMIN",
+    "email": "maria.torres@vigia.pe",
+    "phone": "+51 987 654 321",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000003",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "jperez",
     "fullName": "Juan Pérez",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "juan.perez@vigia.pe",
+    "phone": "+51 986 112 340",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000004",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "alopez",
     "fullName": "Ana López",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "ana.lopez@vigia.pe",
+    "phone": "+51 985 223 451",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000005",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "crivas",
     "fullName": "Carlos Rivas",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "carlos.rivas@vigia.pe",
+    "phone": "+51 984 334 562",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000006",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "jmendez",
     "fullName": "José Méndez",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "jose.mendez@vigia.pe",
+    "phone": "+51 983 445 673",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000007",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "mgonzalez",
     "fullName": "María González",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "maria.gonzalez@vigia.pe",
+    "phone": "+51 982 556 784",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000008",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "lramirez",
     "fullName": "Luis Ramírez",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "luis.ramirez@vigia.pe",
+    "phone": "+51 981 667 895",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000009",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "mrojas",
     "fullName": "Miguel Rojas",
-    "role": "WAREHOUSE_MANAGER"
+    "role": "WAREHOUSE_MANAGER",
+    "email": "miguel.rojas@vigia.pe",
+    "phone": "+51 980 778 906",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000010",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "cmendoza",
     "fullName": "Carlos Mendoza",
-    "role": "WAREHOUSE_MANAGER"
+    "role": "WAREHOUSE_MANAGER",
+    "email": "carlos.mendoza@vigia.pe",
+    "phone": "+51 979 889 017",
+    "timezone": "America/Lima"
   },
   {
     "id": "c0a80101-0000-0000-0000-000000000011",
     "companyId": "c0a80101-0000-0000-0000-000000000001",
     "username": "asoto",
     "fullName": "Ana Soto",
-    "role": "SITE_MANAGER"
+    "role": "SITE_MANAGER",
+    "email": "ana.soto@vigia.pe",
+    "phone": "+51 978 990 128",
+    "timezone": "America/Lima"
   }
 ]
