@@ -1,7 +1,7 @@
 <script setup>
 import {useI18n} from "vue-i18n";
 import {computed, onMounted, ref, toRefs} from "vue";
-import useInventoryManagementStore from "../../application/inventory-management.store.js";
+import useInventoryManagementStore, {PERIOD} from "../../application/inventory-management.store.js";
 import {MATERIAL_CATEGORY, STOCK_STATUS, stockStatusSeverity} from "../../domain/material-category.js";
 import DonutChart from "../../../shared/presentation/components/donut-chart.vue";
 import KpiCard from "../../../shared/presentation/components/kpi-card.vue";
@@ -9,7 +9,7 @@ import KpiCard from "../../../shared/presentation/components/kpi-card.vue";
 const {t, locale} = useI18n();
 const store = useInventoryManagementStore();
 const {materials, inventoryLoading, errors, lowStockCount, categoriesCount, todayMovementsCount,
-  mostUsedMaterials, withdrawalsByProject, materialsByCategory} = toRefs(store);
+  mostUsedMaterials, withdrawalsByProject, materialsByCategory, availableMonths, period} = toRefs(store);
 const {fetchInventory} = store;
 
 onMounted(() => {
@@ -47,6 +47,17 @@ const kpis = computed(() => [
   {key: 'lowStock', icon: 'pi pi-exclamation-triangle', tone: 'error', value: lowStockCount.value},
   {key: 'categories', icon: 'pi pi-th-large', tone: 'primary', value: categoriesCount.value},
   {key: 'todayMovements', icon: 'pi pi-arrow-right-arrow-left', tone: 'success', value: todayMovementsCount.value}
+]);
+
+/** Period options of the consumption charts: each month with movements, the last 7 days and the whole period. */
+const periodOptions = computed(() => [
+  ...availableMonths.value.map(month => {
+    const [year, monthIndex] = month.split('-').map(Number);
+    const label = new Date(year, monthIndex - 1, 1).toLocaleString(locale.value, {month: 'long', year: 'numeric'});
+    return {label: label.charAt(0).toUpperCase() + label.slice(1), value: month};
+  }),
+  {label: t('inventory.charts.last7Days'), value: PERIOD.LAST_7_DAYS},
+  {label: t('inventory.charts.all'), value: PERIOD.ALL}
 ]);
 
 const formatQuantity = (value, unit) => `${value.toLocaleString(locale.value)} ${unit}`;
@@ -133,7 +144,8 @@ const categorySegments = computed(() => materialsByCategory.value.map(({category
         <div class="vigia-card h-full">
           <div class="chart-header">
             <h2 class="m-0">{{ t('inventory.charts.mostUsed') }}</h2>
-            <small class="subtitle">{{ t('inventory.charts.period') }}</small>
+            <pv-select v-model="period" :options="periodOptions" option-label="label" option-value="value"
+                       :aria-label="t('inventory.charts.label')" class="period-select" />
           </div>
           <ul class="hbars">
             <li v-for="item in topMaterials" :key="item.materialId">
@@ -149,7 +161,8 @@ const categorySegments = computed(() => materialsByCategory.value.map(({category
         <div class="vigia-card h-full">
           <div class="chart-header">
             <h2 class="m-0">{{ t('inventory.charts.withdrawals') }}</h2>
-            <small class="subtitle">{{ t('inventory.charts.period') }}</small>
+            <pv-select v-model="period" :options="periodOptions" option-label="label" option-value="value"
+                       :aria-label="t('inventory.charts.label')" class="period-select" />
           </div>
           <div class="vbars" role="img" :aria-label="t('inventory.charts.withdrawals')">
             <div v-for="item in topProjects" :key="item.projectId" class="vbar">
@@ -195,10 +208,15 @@ const categorySegments = computed(() => materialsByCategory.value.map(({category
 
 .chart-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: var(--sp-8);
   margin-bottom: var(--sp-16);
+}
+
+.period-select {
+  min-width: 9rem;
 }
 
 .hbars {

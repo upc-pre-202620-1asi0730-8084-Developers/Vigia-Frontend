@@ -11,6 +11,12 @@ import {InventoryMovementAssembler} from "../infrastructure/inventory-movement.a
 
 const inventoryManagementApi = new InventoryManagementApi();
 
+/** Special periods of the consumption charts (besides a specific month). */
+export const PERIOD = {
+    LAST_7_DAYS: 'LAST_7_DAYS',
+    ALL: 'ALL'
+};
+
 /**
  * Groups items by a key and sums a value, largest totals first.
  * @template T
@@ -54,7 +60,30 @@ const useInventoryManagementStore = defineStore('inventoryManagement', () => {
     const referenceDate = computed(() => movements.value.reduce((latest, m) => m.date > latest ? m.date : latest, ''));
     const todayMovementsCount = computed(() => movements.value.filter(m => m.date === referenceDate.value).length);
 
-    const outgoing = computed(() => movements.value.filter(m => m.isOutgoing));
+    /** Months with movements (YYYY-MM), most recent first. */
+    const availableMonths = computed(() => [...new Set(movements.value.map(m => m.date.slice(0, 7)))].sort().reverse());
+
+    /**
+     * Period used by the consumption charts: a month (YYYY-MM), LAST_7_DAYS or ALL.
+     * Defaults to the most recent month once the movements are loaded.
+     * @type {import('vue').Ref<string>}
+     */
+    const period = ref('');
+
+    const periodMovements = computed(() => {
+        const selected = period.value || availableMonths.value[0] || PERIOD.ALL;
+        if (selected === PERIOD.ALL) return movements.value;
+        if (selected === PERIOD.LAST_7_DAYS) {
+            // Calendar arithmetic in UTC so the result does not depend on the browser time zone.
+            const from = new Date(`${referenceDate.value}T00:00:00Z`);
+            from.setUTCDate(from.getUTCDate() - 6);
+            const fromIso = from.toISOString().slice(0, 10);
+            return movements.value.filter(m => m.date >= fromIso && m.date <= referenceDate.value);
+        }
+        return movements.value.filter(m => m.date.startsWith(selected));
+    });
+
+    const outgoing = computed(() => periodMovements.value.filter(m => m.isOutgoing));
 
     /** Materials with the largest outgoing quantity: { materialId, name, quantity, unit }. */
     const mostUsedMaterials = computed(() => sumBy(outgoing.value, m => m.materialId, m => m.quantity)
@@ -79,6 +108,7 @@ const useInventoryManagementStore = defineStore('inventoryManagement', () => {
             .then(([materialsResponse, movementsResponse]) => {
                 materials.value = MaterialAssembler.toEntitiesFromResponse(materialsResponse);
                 movements.value = InventoryMovementAssembler.toEntitiesFromResponse(movementsResponse);
+                if (!period.value) period.value = availableMonths.value[0] ?? PERIOD.ALL;
                 inventoryLoaded.value = true;
             }).catch(error => {
                 errors.value.push(error);
@@ -97,6 +127,8 @@ const useInventoryManagementStore = defineStore('inventoryManagement', () => {
         categoriesCount,
         referenceDate,
         todayMovementsCount,
+        availableMonths,
+        period,
         mostUsedMaterials,
         withdrawalsByProject,
         materialsByCategory,
