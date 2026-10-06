@@ -48,4 +48,22 @@ export class IamApi extends BaseApi {
     getUsers() {
         return this.#usersEndpoint.getAll();
     }
+
+    /**
+     * Retrieves one user by its identifier.
+     * @param {string|number} id - User identifier.
+     * @returns {Promise<import('axios').AxiosResponse<Object>>} HTTP response with the user resource.
+     */
+    getUserById(id) {
+        return this.#usersEndpoint.getById(id);
+    }
+
+    /**
+     * Updates a user resource.
+     * @param {Object} resource - User resource payload (must include id).
+     * @returns {Promise<import('axios').AxiosResponse<Object>>} HTTP response with the updated user resource.
+     */
+    updateUser(resource) {
+        return this.#usersEndpoint.update(resource.id, resource);
+    }
 }
