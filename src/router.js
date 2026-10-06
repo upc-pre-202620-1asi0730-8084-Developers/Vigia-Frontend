@@ -4,6 +4,7 @@ import { ROLES, navigationItems } from "./shared/presentation/navigation.config.
 import { discrepancyRoutes } from './discrepancy-and-evidence-management/presentation/discrepancy-routes.js'
 import orderManagementRoutes from './order-management-and-distpatch/presentation/order-management-routes.js'
 import projectManagementRoutes from './project-management/presentation/project-management-routes.js'
+import inventoryManagementRoutes from './inventory-management/presentation/inventory-management-routes.js'
 
 // Vistas
 const modulePlaceholder = () => import('./shared/presentation/views/module-placeholder.vue');
@@ -16,6 +17,7 @@ const routes = [
     ...discrepancyRoutes,
     ...orderManagementRoutes,
     ...projectManagementRoutes,
+    ...inventoryManagementRoutes,
     {
         path: '/',
         redirect: '/transporte'
@@ -25,12 +27,6 @@ const routes = [
         name: 'inicio',
         component: modulePlaceholder,
         meta: { title: 'Inicio', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER, ROLES.SITE_MANAGER] }
-    },
-    {
-        path: '/materiales',
-        name: 'materiales',
-        component: modulePlaceholder,
-        meta: { title: 'Materiales', roles: [ROLES.ADMIN, ROLES.WAREHOUSE_MANAGER] }
     },
     {
         path: '/transporte',
